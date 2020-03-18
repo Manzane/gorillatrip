@@ -14,6 +14,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       ## Rememberable
       t.datetime :remember_created_at
 
+      ## Custom
+      t.string   :username
+      t.string   :nationality
+      t.string   :gender
+      t.string   :phone_number
+
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
@@ -33,7 +40,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       # t.datetime :locked_at
 
 
+
       t.timestamps null: false
+
     end
 
     add_index :users, :email,                unique: true

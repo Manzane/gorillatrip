@@ -1,0 +1,2 @@
+class VisasController < ApplicationController
+end

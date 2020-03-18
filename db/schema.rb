@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_153535) do
+ActiveRecord::Schema.define(version: 2020_03_18_145126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "countries_travels", id: false, force: :cascade do |t|
+    t.bigint "travel_id", null: false
+    t.bigint "country_id", null: false
+  end
+
+  create_table "countries_vaccines", id: false, force: :cascade do |t|
+    t.bigint "country_id", null: false
+    t.bigint "vaccine_id", null: false
+    t.integer "duration"
+  end
+
+  create_table "travels", force: :cascade do |t|
+    t.string "name"
+    t.date "travel_start_date"
+    t.date "travel_end_date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_travels_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +50,37 @@ ActiveRecord::Schema.define(version: 2020_03_17_153535) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "nationality"
+    t.string "gender"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vaccines", force: :cascade do |t|
+    t.string "name"
+    t.date "treatment_start_date"
+    t.date "treatment_end_date"
+    t.date "injection_max_date"
+    t.string "contraindications"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "visas", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.date "deliverance_max_date"
+    t.integer "duration"
+    t.integer "price"
+    t.bigint "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_visas_on_country_id"
+  end
+
+  add_foreign_key "travels", "users"
+  add_foreign_key "visas", "countries"
 end
