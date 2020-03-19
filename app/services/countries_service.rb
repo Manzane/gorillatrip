@@ -1,15 +1,12 @@
+require 'open-uri'
+
 class CountriesService
-
   def initialize
-
   end
 
   def call
-
-  require 'json'
-  require "rest-client"
-
-    response = RestClient.get 'https://restcountries.eu/rest/v2/all'
+    url = 'https://restcountries.eu/rest/v2/all'
+    response = open(url).read
     repos = JSON.parse(response)
     repos.each do |repo|
       country = Country.new
