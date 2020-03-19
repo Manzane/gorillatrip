@@ -17,10 +17,11 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'countries'
 gem 'awesome_print'
-gem 'rest-client', '~> 1.8'
+gem 'cloudinary', '~> 1.12.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'dotenv-rails'
 end
 
 group :development, :test do
