@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_123709) do
+ActiveRecord::Schema.define(version: 2020_03_19_160832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2020_03_19_123709) do
     t.string "alpha2code"
     t.string "alpha3code"
     t.string "region"
+    t.string "french_name"
+    t.string "flag_url"
   end
 
   create_table "countries_vaccines", id: false, force: :cascade do |t|
