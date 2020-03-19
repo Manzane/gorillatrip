@@ -5,8 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
-# require "rest-client"
-# def create_countries
-  #   CountriesService.new.call
-  # end
+  Country.destroy_all
+  CountriesService.new.call
