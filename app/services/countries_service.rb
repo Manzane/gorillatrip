@@ -5,8 +5,6 @@ class CountriesService
   end
 
   def call
-    require 'open-uri'
-    require 'json'
     url = 'https://restcountries.eu/rest/v2/all'
     response = open(url).read
     repos = JSON.parse(response)
