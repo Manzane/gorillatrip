@@ -10,6 +10,7 @@ class TravelsController < ApplicationController
 
   def new
     @travel = Travel.new
+    @countries = Country.all
   end
 
 
@@ -30,12 +31,12 @@ class TravelsController < ApplicationController
 
   def update
     @travel.update(travel_params)
-    redirect_to travel_path(@travel)
+    redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
   end
 
   def destroy
     @travel.destroy
-    # redirect_to , notice: 'Classroom was successfully destroyed.'
+    redirect_to travels_path, notice: 'Le voyage a bien été supprimé.'
   end
 
 

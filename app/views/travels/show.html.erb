@@ -12,6 +12,10 @@ Pays:
 <% @travel.countries.each do |country| %>
   <div>
     <strong><%= country.name %></strong>
+<!--     Algo à revoir pour le display des durées par pays
+      country.travel_countries.where(@travel == country.travel_countries.travel_id) -->
+    <% if @travel.id == country.travel_countries.travel_id do %>
+
     Durée: <% country.travel_countries.each do |c| %>
       <%= c.duration %> jours
     <% end %>
@@ -36,5 +40,11 @@ Pays:
 
 <%= link_to travel_path, method: :delete, data: { confirm: "Es-tu certain?" } do %>
   <p>Supprime ce voyage</p>
+<% end %>
+
+
+
+<%= link_to travels_path do %>
+  <p>Retour à la liste de tes voyages </p>
 <% end %>
 
