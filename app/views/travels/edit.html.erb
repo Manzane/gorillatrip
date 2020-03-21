@@ -1,0 +1,17 @@
+<h1>Modifier le voyage</h1>
+
+
+<%= form_for [@user, @country, @travel] do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :travel_start_date %>
+  <%= f.text_field :travel_end_date %>
+  <%= f.collection_select :country_ids, @countries, :id, :name %>
+  <%= f.number_field :travel_countries %>
+
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to travels_path do %>
+  <p>Retour</p>
+  <% end %>

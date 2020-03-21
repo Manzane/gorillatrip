@@ -27,11 +27,17 @@ class TravelsController < ApplicationController
   end
 
   def edit
+    @countries = Country.all
   end
 
   def update
-    @travel.update(travel_params)
+    updater = TravelUpdater.new(params, current_user)
+    if updater.save
+      @travel = updater.travel
     redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
+    else
+      updater.errors.full_messages
+    end
   end
 
   def destroy
