@@ -1,0 +1,45 @@
+<h1>Détails de ton voyage</h1>
+<p></p>
+
+
+<%= @travel.name %>
+du <%= @travel.travel_start_date %>
+au <%= @travel.travel_end_date %>
+<br>
+Durée globale: <%= @travel.travel_end_date - @travel.travel_start_date %>
+<br>
+Pays:
+<% @travel.countries.each do |country| %>
+  <div>
+    <strong><%= country.name %></strong>
+<!--     Algo à revoir pour le display des durées par pays
+      country.travel_countries.where(@travel == country.travel_countries.travel_id) -->
+    Durée: <%= country.travel_countries.find_by(travel_id: @travel).duration %> jours
+<!--     Temp: display de tous les visas pour exemple d'affichage
+    mais travailler algo pour les filtrer en fonction de la durée -->
+    Visas:
+    <% country.visas.each do |visa| %>
+    <%= visa.name %>
+    <% end %>
+<!--     Temp: display de tous les vaccins pour exemple d'affichage
+    mais travailler algo -->
+    Vaccins:
+    <% country.vaccines.each do |vaccine| %>
+    <%= vaccine.name %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to edit_travel_path(@travel) do %>
+  <p>Modifie ce voyage </p>
+<% end %>
+
+<%= link_to travel_path, method: :delete, data: { confirm: "Es-tu certain?" } do %>
+  <p>Supprime ce voyage</p>
+<% end %>
+
+
+
+<%= link_to travels_path do %>
+  <p>Retour à la liste de tes voyages </p>
+<% end %>

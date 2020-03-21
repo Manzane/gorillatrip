@@ -1,0 +1,19 @@
+<h1>Liste de tes voyages</h1>
+<p></p>
+
+<% @travels.each do |travel| %>
+  <div>
+    <%= link_to travel_path(travel) do %>
+      <%= travel.name %>
+      du <%= travel.travel_start_date %>
+      au <%= travel.travel_end_date %>
+    <% end %>
+  </div>
+  <% end %>
+
+<%= link_to new_travel_path do %>
+  <p>Ajoute un nouveau voyage </p>
+<% end %>
+
+
+
