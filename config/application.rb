@@ -27,8 +27,7 @@ module Gorillatrip
           generate.test_framework  :test_unit, fixture: false
         end
     # Initialize configuration defaults for originally generated Rails version.
-    # config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
-    # config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.load_defaults 6.0
 
     # Settings in config/environments/* take precedence over those specified here.
