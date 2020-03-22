@@ -1,10 +1,12 @@
-// @font-face {
-//   font-family: 'Inifni';
-//   src: url('Romain/infini-romain.eot');
-//   src: url('Romain/infini-romain.eot#iefix')format('embedded-opentype'),
-//        url('Romain/infini-romain.woff') format('woff'),
-//        url('Romain/infini-romain.ttf') format('truetype');
-// }
+@font-face {
+    font-family: 'Infini';
+    font-weight: normal;
+    font-style: normal;
+    src:    url('roman/infini-romain.eot');
+    src:    url(font-path('roman/infini-romain.eot#iefix'))format('embedded-opentype'),
+            url(font-path('roman/infini-romain.woff')) format('woff'),
+            url(font-path('roman/infini-romain.ttf')) format('truetype');
+}
 
 *{
     margin: 0;
@@ -59,7 +61,7 @@ section{
     }
     h2{
         font-family: 'Infini', sans-serif;
-        font-weight: bold;
+        // font-weight: bold;
         font-size: 2em;
     }
 }
