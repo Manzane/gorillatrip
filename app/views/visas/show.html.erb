@@ -1,0 +1,9 @@
+<h1><%= @visa.name %></h1>
+
+Pays: <%= @visa.country[:name] %>
+Categorie: <%= @visa.category %>
+Durée: <%= @visa.duration %>
+Date limite de délivrance: <%= @visa.deliverance_max_date %>
+Prix : <%= @visa.price %>
+
+<%= link_to "Retour à la liste", country_visas_path %>
