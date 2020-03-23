@@ -5,10 +5,12 @@
   <%= f.input :name, label: 'Nom du voyage' %>
   </div>
   <div>
-  <%= f.input :travel_start_date, as: :date, html5: true, order: [:day, :month, :year], label: 'Date de début du voyage' %>
+    <p>Début du voyage</p>
+    <input type="text" id="datePicker" placeholder="Date de début du voyage" name="travel_start_date">
   </div>
   <div>
-  <%= f.input :travel_end_date, as: :date, html5: true, order: [:day, :month, :year], label: 'Date de fin du voyage' %>
+    <p>Fin du voyage</p>
+    <input type="text" id="datePicker" placeholder="Date de fin du voyage" name="travel_end_date">
   </div>
   <div>
   <%= f.input :country_ids, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays' %>
