@@ -5,7 +5,7 @@
   <%= f.text_field :name, :placeholder => 'Nom du voyage' %>
   <%= f.text_field :travel_start_date, :placeholder => 'dd/mm/yyyy' %>
   <%= f.text_field :travel_end_date, :placeholder => 'dd/mm/yyyy' %>
-  <%= f.collection_select :country_ids, @countries, :id, :name %>
+  <%= f.collection_select :country_ids, @countries, :id, :french_name %>
   <%= f.number_field :travel_countries, :placeholder => 'en nb de jours' %>
 
   <%= f.submit %>

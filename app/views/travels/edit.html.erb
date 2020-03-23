@@ -5,7 +5,7 @@
   <%= f.text_field :name %>
   <%= f.text_field :travel_start_date %>
   <%= f.text_field :travel_end_date %>
-  <%= f.collection_select :country_ids, @countries, :id, :name %>
+  <%= f.collection_select :country_ids, @countries, :id, :french_name %>
   <%= f.fields_for :travel_countries do |s| %>
     <%= s.number_field :duration %>
     <% end %>

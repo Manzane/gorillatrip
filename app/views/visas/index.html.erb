@@ -4,7 +4,7 @@
 <% @visas.each do |visa| %>
 <% if @country.id == visa.country_id %>
     <%= link_to country_visa_path(visa.country_id, visa) do %>
-      <%= visa.name %>
+      <p><%= visa.name %></p>
     <% end %>
   <% end %>
 <% end %>

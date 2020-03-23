@@ -2,6 +2,6 @@
 
 <% @vaccines.each do |vaccine| %>
   <%= link_to vaccine_path(vaccine) do %>
-    <%= vaccine.name %>
+    <p><%= vaccine.name %></p>
   <% end %>
 <% end %>
