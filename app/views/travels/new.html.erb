@@ -1,12 +1,19 @@
 <h1>Ajouter un nouveau voyage</h1>
 
-
-<%= form_for [@user, @country, @travel] do |f| %>
-  <%= f.text_field :name, :placeholder => 'Nom du voyage' %>
-  <%= f.text_field :travel_start_date, :placeholder => 'dd/mm/yyyy' %>
-  <%= f.text_field :travel_end_date, :placeholder => 'dd/mm/yyyy' %>
-  <%= f.collection_select :country_ids, @countries, :id, :french_name %>
-  <%= f.number_field :travel_countries, :placeholder => 'en nb de jours' %>
+<%= simple_form_for [@user, @country, @travel] do |f| %>
+  <div>
+  <%= f.input :name, label: 'Nom du voyage' %>
+  </div>
+  <div>
+  <%= f.input :travel_start_date, as: :date, html5: true, order: [:day, :month, :year], label: 'Date de début du voyage' %>
+  </div>
+  <div>
+  <%= f.input :travel_end_date, as: :date, html5: true, order: [:day, :month, :year], label: 'Date de fin du voyage' %>
+  </div>
+  <div>
+  <%= f.input :country_ids, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays' %>
+  <%= f.input :travel_countries, as: :integer, label: 'Durée dans le pays', :placeholder => 'en nb de jours' %>
+  </div>
 
   <%= f.submit %>
 <% end %>

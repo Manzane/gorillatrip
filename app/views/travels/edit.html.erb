@@ -1,14 +1,22 @@
 <h1>Modifier le voyage</h1>
 
-
-<%= form_for [@user, @country, @travel] do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :travel_start_date %>
-  <%= f.text_field :travel_end_date %>
-  <%= f.collection_select :country_ids, @countries, :id, :french_name %>
-  <%= f.fields_for :travel_countries do |s| %>
-    <%= s.number_field :duration %>
+<%= simple_form_for [@user, @country, @travel] do |f| %>
+  <div>
+  <%= f.input :name, label: 'Nom du voyage' %>
+  </div>
+  <div>
+  <%= f.input :travel_start_date, as: :date, html5: true, order: [:day, :month, :year], label: 'Date de début du voyage' %>
+  </div>
+  <div>
+  <%= f.input :travel_end_date, as: :date, html5: true, order: [:day, :month, :year], label: 'Date de fin du voyage' %>
+  </div>
+  <div>
+  <%= f.input :country_ids, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays' %>
+  <%= f.simple_fields_for :travel_countries do |s| %>
+    <%= s.input :duration, as: :integer, label: 'Durée dans le pays' %>
     <% end %>
+  </div>
+
   <%= f.submit %>
 <% end %>
 
