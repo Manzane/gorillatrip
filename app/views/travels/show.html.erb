@@ -11,22 +11,29 @@ Durée globale: <%= @travel.travel_end_date - @travel.travel_start_date %>
 Pays:
 <% @travel.countries.each do |country| %>
   <div>
-    <strong><%= country.name %></strong>
+    <p><strong><%= country.french_name %></strong></p>
 <!--     Algo à revoir pour le display des durées par pays
       country.travel_countries.where(@travel == country.travel_countries.travel_id) -->
-    Durée: <%= country.travel_countries.find_by(travel_id: @travel).duration %> jours
+
+    <p>Durée: <%= country.travel_countries.find_by(travel_id: @travel).duration %> jours</p>
 <!--     Temp: display de tous les visas pour exemple d'affichage
     mais travailler algo pour les filtrer en fonction de la durée -->
-    Visas:
+
+    <p>Visas:</p>
+    <ul>
     <% country.visas.each do |visa| %>
-    <%= visa.name %>
+    <li><%= visa.name %></li>
     <% end %>
+    </ul>
 <!--     Temp: display de tous les vaccins pour exemple d'affichage
     mais travailler algo -->
-    Vaccins:
+
+    <p>Vaccins:</p>
+    <ul>
     <% country.vaccines.each do |vaccine| %>
-    <%= vaccine.name %>
+    <li><%= vaccine.name %></li>
     <% end %>
+  </ul>
   </div>
 <% end %>
 
