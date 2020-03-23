@@ -1,0 +1,10 @@
+<h1>Liste des visas</h1>
+
+
+<% @visas.each do |visa| %>
+<% if @country.id == visa.country_id %>
+    <%= link_to country_visa_path(visa.country_id, visa) do %>
+      <p><%= visa.name %></p>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,10 @@
+<h1><%= @vaccine.name %></h1>
+<p>Description: <%= @vaccine.description %></p>
+<p>Début du traitement: <%= @vaccine.treatment_start_date %></p>
+<p>Fin du traitement: <%= @vaccine.treatment_end_date %></p>
+<p>Date limite d'administration: <%= @vaccine.injection_max_date %></p>
+<p>Contre-indications: <%= @vaccine.contraindications %></p>
+<p>prix approximatif: <%= @vaccine.price %></p>
+
+
+<%= link_to "Retour à la liste", vaccines_path %>
