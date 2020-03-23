@@ -2,13 +2,24 @@
 
 
 <%= form_for [@user, @country, @travel] do |f| %>
+  <div>
+  <%= f.label :name, 'Nom du voyage' %>
   <%= f.text_field :name %>
-  <%= f.text_field :travel_start_date %>
-  <%= f.text_field :travel_end_date %>
+  </div>
+  <div>
+  <%= f.label :travel_start_date, 'Date de début du voyage' %>
+  <%= f.date_select :travel_start_date,  :order => [:day, :month, :year] %>
+  </div>
+  <div>
+  <%= f.label :travel_end_date, 'Date de fin du voyage' %>
+  <%= f.date_select :travel_end_date,  :order => [:day, :month, :year] %>
+  </div>
+  <div>
   <%= f.collection_select :country_ids, @countries, :id, :name %>
   <%= f.fields_for :travel_countries do |s| %>
     <%= s.number_field :duration %>
     <% end %>
+  </div>
   <%= f.submit %>
 <% end %>
 
