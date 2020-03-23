@@ -5,12 +5,13 @@
   <%= f.input :name, label: 'Nom du voyage' %>
   </div>
   <div>
-  <input type="text" id="datePicker" placeholder="Date de début du voyage" name="travel_start_date">
+    <p>Début du voyage</p>
+    <input type="text" id="datePicker" placeholder="Date de début du voyage" name="travel_start_date">
   </div>
   <div>
-  <input type="text" id="datePicker" placeholder="Date de fin du voyage" name="travel_end_date">
+    <p>Fin du voyage</p>
+    <input type="text" id="datePicker" placeholder="Date de fin du voyage" name="travel_end_date">
   </div>
-  <div>
   <div>
   <%= f.input :country_ids, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays' %>
   <%= f.simple_fields_for :travel_countries do |s| %>
