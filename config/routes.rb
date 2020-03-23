@@ -14,7 +14,15 @@ Rails.application.routes.draw do
 
   resources :vaccines, only: [ :index, :show ]
 
-  root to: 'pages#maintenance'
+  authenticated :user do
+    root to: 'travels#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: 'pages#maintenance'
+  end
+
+
   # Routes for Google authentication
   # get 'auth/:provider/callback', to: 'sessions#googleAuth'
   # get 'auth/failure', to: redirect('/')
