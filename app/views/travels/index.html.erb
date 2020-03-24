@@ -5,8 +5,8 @@
   <div>
     <%= link_to travel_path(travel) do %>
       <%= travel.name %>
-      du <%= travel.travel_start_date %>
-      au <%= travel.travel_end_date %>
+      du <%= l travel.travel_start_date %>
+      au <%= l travel.travel_end_date %>
     <% end %>
   </div>
   <% end %>
