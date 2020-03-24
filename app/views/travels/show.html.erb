@@ -3,10 +3,10 @@
 
 
 <%= @travel.name %>
-du <%= @travel.travel_start_date %>
-au <%= @travel.travel_end_date %>
+du <%= l @travel.travel_start_date %>
+au <%= l @travel.travel_end_date %>
 <br>
-Durée globale: <%= @travel.travel_end_date - @travel.travel_start_date %>
+Durée globale: <%= (@travel.travel_end_date - @travel.travel_start_date).to_i %> jours
 <br>
 Pays:
 <% @travel.countries.each do |country| %>
