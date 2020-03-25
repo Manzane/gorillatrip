@@ -13,12 +13,11 @@ class DocumentsController < ApplicationController
 
   def create
     # params -> { name: '6e7', photos: [photo1, photo2] }
-    @document.
-    if creator.save
-      @travel = creator.travel
-      redirect_to travel_path(@travel)
+    @document = Document.new(document_params)
+    if @document.save
+      redirect_to documents_path
     else
-      creator.errors.full_messages
+      @document.errors.full_messages
         render :new
     end
   end
@@ -29,7 +28,7 @@ class DocumentsController < ApplicationController
   def update
      @document.update(document_params)
     if @document.save
-    redirect_to document_path(@document), notice: 'Le document a bien été mis à jour.'
+    redirect_to documents_path, notice: 'Le document a bien été mis à jour.'
     else
       @document.errors.full_messages
     end
@@ -48,7 +47,7 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:name, :expiration_date, :type, :files)
+    params.require(:document).permit(:name, :expiration_date, :doc_type)
   end
 
 end
