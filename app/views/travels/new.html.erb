@@ -13,12 +13,10 @@
     <input type="text" id="datePicker" placeholder="Date de fin du voyage" name=travel[travel_end_date]>
   </div>
   <div>
-  <%= f.simple_fields_for :countries do |c| %>
-  <%= c.input :id, collection: @countries, label_method: :french_name,value_method: :id, label: 'Pays' %>
-  <% end %>
   <%= f.simple_fields_for :travel_countries do |t| %>
+    <%= t.input :country_id, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays', include_blank: 'Choisir un pays' %>
     <%= t.input :duration, as: :integer, label: 'Durée dans le pays' %>
-    <% end %>
+  <% end %>
   </div>
 
   <%= f.submit %>
