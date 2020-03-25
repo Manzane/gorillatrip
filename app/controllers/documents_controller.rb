@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
+
   def index
     @documents = current_user.documents.all
   end
@@ -14,6 +15,7 @@ class DocumentsController < ApplicationController
   def create
     # params -> { name: '6e7', photos: [photo1, photo2] }
     @document = Document.new(document_params)
+    @document.user_id = current_user.id
     if @document.save
       redirect_to documents_path
     else

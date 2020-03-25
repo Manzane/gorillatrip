@@ -3,20 +3,23 @@
 
 <% @documents.each do |document| %>
   <div>
-    <%= document.name %>
-    <%= document.doc_type %>
-    <% if document.type == "passport" %>
-      <%= l travel.expiration_date %>
-      <% end %>
-    Ici le document attaché
+    <p>Nom: <%= document.name %></p>
+    <p>Type de document: <%= document.doc_type %></p>
+    <% if document.doc_type == "passport" %>
+      <p>Date d'expiration: <%= l document.expiration_date %></p>
+    <% end %>
+    <p>Ici le document attaché</p>
     <%= link_to edit_document_path(document) do %>
       <p>Modifie ce doc </p>
     <% end %>
-    <%= link_to document_path, method: :delete, data: { confirm: "Es-tu certain?" } do %>
+    <%= link_to document_path(document), method: :delete, data: { confirm: "Es-tu certain?" } do %>
       <p>Supprime ce doc</p>
     <% end %>
   </div>
 <% end %>
+
+
+<hr>
 
 <%= link_to new_document_path do %>
   <p>Ajoute un nouveau document </p>
