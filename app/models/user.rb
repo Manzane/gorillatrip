@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :travels, dependent: :destroy
   has_many :travel_countries, through: :travels
+  has_many :documents, dependent: :destroy
   has_one_attached :avatar
   validates :username, presence: true, uniqueness: true
 

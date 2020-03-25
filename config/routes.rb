@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   as :users do
     resources :travels
+    resources :documents
   end
 
     # for visitors ? visible for everyone
