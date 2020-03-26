@@ -118,69 +118,9 @@ puts "travel_countries for paul (travel1) et marie (travel2) created"
 
 
 
-
 puts "Create visas"
-visa1 = Visa.new(
-  name: "Visa Touriste Inde",
-  category: "Touriste",
-  deliverance_max_date: DateTime.strptime("04/20/2020 8:00", "%m/%d/%Y %H:%M"),
-  duration: 30,
-  price: 4000,
-  country: Country.find_by(alpha2code: "IN")
-)
-visa1.save!
-
-visa2 = Visa.new(
-  name: "Visa Touriste Inde",
-  category: "Touriste ++",
-  deliverance_max_date: DateTime.strptime("04/20/2020 8:00", "%m/%d/%Y %H:%M"),
-  duration: 90,
-  price: 12000,
-  country: Country.find_by(alpha2code: "IN")
-)
-visa2.save!
-
-visa3 = Visa.new(
-  name: "Visa Touriste Thai",
-  category: "Touriste",
-  deliverance_max_date: DateTime.strptime("04/20/2020 8:00", "%m/%d/%Y %H:%M"),
-  duration: 30,
-  price: 4000,
-  country: Country.find_by(alpha2code: "TH")
-)
-visa3.save!
-
-visa4 = Visa.new(
-  name: "Visa Touriste thai",
-  category: "Touriste ++",
-  deliverance_max_date: DateTime.strptime("04/20/2020 8:00", "%m/%d/%Y %H:%M"),
-  duration: 90,
-  price: 12000,
-  country: Country.find_by(alpha2code: "TH")
-)
-visa4.save!
-
-visa5 = Visa.new(
-  name: "Visa Touriste Laos",
-  category: "Touriste",
-  deliverance_max_date: DateTime.strptime("04/26/2020 8:00", "%m/%d/%Y %H:%M"),
-  duration: 30,
-  price: 200,
-  country: Country.find_by(alpha2code: "LA")
-)
-visa5.save!
-
-visa6 = Visa.new(
-  name: "Visa Touriste Cambo",
-  category: "Touriste et Affaire",
-  deliverance_max_date: DateTime.strptime("04/30/2020 8:00", "%m/%d/%Y %H:%M"),
-  duration: 100,
-  price: 2000,
-  country: Country.find_by(alpha2code: "KH")
-)
-visa6.save!
-puts "Visas created"
-
+FindVisa.new.call
+puts "Visa Created"
 
 
 
