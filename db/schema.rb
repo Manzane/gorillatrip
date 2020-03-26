@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_165013) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "contact_number"
     t.string "application"
-    t.integer "age_min"
+    t.integer "age_max"
     t.index ["country_id"], name: "index_visas_on_country_id"
   end
 

@@ -51,7 +51,8 @@ class FindVisa
                 end
 
                 Visa.create( {
-                        age_min: visa_element[0][0..1].to_i,
+                        name: "pvt",
+                        age_max: visa_element[0][0..1].to_i,
                         category: "pvt",
                         duration: visa_element[1],
                         price: visa_element[7],
