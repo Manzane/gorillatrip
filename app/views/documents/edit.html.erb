@@ -1,0 +1,17 @@
+<h1>Modifier le document <%= @document.name %></h1>
+
+<%= simple_form_for [@user, @document] do |f| %>
+  <div>
+  <%= f.input :name, label: 'Nom du document' %>
+  </div>
+   <%= f.input :doc_type, collection: ["passport", "airplane ticket", "visa"], label: 'Type de document' %>
+  <div>
+    <p>Date d'expiration</p>
+    <input type="text" id="datePicker" placeholder="Date d'expiration'" name="document[expiration_date]">
+  </div>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to documents_path do %>
+  <p>Retour</p>
+  <% end %>

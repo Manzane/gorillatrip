@@ -1,0 +1,30 @@
+<h1>Liste de tes documents</h1>
+<p></p>
+
+<% @documents.each do |document| %>
+  <div>
+    <p>Nom: <%= document.name %></p>
+    <p>Type de document: <%= document.doc_type %></p>
+    <% if document.doc_type == "passport" %>
+      <p>Date d'expiration: <%= l document.expiration_date %></p>
+    <% end %>
+    <p>Ici le document attaché</p>
+    <%= link_to edit_document_path(document) do %>
+      <p>Modifie ce doc </p>
+    <% end %>
+    <%= link_to document_path(document), method: :delete, data: { confirm: "Es-tu certain?" } do %>
+      <p>Supprime ce doc</p>
+    <% end %>
+  </div>
+<% end %>
+
+
+<hr>
+
+<%= link_to new_document_path do %>
+  <p>Ajoute un nouveau document </p>
+<% end %>
+
+<%= link_to travels_path do %>
+  <p>Retour à ton dashboard </p>
+<% end %>
