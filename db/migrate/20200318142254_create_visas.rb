@@ -4,8 +4,8 @@ class CreateVisas < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :category
       t.date :deliverance_max_date
-      t.integer :duration
-      t.integer :price
+      t.string :duration
+      t.string :price
       t.references :country, null: false, foreign_key: true
 
       t.timestamps
