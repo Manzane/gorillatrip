@@ -10,13 +10,15 @@ class TravelsController < ApplicationController
 
   def new
     @travel = Travel.new
+    @travel.travel_countries.build
+    @travel.countries.build
     @countries = Country.all
   end
 
 
   def create
     # params -> { name: '6e7', photos: [photo1, photo2] }
-    creator = TravelCreator.new(params, current_user)
+    creator = TravelCreator.new(travel_params, current_user)
     if creator.save
       @travel = creator.travel
       redirect_to travel_path(@travel)
@@ -31,7 +33,7 @@ class TravelsController < ApplicationController
   end
 
   def update
-    updater = TravelUpdater.new(params, current_user)
+    updater = TravelUpdater.new(set_travel, travel_params, current_user)
     if updater.save
       @travel = updater.travel
     redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
@@ -53,7 +55,7 @@ class TravelsController < ApplicationController
   end
 
   def travel_params
-    params.require(:travel).permit(:name, :travel_start_date, :travel_end_date, travel_countries: [:duration])
+    params.require(:travel).permit(:name, :travel_start_date, :travel_end_date, travel_countries_attributes: [:id, :duration, :country_id], countries_attributes: [:id] )
   end
 
 end
