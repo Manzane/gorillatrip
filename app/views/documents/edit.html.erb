@@ -1,13 +1,21 @@
 <h1>Modifier le document <%= @document.name %></h1>
 
-<%= simple_form_for [@user, @document] do |f| %>
+<%= simple_form_for [@user, @document], html: {id: "drag"} do |f| %>
   <div>
   <%= f.input :name, label: 'Nom du document' %>
   </div>
    <%= f.input :doc_type, collection: ["passport", "airplane ticket", "visa"], label: 'Type de document' %>
   <div>
     <p>Date d'expiration</p>
-    <input type="text" id="datePicker" placeholder="Date d'expiration'" name="document[expiration_date]">
+    <input type="text" id="datePicker" name="document[expiration_date]">
+  </div>
+   <div class="doc label">
+    <%= f.label :files, 'Fichier(s)' %>
+    <div class="dragndrop-form">
+      <p class="inactive"><strong>Ajoute ou dépose</strong> ton fichier ici</p>
+    </div>
+    <%= f.file_field :files, multiple: true, direct_upload: true %>
+    <div class="files"></div>
   </div>
   <%= f.submit %>
 <% end %>
