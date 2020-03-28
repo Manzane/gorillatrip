@@ -11,32 +11,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
-
-  def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
-      data = access_token.info
-      user = User.where(:email => data["email"]).first
-
-      # Uncomment the section below if you want users to be created if they don't exist
-      unless user
-          user = User.create(username: data["name"],
-             email: data["email"],
-             password: Devise.friendly_token[0,20]
-          )
-      end
-      user
-  end
-
-  def self.find_for_facebook(access_token, signed_in_resource=nil)
-      data = access_token.info
-      user = User.where(:email => data["email"]).first
-
-      # Uncomment the section below if you want users to be created if they don't exist
-      unless user
-          user = User.create(username: data["name"],
-             email: data["email"],
-             password: Devise.friendly_token[0,20]
-          )
-      end
-      user
+  def self.from_omniauth(auth, signed_in_resource=nil)
+    user = User.where(provider: auth.provider, email: auth.info.email).first
+    unless user
+      user ||= User.create!(provider: auth.provider, uid: auth.uid, image: auth.info.image, username: auth.info.name, email: auth.info.email, password: Devise.friendly_token[0,20])
+    end
+    user
   end
 end

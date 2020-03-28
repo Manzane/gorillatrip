@@ -1,7 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
       # You need to implement the method below in your model (e.g. app/models/photographer.rb)
-      @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
+      @user = User.from_omniauth(request.env["omniauth.auth"], current_user)
 
       if @user.persisted?
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
@@ -14,7 +14,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
       # You need to implement the method below in your model (e.g. app/models/photographer.rb)
-      @user = User.find_for_facebook(request.env["omniauth.auth"], current_user)
+      @user = User.from_omniauth(request.env["omniauth.auth"], current_user)
 
       if @user.persisted?
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
