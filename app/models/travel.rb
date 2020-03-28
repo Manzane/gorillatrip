@@ -6,6 +6,6 @@ class Travel < ApplicationRecord
   accepts_nested_attributes_for :travel_countries
   accepts_nested_attributes_for :countries
 
-  validates :travel_start_date, presence: true
-  validates :travel_end_date, presence: true
+  # validates :travel_start_date, presence: true
+  # validates :travel_end_date, presence: true
 end

@@ -5,8 +5,10 @@
   <div>
     <%= link_to travel_path(travel) do %>
       <%= travel.name %>
-      du <%= l travel.travel_start_date %>
-      au <%= l travel.travel_end_date %>
+      <% if travel.travel_start_date && travel.travel_end_date %>
+        du <%= l travel.travel_start_date %>
+        au <%= l travel.travel_end_date %>
+      <% end %>
     <% end %>
   </div>
   <% end %>

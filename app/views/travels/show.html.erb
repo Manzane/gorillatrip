@@ -2,20 +2,23 @@
 <p></p>
 
 
-<%= @travel.name %>
-du <%= l @travel.travel_start_date %>
-au <%= l @travel.travel_end_date %>
+Nom du Voyage: <%= @travel.name %>
 <br>
-Durée globale: <%= (@travel.travel_end_date - @travel.travel_start_date).to_i %> jours
+Durée globale: x jours
 <br>
 Pays:
+<hr>
 <% @travel.countries.each do |country| %>
   <div>
     <p><strong><%= country.french_name %></strong></p>
 <!--     Algo à revoir pour le display des durées par pays
       country.travel_countries.where(@travel == country.travel_countries.travel_id) -->
-
-    <p>Durée: <%= country.travel_countries.find_by(travel_id: @travel).duration %> jours</p>
+      <% if country.travel_countries.find_by(travel_id: @travel).start_date && country.travel_countries.find_by(travel_id: @travel).end_date %>
+        du <%= l country.travel_countries.find_by(travel_id: @travel).start_date %>
+        au <%= l country.travel_countries.find_by(travel_id: @travel).end_date %>
+        <br>
+        <p>soit une durée de : <%= (country.travel_countries.find_by(travel_id: @travel).end_date - country.travel_countries.find_by(travel_id: @travel).start_date).to_i %> jours</p>
+      <% end %>
 <!--     Temp: display de tous les visas pour exemple d'affichage
     mais travailler algo pour les filtrer en fonction de la durée -->
 
@@ -35,6 +38,7 @@ Pays:
     <% end %>
   </ul>
   </div>
+  <hr>
 <% end %>
 
 <%= link_to edit_travel_path(@travel) do %>
