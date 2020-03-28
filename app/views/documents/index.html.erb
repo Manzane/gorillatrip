@@ -15,7 +15,7 @@
         <% if f.image? %>
           <%= link_to image_tag(f, :width => 200, :height => 250, :crop => :fill), f %>
         <% elsif f.representable? %>
-          <%= link_to image_tag(f.representation(:width => 200, :height => 250, :crop => :fill)), rails_blob_path(f, disposition: :attachment) %>
+          <%= link_to cl_image_tag("#{f.key}.png", :width => 200, :height => 250, :crop => :fill), rails_blob_path(f, disposition: :attachment) %>
         <% else %>
           <%= link_to f.filename, f %>
         <% end %>
