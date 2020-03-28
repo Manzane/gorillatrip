@@ -12,7 +12,13 @@
       <p>Ici les document attachés</p>
       <!-- Juste pour tester - à remplacer par les previews des docs DEBUT -->
       <% document.files.each do |f| %>
-        <%= cl_image_tag(f.key) %>
+        <% if f.image? %>
+          <%= link_to image_tag(f, :width => 200, :height => 250, :crop => :fill), f %>
+        <% elsif f.representable? %>
+          <%= link_to image_tag(f.representation(:width => 200, :height => 250, :crop => :fill)), rails_blob_path(f, disposition: :attachment) %>
+        <% else %>
+          <%= link_to f.filename, f %>
+        <% end %>
       <% end %>
       <!-- Juste pour tester - à remplacer par les previews des docs FIN -->
     <% end %>
