@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   as :users do
-    resources :travels
+    resources :travels do
+      resources :travel_countries
+    end
     resources :documents
   end
+
 
     # for visitors ? visible for everyone
   # resources :travels, only: [ :new, :create, :show ]

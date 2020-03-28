@@ -13,14 +13,21 @@ Pays:
     <p><strong><%= country.french_name %></strong></p>
 <!--     Algo à revoir pour le display des durées par pays
       country.travel_countries.where(@travel == country.travel_countries.travel_id) -->
-      <% if country.travel_countries.find_by(travel_id: @travel).start_date && country.travel_countries.find_by(travel_id: @travel).end_date %>
-        du <%= l country.travel_countries.find_by(travel_id: @travel).start_date %>
-        au <%= l country.travel_countries.find_by(travel_id: @travel).end_date %>
-        <br>
-        <p>soit une durée de : <%= (country.travel_countries.find_by(travel_id: @travel).end_date - country.travel_countries.find_by(travel_id: @travel).start_date).to_i %> jours</p>
-      <% end %>
+    <% if country.travel_countries.find_by(travel_id: @travel).start_date && country.travel_countries.find_by(travel_id: @travel).end_date %>
+      du <%= l country.travel_countries.find_by(travel_id: @travel).start_date %>
+      au <%= l country.travel_countries.find_by(travel_id: @travel).end_date %>
+      <br>
+      <p>soit une durée de : <%= (country.travel_countries.find_by(travel_id: @travel).end_date - country.travel_countries.find_by(travel_id: @travel).start_date).to_i %> jours</p>
+    <% end %>
 <!--     Temp: display de tous les visas pour exemple d'affichage
     mais travailler algo pour les filtrer en fonction de la durée -->
+    <%= link_to edit_travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)) do %>
+      <p>Modifie cette destination </p>
+    <% end %>
+
+    <%= link_to travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)), method: :delete, data: { confirm: "Es-tu certain?" } do %>
+      <p>Supprime cette destination</p>
+    <% end %>
 
     <p>Visas:</p>
     <ul>
@@ -39,6 +46,9 @@ Pays:
   </ul>
   </div>
   <hr>
+<% end %>
+<%= link_to new_travel_travel_country_path(@travel) do %>
+  <p>Ajoute une nouvelle destination à ton voyage </p>
 <% end %>
 
 <%= link_to edit_travel_path(@travel) do %>
