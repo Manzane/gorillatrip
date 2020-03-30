@@ -3,6 +3,9 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
-import "./parallax";
-import { initFlatpickr } from './flatpickr'
+
+import "../stylesheets/application.scss";
+// import "../plugins/parallax";
+import "../plugins/dragndrop";
+import { initFlatpickr } from '../plugins/flatpickr';
 initFlatpickr();

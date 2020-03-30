@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2020_03_30_134612) do
     t.integer "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "start_date"
+    t.date "end_date"
     t.index ["country_id"], name: "index_travel_countries_on_country_id"
     t.index ["travel_id"], name: "index_travel_countries_on_travel_id"
   end
@@ -97,6 +99,9 @@ ActiveRecord::Schema.define(version: 2020_03_30_134612) do
     t.integer "age"
     t.string "google_token"
     t.string "google_refresh_token"
+    t.string "provider"
+    t.string "uid"
+    t.text "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,0 +1,110 @@
+// .content-modal{
+//   display: flex;
+//   flex-direction: column;
+//   h1 {
+//     text-align: center;
+//     font-size:2em;
+//     font-weight: 700;
+//     line-height:25px;
+//     margin-bottom:2em;
+//   }
+//   p {
+//       font-size:1em;
+//       line-height:22px;
+//   }
+//   strong {
+//     color: #fb4953;
+//     font-weight: 700;
+//   }
+// }
+
+#drag{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  input[type="file"]{
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+  }
+}
+
+
+.dragndrop-form {
+  position: absolute;
+  // z-index: 1000;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+.label {
+  // display: inline-block;
+  position: relative;
+  // height: 30%;
+  width: 400px;
+  border: 2px solid #E7E6E6;
+  border-radius: 10px;
+  // padding-top: 1em;
+  margin-bottom: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dragndrop-form.dragover {
+  background-color: #aaa;
+}
+
+.doc {
+  label{
+    display: none;
+  }
+  .files {
+    min-height: 3em;
+
+    // background: #f9f9f9;
+  }
+}
+
+// .individual{
+//   overflow: scroll;
+//   // label{
+//   //   display: none;
+//   // }
+//   .files {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     min-height: 10em;
+//     // background: #f9f9f9;
+//   }
+// }
+
+// #buttons-container{
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: center;
+//   a{
+//     // font-weight: 700;
+//     color: #fb4953;
+//   }
+// }
+
+// .label-container{
+//   display: flex;
+//   align-items: baseline;
+// }
+// .dng-btn{
+//   background: #fb4953;
+//   color: white;
+//   padding: 0.5em;
+//   border-radius: 10px;
+// }
