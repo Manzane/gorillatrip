@@ -13,7 +13,6 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    # params -> { name: '6e7', photos: [photo1, photo2] }
     @document = Document.new(document_params)
     @document.user_id = current_user.id
     if @document.save
@@ -37,6 +36,7 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
+    @document.files.purge
     @document.destroy
     redirect_to documents_path, notice: 'Le document a bien été supprimé.'
   end
@@ -49,7 +49,7 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:name, :expiration_date, :doc_type)
+    params.require(:document).permit(:name, :expiration_date, :doc_type, files: [])
   end
 
 end
