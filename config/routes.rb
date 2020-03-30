@@ -13,8 +13,6 @@ Rails.application.routes.draw do
     resources :visas, only: [ :index, :show ]
   end
 
-  resources :vaccines, only: [ :index, :show ]
-
   authenticated :user do
     root to: 'travels#index', as: :authenticated_root
   end
@@ -22,6 +20,10 @@ Rails.application.routes.draw do
   unauthenticated do
     root to: 'pages#maintenance'
   end
+
+
+  resources :vaccines, only: [ :index, :show ]
+  get "/confidentialite", to: "pages#confidentiality"
 
 
   # Routes for Google authentication
