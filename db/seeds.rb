@@ -125,60 +125,62 @@ puts "Visa Created"
 
 
 puts "Create vaccines"
-traitement1 = Vaccine.new(
-name: "Fievre jaune",
-contraindications: "femme enceinte",
-treatment_start_date: DateTime.strptime("04/30/2020 8:00", "%m/%d/%Y %H:%M"),
-treatment_end_date: DateTime.strptime("05/30/2020 8:00", "%m/%d/%Y %H:%M"),
-injection_max_date: nil,
-price: 2000
-)
-traitement1.save!
+VaccineCsvImport.new.call
 
-ha = Vaccine.new(
-name: "Hepatite A",
-contraindications: "femme enceinte",
-treatment_start_date: DateTime.strptime("04/30/2020 8:00", "%m/%d/%Y %H:%M"),
-treatment_end_date: DateTime.strptime("05/30/2020 8:00", "%m/%d/%Y %H:%M"),
-injection_max_date: DateTime.strptime("04/30/2020 8:00", "%m/%d/%Y %H:%M"),
-price: 20000
-)
-ha.save!
+# traitement1 = Vaccine.new(
+# name: "Fievre jaune",
+# contraindications: "femme enceinte",
+# treatment_start_date: DateTime.strptime("04/30/2020 8:00", "%m/%d/%Y %H:%M"),
+# treatment_end_date: DateTime.strptime("05/30/2020 8:00", "%m/%d/%Y %H:%M"),
+# injection_max_date: nil,
+# price: 2000
+# )
+# traitement1.save!
 
-hb = Vaccine.new(
-name: "Hepatite B",
-contraindications: "SEP",
-treatment_start_date: DateTime.strptime("04/28/2020 8:00", "%m/%d/%Y %H:%M"),
-treatment_end_date: DateTime.strptime("07/28/2020 8:00", "%m/%d/%Y %H:%M"),
-injection_max_date: DateTime.strptime("04/28/2020 8:00", "%m/%d/%Y %H:%M"),
-price: 20000
-)
-hb.save!
+# ha = Vaccine.new(
+# name: "Hepatite A",
+# contraindications: "femme enceinte",
+# treatment_start_date: DateTime.strptime("04/30/2020 8:00", "%m/%d/%Y %H:%M"),
+# treatment_end_date: DateTime.strptime("05/30/2020 8:00", "%m/%d/%Y %H:%M"),
+# injection_max_date: DateTime.strptime("04/30/2020 8:00", "%m/%d/%Y %H:%M"),
+# price: 20000
+# )
+# ha.save!
+
+# hb = Vaccine.new(
+# name: "Hepatite B",
+# contraindications: "SEP",
+# treatment_start_date: DateTime.strptime("04/28/2020 8:00", "%m/%d/%Y %H:%M"),
+# treatment_end_date: DateTime.strptime("07/28/2020 8:00", "%m/%d/%Y %H:%M"),
+# injection_max_date: DateTime.strptime("04/28/2020 8:00", "%m/%d/%Y %H:%M"),
+# price: 20000
+# )
+# hb.save!
 puts "Vaccines created"
 
 
 
-puts "link vaccines to countries"
+# puts "link vaccines to countries"
 
-lao = Country.find_by(alpha2code: "LA")
-lao.vaccines << hb
-lao.vaccines << ha
-lao.vaccines << traitement1
-lao.save!
+# lao = Country.find_by(alpha2code: "LA")
+# lao.vaccines << hb
+# lao.vaccines << ha
+# lao.vaccines << traitement1
+# lao.save!
 
-inde = Country.find_by(alpha2code: "IN")
-inde.vaccines << hb
-inde.vaccines << ha
-inde.vaccines << traitement1
-inde.save!
+# inde = Country.find_by(alpha2code: "IN")
+# inde.vaccines << hb
+# inde.vaccines << ha
+# inde.vaccines << traitement1
+# inde.save!
 
-thail = Country.find_by(alpha2code: "TH")
-thail.vaccines << hb
-thail.save!
+# thail = Country.find_by(alpha2code: "TH")
+# thail.vaccines << hb
+# thail.save!
 
-cambod = Country.find_by(alpha2code: "KH")
-cambod.vaccines << ha
-cambod.save!
-puts "vaccines linked to countries"
+# cambod = Country.find_by(alpha2code: "KH")
+# cambod.vaccines << ha
+# cambod.save!
+# puts "vaccines linked to countries"
 puts "--------------"
 puts "SEED DOOOOOONE"

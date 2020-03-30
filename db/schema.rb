@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_165013) do
+ActiveRecord::Schema.define(version: 2020_03_30_134612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,15 +103,19 @@ ActiveRecord::Schema.define(version: 2020_03_26_165013) do
 
   create_table "vaccines", force: :cascade do |t|
     t.string "name"
-    t.date "treatment_start_date"
-    t.date "treatment_end_date"
-    t.date "injection_max_date"
     t.string "contraindications"
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "description"
-    t.boolean "mandatory"
+    t.string "disease_description"
+    t.string "risks"
+    t.string "treatment_type"
+    t.string "treatment"
+    t.string "vaccine_schema"
+    t.integer "treatment_start"
+    t.integer "treatment_end"
+    t.integer "injection_max"
+    t.boolean "travel_advised"
   end
 
   create_table "visas", force: :cascade do |t|
