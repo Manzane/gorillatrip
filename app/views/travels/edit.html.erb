@@ -5,25 +5,15 @@
   <%= f.input :name, label: 'Nom du voyage' %>
   </div>
   <div>
-  <%= f.simple_fields_for :travel_countries do |t| %>
-    <%= t.input :country_id, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays', include_blank: 'Choisir un pays' %>
-    <%= t.input :start_date, :as => :hidden,
-      :input_html => {
-        :id => "datePicker",
-      }, label: 'Date de début du Séjour' %>
-      <%= t.input :end_date, :as => :hidden,
-      :input_html => {
-        :id => "datePicker"
-      }, label: 'Date de fin du Séjour' %>
-  <% end %>
+    <%= f.simple_fields_for :travel_countries do |t| %>
+      <%= t.input :country_id, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays', include_blank: 'Choisir un pays' %>
+      <%= t.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: 'Date de début du Séjour' %>
+      <%= t.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: 'Date de fin du Séjour' %>
+    <% end %>
   </div>
-
-
-
-
   <%= f.submit %>
 <% end %>
 
 <%= link_to travels_path do %>
   <p>Retour</p>
-  <% end %>
+<% end %>
