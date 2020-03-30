@@ -88,6 +88,8 @@ puts "Travels created"
 puts "Create travel_countries"
 paultravel  = TravelCountry.new(
   duration: 30,
+  start_date: DateTime.strptime("06/10/2020 8:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("07/10/2020 8:00", "%m/%d/%Y %H:%M"),
   country: Country.find_by(alpha2code: "IN"),
   travel: travel1
 )
@@ -96,6 +98,8 @@ paultravel.save!
 
 thai = TravelCountry.new(
   duration: 10,
+  start_date: DateTime.strptime("07/01/2020 8:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("07/10/2020 8:00", "%m/%d/%Y %H:%M"),
   country: Country.find_by(alpha2code: "TH"),
   travel: travel2
 )
@@ -103,6 +107,8 @@ thai.save!
 
 cambo = TravelCountry.new(
   duration: 20,
+  start_date: DateTime.strptime("04/01/2020 8:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("04/20/2020 8:00", "%m/%d/%Y %H:%M"),
   country: Country.find_by(alpha2code: "KH"),
   travel: travel2
 )
@@ -110,6 +116,8 @@ cambo.save!
 
 laos = TravelCountry.new(
   duration: 15,
+  start_date: DateTime.strptime("04/15/2020 8:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("04/30/2020 8:00", "%m/%d/%Y %H:%M"),
   country: Country.find_by(alpha2code: "LA"),
   travel: travel2
 )
