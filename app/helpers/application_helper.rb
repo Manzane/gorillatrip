@@ -3,6 +3,8 @@ module ApplicationHelper
     if user.avatar.attached?
       # user.avatar.variant(resize: "#{size}x#{size}!")
       user.avatar.key
+    elsif user.image?
+      image_url(user.image)
     else
       image_url("avatar.png")
     end
