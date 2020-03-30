@@ -5,7 +5,7 @@ require("channels")
 import "bootstrap";
 
 import "../stylesheets/application.scss";
-// import "./parallax";
-import "./dragndrop";
-import { initFlatpickr } from './flatpickr';
+// import "../plugins/parallax";
+import "../plugins/dragndrop";
+import { initFlatpickr } from '../plugins/flatpickr';
 initFlatpickr();
