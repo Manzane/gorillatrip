@@ -13,9 +13,6 @@ Rails.application.routes.draw do
     resources :visas, only: [ :index, :show ]
   end
 
-
-
-
   authenticated :user do
     root to: 'travels#index', as: :authenticated_root
   end
