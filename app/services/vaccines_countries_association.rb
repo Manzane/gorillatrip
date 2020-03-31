@@ -22,8 +22,8 @@ class VaccinesCountriesAssociation
   # end
 
   def call
-    source = "Åàâçèéêîôùû "
-    dest= "Aaaceeeiouu_"
+    source = "ÅàâçèÈÉéêëÎîïôùû', "
+    dest = "aaaceeeeeeiiiouu___"
 
   # puts chaine.tr(source, dest)
 
@@ -37,12 +37,11 @@ class VaccinesCountriesAssociation
           if Vaccine.find_by(name: v)
             country.vaccines << Vaccine.find_by(name: v)
             country.save!
-          else
-            puts "wrong name for #{v}"
+            puts "ok pour #{country.id} #{country.french_name}"
           end
         end
       else
-          puts "No div found on page for the country #{country}"
+          puts "No div found on page for the country #{country.id} #{country.french_name}"
       end
     end
 
