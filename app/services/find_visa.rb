@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 
 
-class FindVisa 
+class FindVisa
     def initialize
     end
 
@@ -27,13 +27,14 @@ class FindVisa
                 country = col.text.strip
                 visa_element = []
                 element.search('td').each do |col|
-                    visa_elem =  col.text.strip 
+                    visa_elem =  col.text.strip
                     visa_element << visa_elem unless visa_elem == ""
                 end
                 Visa.create( {
                     name: visa_element[0],
                     category: "tourisme",
                     duration: visa_element[1],
+                    duration_int: visa_element[1].delete("^0-9"),
                     price: visa_element[3],
                     country: foundCountry(country)
                 })
@@ -46,7 +47,7 @@ class FindVisa
                 visa_element = []
 
                 element.search('td').each do |col|
-                    visa_elem =  col.text.strip 
+                    visa_elem =  col.text.strip
                     visa_element << visa_elem
                 end
 
@@ -55,6 +56,7 @@ class FindVisa
                         age_max: visa_element[0][0..1].to_i,
                         category: "pvt",
                         duration: visa_element[1],
+                        duration_int: visa_element[1].delete("^0-9"),
                         price: visa_element[7],
                         country: foundCountry(country)
                 })

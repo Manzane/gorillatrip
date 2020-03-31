@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
+require 'nokogiri'
+
+
 
 puts "Delete countries"
 Country.destroy_all
@@ -31,9 +34,17 @@ puts "Delete vaccines"
 Vaccine.destroy_all
 puts "Vaccines deleted"
 
+puts "delete vaccines_countries link"
+  Country.all.each do |c|
+  c.vaccines.clear
+  end
+puts "normally ok"
+
 
 puts "Create countries"
 CountriesService.new.call
+Country.find_by(name: "Republic of Kosovo").update(french_name: "République du Kosovo")
+Country.find_by(name: "Congo (Democratic Republic of the)").update(french_name: "République du Congo")
 puts "Countries created"
 
 
@@ -167,8 +178,8 @@ VaccineCsvImport.new.call
 puts "Vaccines created"
 
 
-
-# puts "link vaccines to countries"
+puts "link vaccines to countries"
+VaccinesCountriesAssociation.new.call
 
 # lao = Country.find_by(alpha2code: "LA")
 # lao.vaccines << hb
@@ -189,6 +200,8 @@ puts "Vaccines created"
 # cambod = Country.find_by(alpha2code: "KH")
 # cambod.vaccines << ha
 # cambod.save!
-# puts "vaccines linked to countries"
+
+puts "Vaccines and countries linked"
+
 puts "--------------"
 puts "SEED DOOOOOONE"
