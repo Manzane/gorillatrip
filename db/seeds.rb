@@ -9,6 +9,9 @@ require 'open-uri'
 require 'nokogiri'
 
 
+puts "Delete continents"
+Continent.destroy_all
+puts "Continents deleted"
 
 puts "Delete countries"
 Country.destroy_all
@@ -39,6 +42,42 @@ puts "delete vaccines_countries link"
   c.vaccines.clear
   end
 puts "normally ok"
+
+puts "Create continents"
+asie = Continent.new(name: "Asia")
+asie.save!
+ap asie
+amerique = Continent.new(name: "Americas")
+amerique.save!
+ap amerique
+europe = Continent.new(name: "Europe")
+europe.save!
+ap europe
+afrique = Continent.new(name: "Africa")
+afrique.save!
+ap afrique
+oceania = Continent.new(name: "Oceania")
+oceania.save!
+ap oceania
+polar = Continent.new(name: "Polar")
+polar.save!
+ap polar
+puts "Continents created"
+
+
+# puts "Updates countries with continent id"
+# @countries = Country.all
+# @countries.each do |country|
+#   if !country.region.empty?
+#     continent = Continent.find_by(name: country.region)
+#     # binding.pry
+#     country.continent_id = continent.id.to_i
+#     if country.save!
+#       puts "Ok for #{country.name}"
+#     end
+#   end
+# end
+# puts "Countries updated"
 
 
 puts "Create countries"

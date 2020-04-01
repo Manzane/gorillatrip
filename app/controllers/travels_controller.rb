@@ -13,6 +13,7 @@ class TravelsController < ApplicationController
     @travel.travel_countries.build
     @travel.countries.build
     @countries = Country.all
+    @continents = Continent.all
   end
 
 
@@ -30,6 +31,7 @@ class TravelsController < ApplicationController
 
   def edit
     @countries = Country.all
+    @continents = Continent.all
   end
 
   def update

@@ -15,6 +15,7 @@ class CountriesService
       country.alpha2code = repo["alpha2Code"]
       country.alpha3code = repo["alpha3Code"]
       country.region = repo["region"]
+      country.continent_id = Continent.find_by(name: repo["region"])
       country.flag_url = repo["flag"]
       country.save!
     end
