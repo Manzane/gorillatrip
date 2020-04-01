@@ -2,7 +2,7 @@
 
 <%= simple_form_for [@travel, @travel_country] do |f| %>
   <div>
-    <%= f.input :country_id, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays', include_blank: 'Choisir un pays' %>
+    <%= f.input :country_id, collection: @countries, label_method: :french_name, value_method: :id, label: 'Pays', include_blank: 'Choisir un pays', input_html: {class: "select2"} %>
     <%= f.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: 'Date de début du Séjour' %>
     <%= f.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: 'Date de fin du Séjour' %>
   </div>
