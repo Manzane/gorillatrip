@@ -7,5 +7,8 @@ import "bootstrap";
 import "../stylesheets/application.scss";
 // import "../plugins/parallax";
 import "../plugins/dragndrop";
+import { initSelect2 } from '../plugins/init_select2';
+initSelect2();
+
 import { initFlatpickr } from '../plugins/flatpickr'
 initFlatpickr();
