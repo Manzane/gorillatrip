@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_133228) do
+ActiveRecord::Schema.define(version: 2020_04_01_162200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 2020_03_31_133228) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "continents", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -45,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_03_31_133228) do
     t.string "region"
     t.string "french_name"
     t.string "flag_url"
+    t.bigint "continent_id"
+    t.index ["continent_id"], name: "index_countries_on_continent_id"
   end
 
   create_table "countries_vaccines", id: false, force: :cascade do |t|
@@ -140,6 +148,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_133228) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "countries", "continents"
   add_foreign_key "documents", "users"
   add_foreign_key "travel_countries", "countries"
   add_foreign_key "travel_countries", "travels"
