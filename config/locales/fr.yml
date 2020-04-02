@@ -100,6 +100,18 @@ fr:
       contraindications: "Contre-indications:"
       travel_advised: "Recommandé aux voyageurs:"
       back: "Retour à la liste des vaccins"
+  visas:
+    index:
+      title: "Liste des visas"
+    show:
+      country: "Pays:"
+      category: "Categorie:"
+      duration: "Durée:"
+      delivery: "Date limite de délivrance:"
+      price: "Prix:"
+      contact: "Contact:"
+      application: "Demande de visa:"
+      back: "Retour à la liste"
   date:
     formats:
       default: "%d %B %Y"

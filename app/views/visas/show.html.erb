@@ -1,10 +1,10 @@
 <h1><%= @visa.name %></h1>
-<p>Pays: <%= @visa.country[:name] %></p>
-<p>Categorie: <%= @visa.category %></p>
-<p>Durée: <%= @visa.duration %></p>
-<p>Date limite de délivrance: <%= @visa.deliverance_max_date %></p>
-<p>Prix : <%= @visa.price %></p>
-<p>Contact: <%= @visa.contact_number %></p>
-<p>Demande de visa: <%= @visa.application %></p>
+<p><%= t('.country') %> <%= @visa.country[:name] %></p>
+<p><%= t('.category') %> <%= @visa.category %></p>
+<p><%= t('.duration') %> <%= @visa.duration %></p>
+<p><%= t('.delivery') %> <%= @visa.deliverance_max_date %></p>
+<p><%= t('.price') %> <%= @visa.price %></p>
+<p><%= t('.contact') %> <%= @visa.contact_number %></p>
+<p><%= t('.application') %> <%= @visa.application %></p>
 
-<%= link_to "Retour à la liste", country_visas_path %>
+<%= link_to t('.back'), country_visas_path %>
