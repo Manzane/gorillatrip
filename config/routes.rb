@@ -1,32 +1,37 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
-  as :users do
-    resources :travels do
-      resources :travel_countries
+
+  scope "(:locale)", locale: /fr|es/ do
+
+    authenticated :user do
+      # get '/:locale' => 'travels#index', as: :authenticated_root
+      root to: 'travels#index', as: :authenticated_root
     end
-    resources :documents
-  end
 
+    unauthenticated do
+      # get '/:locale' => 'pages#maintenance'
+      root to: 'pages#maintenance'
+    end
 
-    # for visitors ? visible for everyone
-  # resources :travels, only: [ :new, :create, :show ]
+    as :users do
+      resources :travels do
+        resources :travel_countries
+      end
+      resources :documents
+    end
 
-  resources :countries, only: [ :index, :show ] do
-    resources :visas, only: [ :index, :show ]
-  end
+      # for visitors ? visible for everyone
+    # resources :travels, only: [ :new, :create, :show ]
 
-  authenticated :user do
-    root to: 'travels#index', as: :authenticated_root
-  end
+    resources :countries, only: [ :index, :show ] do
+      resources :visas, only: [ :index, :show ]
+    end
 
-  unauthenticated do
-    root to: 'pages#maintenance'
-  end
+    resources :vaccines, only: [ :index, :show ]
+    get "/confidentialite", to: "pages#confidentiality"
+    end
 
-
-  resources :vaccines, only: [ :index, :show ]
-  get "/confidentialite", to: "pages#confidentiality"
 
 
   # Routes for Google authentication
