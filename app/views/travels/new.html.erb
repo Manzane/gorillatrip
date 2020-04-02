@@ -1,8 +1,8 @@
-<h1>Ajouter un nouveau voyage</h1>
+<h1><%= t('.title') %></h1>
 
 <%= simple_form_for [@user, @country, @travel] do |f| %>
   <div>
-    <%= f.input :name, label: 'Nom du voyage' %>
+    <%= f.input :name, label: t('.name') %>
   </div>
   <div>
     <%= f.simple_fields_for :travel_countries do |t| %>
@@ -11,15 +11,15 @@
                   :group_method => :countries,
                   :group_label_method => :name,
                   label_method: :french_name, value_method: :id,
-                  label: 'Pays', include_blank: 'Choisir un pays',
+                  label: t('.country'), include_blank: t('.choice'),
                   input_html: {class: "select2"} %>
-      <%= t.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: 'Date de début du Séjour' %>
-      <%= t.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: 'Date de fin du Séjour' %>
+      <%= t.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.start') %>
+      <%= t.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.end') %>
     <% end %>
   </div>
-  <%= f.submit %>
+  <%= f.submit t('.create') %>
 <% end %>
 
 <%= link_to travels_path do %>
-  <p>Retour</p>
+  <p><%= t('.back_dashboard') %></p>
 <% end %>

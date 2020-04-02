@@ -1,19 +1,20 @@
-<h1>Ajouter une nouvelle destination</h1>
+<h1><%= t('.title') %></h1>
 
 <%= simple_form_for [@travel, @travel_country] do |f| %>
   <div>
-  <%= f.input :country_id, collection: @continents,
+    <%= f.input :country_id, collection: @continents,
                   :as => :grouped_select,
                   :group_method => :countries,
                   :group_label_method => :name,
                   label_method: :french_name, value_method: :id,
-                  label: 'Pays', include_blank: 'Choisir un pays',
-                  input_html: {class: "select2"} %>    <%= f.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: 'Date de début du Séjour' %>
-    <%= f.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: 'Date de fin du Séjour' %>
+                  label: t('.country'), include_blank: t('.choice'),
+                  input_html: {class: "select2"} %>
+    <%= f.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.start') %>
+    <%= f.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.end') %>
   </div>
-  <%= f.submit %>
+  <%= f.submit t('.create') %>
 <% end %>
 
 <%= link_to travel_path(@travel) do %>
-  <p>Retour</p>
+  <p><%= t('.back') %></p>
   <% end %>
