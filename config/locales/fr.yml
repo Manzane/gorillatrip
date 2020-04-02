@@ -1,4 +1,33 @@
 fr:
+  documents:
+    edit:
+      title: "Modifie ton Document %{name}"
+      back: "Retour à ta liste de documents"
+      name: "Nom du Document:"
+      type: "Type de Document:"
+      file: "Fichier(s):"
+      expiration: "Date d'Expiration:"
+      drag_html: "<strong>Clique ou dépose</strong> ton/tes fichier(s) ici"
+      update: "Modifier le document"
+    index:
+      title: "Liste de tes Documents"
+      back_dashboard: "Retour à ton tableau de bord"
+      add: "Ajoute un nouveau document"
+      edit: "Modifie ce document"
+      delete: "Supprime ce document"
+      name: "Nom du Document:"
+      type: "Type de Document:"
+      expiration: "Date d'Expiration:"
+      confirmation: "Es-tu certain?"
+    new:
+      title: "Ajoute un nouveau Document"
+      back: "Retour à ta liste de documents"
+      name: "Nom du Document:"
+      type: "Type de Document:"
+      file: "Fichier(s):"
+      expiration: "Date d'Expiration:"
+      drag_html: "<strong>Clique ou dépose</strong> ton/tes fichier(s) ici"
+      create: "Créer le document"
   date:
     formats:
       default: "%d %B %Y"

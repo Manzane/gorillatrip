@@ -1,17 +1,15 @@
-<h1>Liste de tes documents</h1>
+<h1><%= t('.title') %></h1>
 <p></p>
 
 <% @documents.each do |document| %>
   <div>
-    <p>Nom: <%= document.name %></p>
-    <p>Type de document: <%= document.doc_type %></p>
+    <p><%= t('.name') %> <%= document.name %></p>
+    <p><%= t('.type') %> <%= document.doc_type %></p>
     <% if document.doc_type == "passport" %>
-      <p>Date d'expiration: <%= l document.expiration_date %></p>
+      <p><%= t('.expiration') %> <%= l document.expiration_date %></p>
     <% end %>
     <% if document.files.attached? %>
-      <p>Ici les document attachés</p>
-      <!-- Juste pour tester - à remplacer par les previews des docs DEBUT -->
-      <% document.files.each do |f| %>
+         <% document.files.each do |f| %>
         <% if f.image? %>
           <%= link_to image_tag(f, :width => 200, :height => 250, :crop => :fill), f %>
         <% elsif f.representable? %>
@@ -23,11 +21,12 @@
       <!-- Juste pour tester - à remplacer par les previews des docs FIN -->
     <% end %>
     <%= link_to edit_document_path(document) do %>
-      <p>Modifie ce doc </p>
+      <p><%= t('.edit') %></p>
     <% end %>
-    <%= link_to document_path(document), method: :delete, data: { confirm: "Es-tu certain?" } do %>
-      <p>Supprime ce doc</p>
+    <%= link_to document_path(document), method: :delete, data: { confirm: t('.confirmation') } do %>
+      <p><%= t('.delete') %></p>
     <% end %>
+    <hr>
   </div>
 <% end %>
 
@@ -35,9 +34,9 @@
 <hr>
 
 <%= link_to new_document_path do %>
-  <p>Ajoute un nouveau document </p>
+  <p><%= t('.add') %></p>
 <% end %>
 
 <%= link_to travels_path do %>
-  <p>Retour à ton dashboard </p>
+  <p><%= t('.back_dashboard') %></p>
 <% end %>

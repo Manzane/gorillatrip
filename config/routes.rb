@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
 
-  scope "(:locale)", locale: /fr|es/ do
+  scope "(:locale)", locale: /en|es/ do
 
     authenticated :user do
       # get '/:locale' => 'travels#index', as: :authenticated_root

@@ -1,21 +1,50 @@
 en:
+  documents:
+    edit:
+      title: "Edit your %{name} Document"
+      back: "Back to your documents list"
+      name: "Document Name :"
+      type: "Document Type :"
+      file: "File(s) :"
+      expiration: "Expiration date :"
+      drag_html: "<strong>Click or drag & drop</strong> your file here"
+      update: "Update Document"
+    index:
+      title: "List of your Documents"
+      back_dashboard: "Back to your Dashboard"
+      add: "Add a new document"
+      edit: "Edit this document"
+      delete: "Delete this document"
+      name: "Document Name :"
+      type: "Document Type :"
+      expiration: "Expiration date :"
+      confirmation: "Are you sure ?"
+    new:
+      title: "Add a new Document"
+      back: "Back to your documents list"
+      name: "Document Name :"
+      type: "Document Type :"
+      file: "File(s) :"
+      expiration: "Expiration date :"
+      drag_html: "<strong>Click or drag & drop</strong> your file here"
+      create: "Create Document"
   date:
     formats:
       default: "%d %B %Y"
     month_names:
     -
-    - janvier
-    - février
-    - mars
-    - avril
-    - mai
-    - juin
-    - juillet
-    - août
-    - septembre
-    - octobre
-    - novembre
-    - décembre
+    - january
+    - february
+    - march
+    - april
+    - may
+    - june
+    - july
+    - august
+    - september
+    - october
+    - november
+    - december
     order:
     - :day
     - :month
