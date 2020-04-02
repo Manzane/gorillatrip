@@ -86,6 +86,20 @@ en:
       vaccines: "Vaccines :"
       visas: "Visas :"
       confirmation: "Are you sure?"
+  vaccines:
+    index:
+      title: "Vaccins List"
+    show:
+      description: "Disease description :"
+      risks: "Risks :"
+      type: "Treatment type :"
+      treatment: "Treatment :"
+      schema: "Vaccine schema :"
+      start: "Treament start date before the travel :"
+      end: "Treament end date after the travel :"
+      contraindications: "Contraindications :"
+      travel_advised: "Advised to travelers ?"
+      back: "Back to the vaccines list"
   date:
     formats:
       default: "%d %B %Y"

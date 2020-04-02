@@ -1,16 +1,16 @@
 <h1><%= @vaccine.name %></h1>
-<p>Description de la maladie: <%= @vaccine.disease_description  %></p>
-<p>Les risques: <%= @vaccine.risks %></p>
-<p>Type de traitement: <%= @vaccine.treatment_type %></p>
-<p>Traitement: <%= @vaccine.treatment %></p>
-<p>Schema vaccinal: <%= @vaccine.vaccine_schema %></p>
-<p>Début du traitement avant le départ: <%= @vaccine.treatment_start %> jours</p>
-<p>Fin du traitement après le départ: <%= @vaccine.treatment_end %> jours</p>
-<p>Contre-indications: <%= @vaccine.contraindications %></p>
-<p>Recommandé aux voyageurs: <%= @vaccine.travel_advised %></p>
+<p><%= t('.description') %> <%= @vaccine.disease_description  %></p>
+<p><%= t('.risks') %> <%= @vaccine.risks %></p>
+<p><%= t('.type') %> <%= @vaccine.treatment_type %></p>
+<p><%= t('.treatment') %> <%= @vaccine.treatment %></p>
+<p><%= t('.schema') %> <%= @vaccine.vaccine_schema %></p>
+<p><%= t('.start') %> <%= @vaccine.treatment_start %> jours</p>
+<p><%= t('.end') %> <%= @vaccine.treatment_end %> jours</p>
+<p><%= t('.contraindications') %> <%= @vaccine.contraindications %></p>
+<p><%= t('.travel_advised') %> <%= @vaccine.travel_advised %></p>
 
 
-<%= link_to "Retour à la liste", vaccines_path %>
+<%= link_to t('.back'), vaccines_path %>
 
 
 
