@@ -1,0 +1,135 @@
+fr:
+  documents:
+    edit:
+      title: "Modifie ton Document %{name}"
+      back: "Retour à ta liste de documents"
+      name: "Nom du Document:"
+      type: "Type de Document:"
+      file: "Fichier(s):"
+      expiration: "Date d'Expiration:"
+      drag_html: "<strong>Clique ou dépose</strong> ton/tes fichier(s) ici"
+      update: "Modifier le document"
+    index:
+      title: "Liste de tes Documents"
+      back_dashboard: "Retour à ton tableau de bord"
+      add: "Ajoute un nouveau document"
+      edit: "Modifie ce document"
+      delete: "Supprime ce document"
+      name: "Nom du Document:"
+      type: "Type de Document:"
+      expiration: "Date d'Expiration:"
+      confirmation: "Es-tu certain?"
+    new:
+      title: "Ajoute un nouveau Document"
+      back: "Retour à ta liste de documents"
+      name: "Nom du Document:"
+      type: "Type de Document:"
+      file: "Fichier(s):"
+      expiration: "Date d'Expiration:"
+      drag_html: "<strong>Clique ou dépose</strong> ton/tes fichier(s) ici"
+      create: "Créer le document"
+  travel_countries:
+    edit:
+      title: "Modifie le séjour"
+      back: "Retour à ton voyage"
+      country: "Pays:"
+      start: "Date de début du Séjour:"
+      end: "Date de fin du Séjour:"
+      update: "Modifier le séjour"
+      choice: "Choisir un pays"
+    new:
+      title: "Ajoute un nouveau séjour"
+      back: "Retour à ton voyage"
+      country: "Pays:"
+      start: "Date de début du Séjour:"
+      end: "Date de fin du Séjour:"
+      create: "Créer le séjour"
+      choice: "Choisir un pays"
+  travels:
+    edit:
+      title: "Modifie le voyage"
+      back_dashboard: "Retour à ton tableau de bord"
+      name: "Nom du voyage: "
+      country: "Pays:"
+      start: "Date de début du Séjour:"
+      end: "Date de fin du Séjour:"
+      update: "Modifier le voyage"
+      choice: "Choisir un pays"
+    new:
+      title: "Ajoute un voyage"
+      back_dashboard: "Retour à ton tableau de bord"
+      name: "Nom du voyage:"
+      country: "Pays:"
+      start: "Date de début du Séjour:"
+      end: "Date de fin du Séjour:"
+      create: "Créer le voyage"
+      choice: "Choisir un pays"
+    index:
+      title: "Liste de tes Voyages"
+      add: "Ajoute un nouveau voyage"
+      documents: "Tes documents"
+    show:
+      title: "Détails de ton voyage"
+      back_dashboard: "Retour à ton tableau de bord"
+      name: "Nom du voyage:"
+      duration: "Durée globale:"
+      days: "jours"
+      countries: "Pays:"
+      add: "Ajoute une nouvelle destination à ton voyage"
+      edit: "Modifie cette destination"
+      delete: "Supprime cette destination"
+      edit_global: "Modifie ce voyage"
+      delete_global: "Supprime ce voyage"
+      from: "Du"
+      to: "au"
+      eq: "Soit une durée de:"
+      vaccines: "Vaccins: "
+      visas: "Visas: "
+      confirmation: "Es-tu certain?"
+  vaccines:
+    index:
+      title: "Liste des vaccins et traitements"
+    show:
+      description: "Description de la maladie:"
+      risks: "Les risques:"
+      type: "Type de traitement:"
+      treatment: "Traitement:"
+      schema: "Schema vaccinal:"
+      start: "Début du traitement avant le départ:"
+      end: "Fin du traitement après le départ:"
+      contraindications: "Contre-indications:"
+      travel_advised: "Recommandé aux voyageurs:"
+      back: "Retour à la liste des vaccins"
+  visas:
+    index:
+      title: "Liste des visas"
+    show:
+      country: "Pays:"
+      category: "Categorie:"
+      duration: "Durée:"
+      delivery: "Date limite de délivrance:"
+      price: "Prix:"
+      contact: "Contact:"
+      application: "Demande de visa:"
+      back: "Retour à la liste"
+  date:
+    formats:
+      default: "%d %B %Y"
+    month_names:
+    -
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year

@@ -1,4 +1,4 @@
-<h1>Liste de tes voyages</h1>
+<h1><%= t('.title') %></h1>
 <p></p>
 
 <% @travels.each do |travel| %>
@@ -14,11 +14,11 @@
   <% end %>
 
 <%= link_to new_travel_path do %>
-  <p>Ajoute un nouveau voyage </p>
+  <p><%= t('.add') %></p>
 <% end %>
 
 <%= link_to documents_path do %>
-  <p>Tes documents</p>
+  <p><%= t('.documents') %></p>
   <% end %>
 
 

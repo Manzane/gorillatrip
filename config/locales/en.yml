@@ -1,56 +1,135 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
-en:
+  documents:
+    edit:
+      title: "Edit your %{name} Document"
+      back: "Back to your documents list"
+      name: "Document Name :"
+      type: "Document Type :"
+      file: "File(s) :"
+      expiration: "Expiration date :"
+      drag_html: "<strong>Click or drag & drop</strong> your file here"
+      update: "Update Document"
+    index:
+      title: "List of your Documents"
+      back_dashboard: "Back to your Dashboard"
+      add: "Add a new document"
+      edit: "Edit this document"
+      delete: "Delete this document"
+      name: "Document Name :"
+      type: "Document Type :"
+      expiration: "Expiration date :"
+      confirmation: "Are you sure?"
+    new:
+      title: "Add a new Document"
+      back: "Back to your documents list"
+      name: "Document Name :"
+      type: "Document Type :"
+      file: "File(s) :"
+      expiration: "Expiration date :"
+      drag_html: "<strong>Click or drag & drop</strong> your file here"
+      create: "Create Document"
+  travel_countries:
+    edit:
+      title: "Update the stay"
+      back: "Back to your trip"
+      country: "Country :"
+      start: "Start Date of this stay :"
+      end: "End Date of this stay :"
+      update: "Update the stay"
+      choice: "Choose a country"
+    new:
+      title: "Add a new stay"
+      back: "Back to your trip"
+      country: "Country :"
+      start: "Start Date of this stay :"
+      end: "End Date of this stay :"
+      create: "Add this stay"
+      choice: "Choose a country"
+  travels:
+    edit:
+      title: "Update the travel"
+      back_dashboard: "Back to your Dashboard"
+      name: "Travel Name :"
+      country: "Country :"
+      start: "Start Date of this stay:"
+      end: "End Date of this stay:"
+      update: "Update the travel"
+      choice: "Choose a country"
+    new:
+      title: "Add a new travel"
+      back_dashboard: "Back to your Dashboard"
+      name: "Travel Name :"
+      country: "Country :"
+      start: "Start Date of this stay:"
+      end: "End Date of this stay:"
+      create: "Create the travel"
+      choice: "Choose a country"
+    index:
+      title: "Your Travels List"
+      add: "Add a new travel"
+      documents: "Your files"
+    show:
+      title: "Your travel"
+      back_dashboard: "Back to your Dashboard"
+      name: "Travel Name :"
+      duration: "Total duration :"
+      days: "days"
+      countries: "Countries:"
+      add: "Add a new stay to yout travel"
+      edit: "Edit this stay"
+      delete: "Delete this stay"
+      edit_global: "Edit this whole travel"
+      delete_global: "Delete this whole travel"
+      from: "From"
+      to: "to"
+      eq: "duration :"
+      vaccines: "Vaccines :"
+      visas: "Visas :"
+      confirmation: "Are you sure?"
+  vaccines:
+    index:
+      title: "Vaccins List"
+    show:
+      description: "Disease description :"
+      risks: "Risks :"
+      type: "Treatment type :"
+      treatment: "Treatment :"
+      schema: "Vaccine schema :"
+      start: "Treament start date before the travel :"
+      end: "Treament end date after the travel :"
+      contraindications: "Contraindications :"
+      travel_advised: "Advised to travelers ?"
+      back: "Back to the vaccines list"
+  visas:
+    index:
+      title: "Visas List"
+    show:
+      country: "Country :"
+      category: "Category :"
+      duration: "Duration :"
+      delivery: "Last date for delivery :"
+      price: "Price :"
+      contact: "Contact :"
+      application: "Application :"
+      back: "Back to the visas list"
   date:
     formats:
       default: "%d %B %Y"
     month_names:
     -
-    - janvier
-    - février
-    - mars
-    - avril
-    - mai
-    - juin
-    - juillet
-    - août
-    - septembre
-    - octobre
-    - novembre
-    - décembre
+    - january
+    - february
+    - march
+    - april
+    - may
+    - june
+    - july
+    - august
+    - september
+    - october
+    - november
+    - december
     order:
     - :day
     - :month
     - :year
-

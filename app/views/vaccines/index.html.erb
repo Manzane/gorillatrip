@@ -1,4 +1,4 @@
-<h1>Liste des vaccins et traitements</h1>
+<h1><%= t('.title') %></h1>
 
 <% @vaccines.each do |vaccine| %>
   <%= link_to vaccine_path(vaccine) do %>
