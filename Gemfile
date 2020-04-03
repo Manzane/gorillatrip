@@ -20,6 +20,7 @@ gem 'awesome_print'
 gem 'cloudinary', '~> 1.12.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'devise-i18n'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
