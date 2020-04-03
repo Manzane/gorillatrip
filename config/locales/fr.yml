@@ -112,6 +112,15 @@ fr:
       contact: "Contact:"
       application: "Demande de visa:"
       back: "Retour à la liste"
+  shared:
+    navbar:
+      login: "Connexion"
+      home: "Page d'accueil"
+      add:  "Nouveau voyage"
+      edit: "Profil"
+      travels: "Mes voyages"
+      documents: "Mes documents"
+      logout: "Déconnexion"
   date:
     formats:
       default: "%d %B %Y"

@@ -112,6 +112,15 @@ en:
       contact: "Contact :"
       application: "Application :"
       back: "Back to the visas list"
+  shared:
+    navbar:
+      login: "Login"
+      home: "Home"
+      add:  "Add a new travel"
+      edit: "Edit my profile"
+      travels: "My travels"
+      documents: "My documents"
+      logout: "Log out"
   date:
     formats:
       default: "%d %B %Y"
