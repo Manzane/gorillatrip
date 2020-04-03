@@ -9,7 +9,7 @@
       <%= t.input :country_id, collection: @continents,
                   :as => :grouped_select,
                   :group_method => :countries,
-                  :group_label_method => :name,
+                  :group_label_method => :fr_name,
                   label_method: :french_name, value_method: :id,
                   label: t('.country'), include_blank: t('.choice'),
                   input_html: {class: "select2"} %>
