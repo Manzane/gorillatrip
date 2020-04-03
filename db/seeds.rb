@@ -44,25 +44,53 @@ puts "delete vaccines_countries link"
 puts "normally ok"
 
 puts "Create continents"
-asie = Continent.new(name: "Asia")
+asie = Continent.new(name: "Asia", fr_name: "Asie")
 asie.save!
 ap asie
-amerique = Continent.new(name: "Americas")
+amerique = Continent.new(name: "Americas", fr_name: "Amérique")
 amerique.save!
 ap amerique
-europe = Continent.new(name: "Europe")
+europe = Continent.new(name: "Europe", fr_name: "Europe")
 europe.save!
 ap europe
-afrique = Continent.new(name: "Africa")
+afrique = Continent.new(name: "Africa", fr_name: "Afrique")
 afrique.save!
 ap afrique
-oceania = Continent.new(name: "Oceania")
+oceania = Continent.new(name: "Oceania", fr_name: "Océanie")
 oceania.save!
 ap oceania
-polar = Continent.new(name: "Polar")
+polar = Continent.new(name: "Polar", fr_name: "Polaire")
 polar.save!
 ap polar
 puts "Continents created"
+
+# puts "Update continents"
+# asie = Continent.find_by(name: "Asia")
+# asie.update(fr_name: "Asie")
+# asie.save!
+# ap asie
+# amerique = Continent.find_by(name: "Americas")
+# amerique.update(fr_name: "Amérique")
+# amerique.save!
+# ap amerique
+# europe = Continent.find_by(name: "Europe")
+# europe.update(fr_name: "Europe")
+# europe.save!
+# ap europe
+# afrique = Continent.find_by(name: "Africa")
+# afrique.update(fr_name: "Afrique")
+# afrique.save!
+# ap afrique
+# oceania = Continent.find_by(name: "Oceania")
+# oceania.update(fr_name: "Océanie")
+# oceania.save!
+# ap oceania
+# polar = Continent.find_by(name: "Polar")
+# polar.update(fr_name: "Polaire")
+# polar.save!
+# ap polar
+# puts "Continents updated"
+
 
 
 # puts "Updates countries with continent id"
