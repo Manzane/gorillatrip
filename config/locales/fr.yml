@@ -84,8 +84,12 @@ fr:
       to: "au"
       eq: "Soit une durée de:"
       vaccines: "Vaccins: "
-      visas: "Visas: "
-      confirmation: "Es-tu certain?"
+      vaccines_txt: "Des vaccins sont recommandés"
+      systematically: "Systématiquement:"
+      advisable: "En fonction des modalités du séjour:"
+      no_vaccin: "Il n'y a pas de vacccin recommandé, ou nous ne disposons pas d'information."
+      visas: "Visas:"
+      confirmation: "Es-tu certain ?"
   vaccines:
     index:
       title: "Liste des vaccins et traitements"

@@ -39,11 +39,27 @@
     mais travailler algo -->
 
     <p><%= t('.vaccines') %></p>
-    <ul>
-    <% country.vaccines.each do |vaccine| %>
-    <li><%= vaccine.name %></li>
+    <% if ! country.vaccine_countries.empty? %>
+      <p><%= t('.vaccines_txt') %></p>
+      <p><%= t('.systematically') %></p>
+      <ul>
+        <% country.vaccine_countries.each do |vaccine_country| %>
+          <% if vaccine_country.systematic? %>
+            <li><%= vaccine_country.vaccine.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+      <p><%= t('.advisable') %></p>
+      <ul>
+        <% country.vaccine_countries.each do |vaccine_country| %>
+          <% if !vaccine_country.systematic? %>
+            <li><%= vaccine_country.vaccine.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% else %>
+      <p><%= t('.no_vaccin') %></p>
     <% end %>
-  </ul>
   </div>
   <hr>
 <% end %>

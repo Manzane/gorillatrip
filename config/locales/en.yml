@@ -84,6 +84,10 @@ en:
       to: "to"
       eq: "duration :"
       vaccines: "Vaccines :"
+      vaccines_txt: "Vaccines are recommended"
+      systematically: "Systematically"
+      advisable: "Advisable"
+      no_vaccin: "There is no recommended vaccine, or we don't have the information."
       visas: "Visas :"
       confirmation: "Are you sure?"
   vaccines:
