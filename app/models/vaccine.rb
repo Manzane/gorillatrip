@@ -1,3 +1,4 @@
 class Vaccine < ApplicationRecord
-  has_and_belongs_to_many :countries
+  has_many :vaccine_countries
+  has_many :countries, through: :vaccine_countries
 end

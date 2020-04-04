@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_070906) do
+ActiveRecord::Schema.define(version: 2020_04_04_120602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,11 +54,6 @@ ActiveRecord::Schema.define(version: 2020_04_03_070906) do
     t.string "flag_url"
     t.bigint "continent_id"
     t.index ["continent_id"], name: "index_countries_on_continent_id"
-  end
-
-  create_table "countries_vaccines", id: false, force: :cascade do |t|
-    t.bigint "country_id", null: false
-    t.bigint "vaccine_id", null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -115,6 +110,16 @@ ActiveRecord::Schema.define(version: 2020_04_03_070906) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vaccine_countries", force: :cascade do |t|
+    t.bigint "vaccine_id", null: false
+    t.bigint "country_id", null: false
+    t.boolean "systematic"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_vaccine_countries_on_country_id"
+    t.index ["vaccine_id"], name: "index_vaccine_countries_on_vaccine_id"
+  end
+
   create_table "vaccines", force: :cascade do |t|
     t.string "name"
     t.string "contraindications"
@@ -154,5 +159,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_070906) do
   add_foreign_key "travel_countries", "countries"
   add_foreign_key "travel_countries", "travels"
   add_foreign_key "travels", "users"
+  add_foreign_key "vaccine_countries", "countries"
+  add_foreign_key "vaccine_countries", "vaccines"
   add_foreign_key "visas", "countries"
 end
