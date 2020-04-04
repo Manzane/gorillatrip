@@ -8,6 +8,9 @@
 require 'open-uri'
 require 'nokogiri'
 
+puts "Delete Vaccine_countries"
+VaccineCountry.destroy_all
+puts "Vaccine_countries deleted"
 
 puts "Delete continents"
 Continent.destroy_all
@@ -37,11 +40,11 @@ puts "Delete vaccines"
 Vaccine.destroy_all
 puts "Vaccines deleted"
 
-puts "delete vaccines_countries link"
-  Country.all.each do |c|
-  c.vaccines.clear
-  end
-puts "normally ok"
+# puts "delete vaccines_countries link"
+#   Country.all.each do |c|
+#   c.vaccines.clear
+#   end
+# puts "normally ok"
 
 puts "Create continents"
 asie = Continent.new(name: "Asia", fr_name: "Asie")
@@ -247,6 +250,7 @@ puts "Vaccines created"
 
 puts "link vaccines to countries"
 VaccinesCountriesAssociation.new.call
+# VCAssociation.new.call
 
 # lao = Country.find_by(alpha2code: "LA")
 # lao.vaccines << hb

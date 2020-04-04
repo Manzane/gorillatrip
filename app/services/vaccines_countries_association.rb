@@ -25,46 +25,40 @@ class VaccinesCountriesAssociation
     source = "ÅàâçèÈÉéêëÎîïôùû', "
     dest = "aaaceeeeeeiiiouu___"
 
-  # puts chaine.tr(source, dest)
-
     @countries.each do |country|
       url = "https://planificateur.a-contresens.net/europe/pays-#{country.alpha2code}-#{country.french_name.tr(source, dest).downcase}.html#country-health"
       file = open(url).read
       file_html = Nokogiri::HTML(file)
-      if file_html.search("div#country-health.col-md-12.padding-xxs-hr div.stat-panel.bordered div.stat-row div.stat-cell ul.text-uppercase li")
-        file_html.search("div#country-health.col-md-12.padding-xxs-hr div.stat-panel.bordered div.stat-row div.stat-cell ul.text-uppercase li").each do |el|
+      div = file_html.search("div#country-health.col-md-12.padding-xxs-hr div.stat-panel.bordered div.stat-row div.stat-cell ul.text-uppercase li")
+      # binding.pry
+      if !div.empty?
+        # binding.pry
+        uls = file_html.search("div#country-health.col-md-12.padding-xxs-hr div.stat-panel.bordered div.stat-row div.stat-cell ul.text-uppercase")
+        ul1 = uls.first
+        ul1.search("li").each do |el|
+            # binding.pry
           v = el.text.upcase.strip
-          if Vaccine.find_by(name: v)
-            country.vaccines << Vaccine.find_by(name: v)
-            country.save!
+          vaccine = Vaccine.find_by(name: v)
+          if vaccine
+            vc = VaccineCountry.new(vaccine_id: vaccine.id, country_id: country.id, systematic: true )
+            vc.save!
+            puts "ok pour #{country.id} #{country.french_name}"
+          end
+        end
+        ul2 = uls.last
+        ul2.search("li").each do |el|
+            # binding.pry
+          v = el.text.upcase.strip
+          vaccine = Vaccine.find_by(name: v)
+          if vaccine
+            vc = VaccineCountry.new(vaccine_id: vaccine.id, country_id: country.id, systematic: false )
+            vc.save!
             puts "ok pour #{country.id} #{country.french_name}"
           end
         end
       else
-          puts "No div found on page for the country #{country.id} #{country.french_name}"
+        puts "No div found on page for the country #{country.id} #{country.french_name}"
       end
     end
-
-      # url = "db/pays-VN-viet_nam.html"
-      # country = Country.find(245)
-      # file = open(url).read
-      # file_html = Nokogiri::HTML(file)
-
-      # if file_html.search("div#country-health.col-md-12.padding-xxs-hr div.stat-panel.bordered div.stat-row div.stat-cell ul.text-uppercase li")
-      #   file_html.search("div#country-health.col-md-12.padding-xxs-hr div.stat-panel.bordered div.stat-row div.stat-cell ul.text-uppercase li").each do |el|
-      #     v = el.text.upcase.strip
-      #     if Vaccine.find_by(name: v)
-      #       country.vaccines << Vaccine.find_by(name: v)
-      #       country.save!
-      #     else
-      #       puts "wrong name for #{v}"
-      #     end
-      #   end
-      # else
-      #     puts "No div found on page for the country #{country}"
-      # end
-
   end
 end
-
-
