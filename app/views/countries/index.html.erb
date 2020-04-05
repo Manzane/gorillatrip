@@ -1,0 +1,7 @@
+<% @continents.each do |continent| %>
+  <strong><%= continent.name %></strong>
+  <% continent.countries.each do |country| %>
+    <div><%= country.french_name %></div>
+  <% end %>
+  <hr>
+<% end %>
