@@ -33,7 +33,11 @@
     <% if ! country.visas.empty? %>
       <ul>
         <% country.visas.each do |visa| %>
-          <li><%= visa.name %></li>
+          <li>
+            <%= link_to country_visa_path(visa.country_id, visa) do %>
+              <p><%= visa.name %></p>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     <% else %>
