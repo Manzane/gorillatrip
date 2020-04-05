@@ -7,26 +7,29 @@ class PvtCsvImport
     @csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
   end
 
+  def foundCountry(country)
+        if Country.find_by(french_name: country)
+            Country.find_by(french_name: country)
+        end
+  end
+
   def call
     counter = 0
     CSV.foreach(@filepath, @csv_options) do |row|
-      visa = Visa.new
-      visa.name = row["name"]
-      visa.age_max = row["age_max"]
-      visa.duration = row["duration"]
-      visa.duration_int = row["duration_int"]
-      visa.validity = row["validity"]
-      visa.price = row["price"]
-      visa.application = row["application"]
-      visa.embassy = row["embassy"]
-      visa.fr_diplomacy = row["fr_diplomacy"]
-      country = Country.find_by(:french_name == row["country"])
-      visa.country = country
-      counter += 1 if visa.save
-    end
-    puts "#{counter} pvt"
-    return counter
-
-
+      Visa.create!({
+                    name: row["name"],
+                    duration: row["duration"],
+                    duration_int: row["duration_int"],
+                    price: row["price"],
+                    validity: row["validity"],
+                    application: row["application"],
+                    embassy: row["embassy"],
+                    fr_diplomacy: row["fr_diplomacy"],
+                    age_max: row["age_max"],
+                    country: foundCountry(row["country"])
+                })
+      puts "ok for #{row["country"]} "
+      end
+    puts "#{Visa.all.count} visas"
   end
 end
