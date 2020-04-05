@@ -208,7 +208,9 @@ puts "travel_countries for paul (travel1) et marie (travel2) created"
 
 
 puts "Create visas"
-FindVisa.new.call
+# FindVisa.new.call
+VisaCsvImport.new.call
+PvtCsvImport.new.call
 puts "Visa Created"
 
 

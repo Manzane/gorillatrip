@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_120602) do
+ActiveRecord::Schema.define(version: 2020_04_05_085903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,17 +139,19 @@ ActiveRecord::Schema.define(version: 2020_04_04_120602) do
 
   create_table "visas", force: :cascade do |t|
     t.string "name"
-    t.string "category"
+    t.string "extra_info"
     t.date "deliverance_max_date"
     t.string "duration"
     t.string "price"
     t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "contact_number"
+    t.string "embassy"
     t.string "application"
     t.integer "age_max"
     t.integer "duration_int"
+    t.string "validity"
+    t.string "fr_diplomacy"
     t.index ["country_id"], name: "index_visas_on_country_id"
   end
 

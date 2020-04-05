@@ -30,11 +30,20 @@
     <% end %>
 
     <p><%= t('.visas') %></p>
-    <ul>
-    <% country.visas.each do |visa| %>
-    <li><%= visa.name %></li>
+    <% if ! country.visas.empty? %>
+      <ul>
+        <% country.visas.each do |visa| %>
+          <li>
+            <%= link_to country_visa_path(visa.country_id, visa) do %>
+              <p><%= visa.name %></p>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p><%= t('.no_visa') %></p>
     <% end %>
-    </ul>
+
 <!--     Temp: display de tous les vaccins pour exemple d'affichage
     mais travailler algo -->
 

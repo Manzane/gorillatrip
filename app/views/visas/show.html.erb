@@ -1,10 +1,14 @@
-<h1><%= @visa.name %></h1>
-<p><%= t('.country') %> <%= @visa.country[:name] %></p>
-<p><%= t('.category') %> <%= @visa.category %></p>
+<h1></h1>
+<p><%= t('.country') %> <%= @visa.country[:french_name] %></p>
+<p><%= t('.name') %> <%= @visa.name %></p>
+<p><%= t('.extra_info') %> <%= @visa.extra_info %></p>
 <p><%= t('.duration') %> <%= @visa.duration %></p>
-<p><%= t('.delivery') %> <%= @visa.deliverance_max_date %></p>
+<p><%= t('.validity') %> <%= @visa.validity %></p>
+<p><%= t('.age_max') %> <%= @visa.age_max %></p>
 <p><%= t('.price') %> <%= @visa.price %></p>
-<p><%= t('.contact') %> <%= @visa.contact_number %></p>
-<p><%= t('.application') %> <%= @visa.application %></p>
+<p><a href="<%= @visa.application %>" target="_blank"><%= t('.application') %></a></p>
+<p><a href="<%= @visa.embassy %>" target="_blank"><%= t('.embassy') %></a></p>
+<p><a href="<%= @visa.fr_diplomacy %>" target="_blank"><%= t('.fr_diplomacy') %></a></p>
+
 
 <%= link_to t('.back'), country_visas_path %>

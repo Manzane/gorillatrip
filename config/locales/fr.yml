@@ -89,6 +89,7 @@ fr:
       advisable: "En fonction des modalités du séjour:"
       no_vaccin: "Il n'y a pas de vacccin recommandé, ou nous ne disposons pas d'information."
       visas: "Visas:"
+      no_visa: "Désolés; nous ne disposons pas d'information concernant ce pays."
       confirmation: "Es-tu certain ?"
   vaccines:
     index:

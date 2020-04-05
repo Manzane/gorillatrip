@@ -89,6 +89,7 @@ en:
       advisable: "Advisable"
       no_vaccin: "There is no recommended vaccine, or we don't have the information."
       visas: "Visas :"
+      no_visa: "Sorry, we don't have the information for this country."
       confirmation: "Are you sure?"
   vaccines:
     index:
