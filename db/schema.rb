@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_085903) do
+ActiveRecord::Schema.define(version: 2020_04_06_063105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_085903) do
     t.boolean "systematic"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "extra_info"
     t.index ["country_id"], name: "index_vaccine_countries_on_country_id"
     t.index ["vaccine_id"], name: "index_vaccine_countries_on_vaccine_id"
   end
