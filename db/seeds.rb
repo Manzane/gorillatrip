@@ -252,6 +252,7 @@ puts "Vaccines created"
 
 puts "link vaccines to countries"
 VaccinesCountriesAssociation.new.call
+MalariaCsvImport.new.call
 # VCAssociation.new.call
 
 # lao = Country.find_by(alpha2code: "LA")
