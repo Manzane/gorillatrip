@@ -7,12 +7,14 @@ Rails.application.routes.draw do
     authenticated :user do
       # get '/:locale' => 'travels#index', as: :authenticated_root
       root to: 'travels#index', as: :authenticated_root
+      get 'profil' => 'users#show'
     end
 
     unauthenticated do
       # get '/:locale' => 'pages#maintenance'
       root to: 'pages#maintenance'
     end
+
 
     as :users do
       resources :travels do
