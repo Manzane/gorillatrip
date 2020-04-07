@@ -38,6 +38,23 @@ en:
       updated_not_active: "Your password has been changed successfully."
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      edit:
+        are_you_sure: "Are you sure ?"
+        file: "Choose file"
+        cancel_my_account: "Cancel my account"
+        currently_waiting_confirmation_for_email: 'Waiting for the confirmation sent to %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: "Leave this blank if you don't want to change it"
+        title: "Update your profile"
+        unhappy: "Not happy ?"
+        update: "Update"
+        we_need_your_current_password_to_confirm_your_changes: "Please enter your current password in order to update your information"
+        nationality-fr: "You cannot change the nationality for the moment. Visas data work for french nationality but we keep working on the other nationality."
+        nationality: "Nationality"
+        gender: "Gender"
+        phone: "Phone number"
+        email: "Email"
+        username: "Username"
+        dob: "Date of birth"
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."

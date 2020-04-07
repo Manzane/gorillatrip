@@ -18,4 +18,9 @@ class User < ApplicationRecord
     end
     user
   end
+
+  def def_age
+    age = ((Time.zone.now - date_of_birth.to_time) / 1.year.seconds).floor
+  end
+
 end

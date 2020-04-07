@@ -101,14 +101,22 @@ fr:
     registrations:
       destroyed: Au revoir ! Votre compte a bien été supprimé. Nous espérons vous revoir bientôt.
       edit:
-        are_you_sure: Êtes-vous sûr ?
-        cancel_my_account: Supprimer mon compte
+        are_you_sure: "Êtes-vous sûr ?"
+        file: "Choisi un fichier"
+        cancel_my_account: "Supprimer mon compte"
         currently_waiting_confirmation_for_email: 'Confirmation en attente pour: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laissez ce champ vide pour le laisser inchangé
-        title: Éditer %{resource}
-        unhappy: Pas content ?
-        update: Modifier
-        we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour valider ces modifications
+        leave_blank_if_you_don_t_want_to_change_it: "Laissez ce champ vide pour le laisser inchangé"
+        title: "Édition du profil"
+        unhappy: "Pas satisfait?"
+        update: "Modifier"
+        we_need_your_current_password_to_confirm_your_changes: "Nous avons besoin de votre mot de passe actuel pour valider ces modifications"
+        nationality-fr: "Vous ne pouvez pas modifier la nationalité pour le moment. Les données concernant les visas sont valides pour la nationalité française, nous faisons notre possible pour étendre nos informations !"
+        nationality: "Nationalité"
+        email: "Adresse email"
+        gender: "Sexe"
+        phone: "Numéro de téléphone"
+        username: "Nom d'utilisateur"
+        dob: "Date de naissance"
       new:
         sign_up: Inscription
       signed_up: Bienvenue ! Vous vous êtes bien enregistré(e).

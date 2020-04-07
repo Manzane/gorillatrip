@@ -1,0 +1,15 @@
+<h1>Ton profil</h1>
+
+
+<div><%= cl_image_tag user_avatar(@user, 50) %></div>
+<div><%= @user.username %></div>
+<div><%= @user.email %></div>
+<div><%= @user.phone_number %></div>
+<div><%= @user.def_age %> <%= t(".years-old") %></div>
+<div><%= @user.gender %></div>
+
+<%= link_to edit_user_registration_path do %>
+      <p><%= t('.edit') %></p>
+<% end %>
+
+
