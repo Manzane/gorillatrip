@@ -126,6 +126,10 @@ en:
       travels: "My travels"
       documents: "My documents"
       logout: "Log out"
+  users:
+    show:
+      years-old: "years old"
+      edit: "update your profile"
   date:
     formats:
       default: "%d %B %Y"

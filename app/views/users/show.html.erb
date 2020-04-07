@@ -5,7 +5,11 @@
 <div><%= @user.username %></div>
 <div><%= @user.email %></div>
 <div><%= @user.phone_number %></div>
-<div><%#= age %></div>
+<div><%= @user.def_age %> <%= t(".years-old") %></div>
 <div><%= @user.gender %></div>
+
+<%= link_to edit_user_registration_path do %>
+      <p><%= t('.edit') %></p>
+<% end %>
 
 

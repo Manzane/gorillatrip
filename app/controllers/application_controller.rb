@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar, :username, :nationality, :phone_number, :gender])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar, :username, :nationality, :phone_number, :gender, :date_of_birth])
   end
 
   def default_url_options

@@ -116,6 +116,7 @@ fr:
         gender: "Sexe"
         phone: "Numéro de téléphone"
         username: "Nom d'utilisateur"
+        dob: "Date de naissance"
       new:
         sign_up: Inscription
       signed_up: Bienvenue ! Vous vous êtes bien enregistré(e).
