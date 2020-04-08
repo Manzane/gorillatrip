@@ -2,7 +2,11 @@
 <p><%= t('.description') %> <%= @vaccine.disease_description  %></p>
 <p><%= t('.risks') %> <%= @vaccine.risks %></p>
 <p><%= t('.type') %> <%= @vaccine.treatment_type %></p>
-<p><%= t('.treatment') %> <%= @vaccine.treatment %></p>
+<p><%= t('.treatment') %>
+  <% @vaccine.treatment.split(";").each do |t| %>
+    <p><%= t %></p>
+  <% end %>
+</p>
 <p><%= t('.schema') %> <%= @vaccine.vaccine_schema %></p>
 <p><%= t('.start') %> <%= @vaccine.treatment_start %> jours</p>
 <p><%= t('.end') %> <%= @vaccine.treatment_end %> jours</p>
