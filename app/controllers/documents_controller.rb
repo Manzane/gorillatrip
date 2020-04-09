@@ -49,7 +49,7 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:name, :expiration_date, :doc_type, files: [])
+    params.require(:document).permit(:name, :expiration_date, :document_type, files: [])
   end
 
 end

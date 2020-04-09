@@ -96,19 +96,19 @@ puts "Continents created"
 
 
 
-# puts "Updates countries with continent id"
-# @countries = Country.all
-# @countries.each do |country|
-#   if !country.region.empty?
-#     continent = Continent.find_by(name: country.region)
-#     # binding.pry
-#     country.continent_id = continent.id.to_i
-#     if country.save!
-#       puts "Ok for #{country.name}"
-#     end
-#   end
-# end
-# puts "Countries updated"
+puts "Updates countries with continent id"
+@countries = Country.all
+@countries.each do |country|
+  if !country.region.empty?
+    continent = Continent.find_by(name: country.region)
+    # binding.pry
+    country.continent_id = continent.id.to_i
+    if country.save!
+      puts "Ok for #{country.name}"
+    end
+  end
+end
+puts "Countries updated"
 
 
 puts "Create countries"

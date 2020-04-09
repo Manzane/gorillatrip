@@ -9,6 +9,7 @@ fr:
       expiration: "Date d'Expiration:"
       drag_html: "<strong>Clique ou dépose</strong> ton/tes fichier(s) ici"
       update: "Modifier le document"
+      passport_type: "Requis seulement pour le passeport"
     index:
       title: "Liste de tes Documents"
       back_dashboard: "Retour à ton tableau de bord"
@@ -28,6 +29,7 @@ fr:
       expiration: "Date d'Expiration:"
       drag_html: "<strong>Clique ou dépose</strong> ton/tes fichier(s) ici"
       create: "Créer le document"
+      passport_type: "Requis seulement pour le passeport"
   travel_countries:
     edit:
       title: "Modifie le séjour"
@@ -144,6 +146,11 @@ fr:
   user_genders:
     male: "Homme"
     female: "Femme"
+    other: "Autre"
+  document_document_types:
+    passport: "Passeport"
+    airplane_ticket: "Billet d'avion"
+    visa: "Visa"
     other: "Autre"
   date:
     formats:
