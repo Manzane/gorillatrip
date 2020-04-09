@@ -9,6 +9,7 @@ en:
       expiration: "Expiration date :"
       drag_html: "<strong>Click or drag & drop</strong> your file here"
       update: "Update Document"
+      passport_type: "Required only for passport"
     index:
       title: "List of your Documents"
       back_dashboard: "Back to your Dashboard"
@@ -28,6 +29,7 @@ en:
       expiration: "Expiration date :"
       drag_html: "<strong>Click or drag & drop</strong> your file here"
       create: "Create Document"
+      passport_type: "Required only for passport"
   travel_countries:
     edit:
       title: "Update the stay"
@@ -144,6 +146,11 @@ en:
   user_genders:
     male: "Man"
     female: "Woman"
+    other: "Other"
+  document_document_types:
+    passport: "Passport"
+    airplane_ticket: "Airplane ticket"
+    visa: "Visa"
     other: "Other"
   date:
     formats:

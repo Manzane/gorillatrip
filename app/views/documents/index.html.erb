@@ -4,8 +4,8 @@
 <% @documents.each do |document| %>
   <div>
     <p><%= t('.name') %> <%= document.name %></p>
-    <p><%= t('.type') %> <%= document.doc_type %></p>
-    <% if document.doc_type == "passport" %>
+    <p><%= t('.type') %> <%= I18n.t :"document_document_types.#{document.document_type}" %></p>
+    <% if document.document_type == "passport" %>
       <p><%= t('.expiration') %> <%= l document.expiration_date %></p>
     <% end %>
     <% if document.files.attached? %>
