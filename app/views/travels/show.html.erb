@@ -34,9 +34,15 @@
       <ul>
         <% country.visas.each do |visa| %>
           <li>
-            <%= link_to country_visa_path(visa.country_id, visa) do %>
               <p><%= visa.name %></p>
-            <% end %>
+              <p><% if !visa.extra_info.nil? %><%= t('.extra_info') %> <%= visa.extra_info %><% end %></p>
+              <p><% if !visa.duration.nil? %><%= t('.duration_visas') %> <%= visa.duration %><% end %></p>
+              <p><% if !visa.validity.nil? %><%= t('.validity') %> <%= visa.validity %><% end %></p>
+              <p><% if !visa.age_max.nil? %><%= t('.age_max') %> <%= visa.age_max %><% end %></p>
+              <p><% if !visa.price.nil? %><%= t('.price') %> <%= visa.price %><% end %></p>
+              <p><% if !visa.application.nil? %><a href="<%= visa.application %>" target="_blank"><%= t('.application') %></a><% end %></p>
+              <p><% if !visa.embassy.nil? %><a href="<%= visa.embassy %>" target="_blank"><%= t('.embassy') %></a><% end %></p>
+              <p><% if !visa.fr_diplomacy.nil? %><a href="<%= visa.fr_diplomacy %>" target="_blank"><%= t('.fr_diplomacy') %></a><% end %></p>
           </li>
         <% end %>
       </ul>
@@ -54,15 +60,20 @@
       <ul>
         <% country.vaccine_countries.each do |vaccine_country| %>
           <% if vaccine_country.systematic? %>
-            <li><%= vaccine_country.vaccine.name %></li>
+            <%= link_to vaccine_path(vaccine_country.vaccine) do %>
+              <li><%= vaccine_country.vaccine.name %></li>
+            <% end %>
           <% end %>
         <% end %>
       </ul>
       <p><%= t('.advisable') %></p>
       <ul>
+
         <% country.vaccine_countries.each do |vaccine_country| %>
           <% if !vaccine_country.systematic? %>
-            <li><%= vaccine_country.vaccine.name %></li>
+            <%= link_to vaccine_path(vaccine_country.vaccine) do %>
+              <li><%= vaccine_country.vaccine.name %></li>
+            <% end %>
           <% end %>
         <% end %>
       </ul>
