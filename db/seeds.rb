@@ -95,6 +95,12 @@ puts "Continents created"
 # puts "Continents updated"
 
 
+puts "Create countries"
+CountriesService.new.call
+Country.find_by(name: "Republic of Kosovo").update(french_name: "République du Kosovo")
+Country.find_by(name: "Congo (Democratic Republic of the)").update(french_name: "République du Congo")
+puts "Countries created"
+
 
 puts "Updates countries with continent id"
 @countries = Country.all
@@ -109,13 +115,6 @@ puts "Updates countries with continent id"
   end
 end
 puts "Countries updated"
-
-
-puts "Create countries"
-CountriesService.new.call
-Country.find_by(name: "Republic of Kosovo").update(french_name: "République du Kosovo")
-Country.find_by(name: "Congo (Democratic Republic of the)").update(french_name: "République du Congo")
-puts "Countries created"
 
 
 
