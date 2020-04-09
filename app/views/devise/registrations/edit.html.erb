@@ -9,7 +9,7 @@
     <%= f.input :username, required: true, autofocus: true, label: t(".username") %>
     <%= f.input :nationality, required: false, autofocus: true, disabled: true, hint: t(".nationality-fr"), label: t(".nationality") %>
     <%= f.input :date_of_birth, :as => :hidden, input_html: {class: "datePicker"}, required: false, autofocus: true, label: t(".dob") %>
-    <%= f.input :gender, required: false, autofocus: true, label: t(".gender") %>
+    <%= f.input :gender, collection: User.i18n_genders, required: false, autofocus: true, label: t(".gender") %>
     <%= f.input :phone_number, required: false, autofocus: true, label: t(".phone") %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

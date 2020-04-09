@@ -141,6 +141,10 @@ fr:
     show:
       years-old: "ans"
       edit: "Édite ton profil"
+  user_genders:
+    male: "Homme"
+    female: "Femme"
+    other: "Autre"
   date:
     formats:
       default: "%d %B %Y"

@@ -141,6 +141,10 @@ en:
     show:
       years-old: "years old"
       edit: "update your profile"
+  user_genders:
+    male: "Man"
+    female: "Woman"
+    other: "Other"
   date:
     formats:
       default: "%d %B %Y"
