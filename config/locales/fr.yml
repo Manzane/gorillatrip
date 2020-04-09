@@ -91,6 +91,15 @@ fr:
       visas: "Visas:"
       no_visa: "Désolés; nous ne disposons pas d'information concernant ce pays."
       confirmation: "Es-tu certain ?"
+      duration_visas: "Durée:"
+      price: "Prix:"
+      contact: "Contact:"
+      application: "Demande de visa"
+      embassy: "Ambassade"
+      fr_diplomacy: "France Diplomatie"
+      validity: "Validité: "
+      extra_info: "A savoir:"
+      age_max: "Age maximum: "
   vaccines:
     index:
       title: "Liste des vaccins et traitements"
@@ -116,6 +125,8 @@ fr:
       price: "Prix:"
       contact: "Contact:"
       application: "Demande de visa:"
+      embassy: "Ambassade:"
+      fr_diplomacy: "France Diplomatie:"
       back: "Retour à la liste"
   shared:
     navbar:
