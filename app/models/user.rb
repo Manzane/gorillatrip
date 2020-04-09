@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :documents, dependent: :destroy
   has_one_attached :avatar
   validates :username, presence: true, uniqueness: true
+  enum gender: {male: 0, female: 1, other: 2}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -23,4 +24,8 @@ class User < ApplicationRecord
     age = ((Time.zone.now - date_of_birth.to_time) / 1.year.seconds).floor
   end
 
+  def self.i18n_genders(hash = {})
+    genders.keys.each { |key| hash[I18n.t("user_genders.#{key}")] = key }
+    hash
+  end
 end

@@ -125,9 +125,7 @@ paul = User.new(
   email: "aroidpaul364@gmail.com",
   password: "Photo364",
   phone_number: "06.21.43.65.98",
-  nationality: "fr",
-  gender: "m",
-  age: 26
+  nationality: "fr"
 )
 paul.save!
 
@@ -136,9 +134,7 @@ marie = User.new(
   email: "marie@marie.com",
   password: "123456",
   phone_number: "06.21.43.65.98",
-  nationality: "fr",
-  gender: "f",
-  age: 32
+  nationality: "fr"
 )
 marie.save!
 puts "Users created"

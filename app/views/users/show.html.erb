@@ -5,7 +5,7 @@
 <div><%= @user.username %></div>
 <div><%= @user.email %></div>
 <div><%= @user.phone_number %></div>
-<div><%= @user.def_age %> <%= t(".years-old") %></div>
+<div><% if ! @user.date_of_birth.nil? %> <%= @user.def_age %> <%= t(".years-old") %><% end %></div>
 <div><%= @user.gender %></div>
 
 <%= link_to edit_user_registration_path do %>
