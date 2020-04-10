@@ -21,6 +21,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'devise-i18n'
+gem 'pry-byebug'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -28,7 +29,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

@@ -17,7 +17,12 @@ class TravelCountriesController < ApplicationController
     @travel_country = TravelCountry.new(stay_params)
     @travel_country.travel_id = @travel.id
     if @travel_country.save
-      redirect_to travel_path(@travel)
+      date_update = TravelDateUpdater.new(@travel)
+      if date_update.save
+        redirect_to travel_path(@travel)
+      else
+        date_update.errors.full_messages
+      end
     else
       @travel_country.errors.full_messages
         render :new
@@ -32,15 +37,25 @@ class TravelCountriesController < ApplicationController
   def update
     @stay.update(stay_params)
     if @stay.save
-    redirect_to travel_path(@travel), notice: 'La destination a bien été mis à jour.'
+      date_update = TravelDateUpdater.new(@travel)
+      if date_update.save
+        redirect_to travel_path(@travel), notice: 'La destination a bien été mis à jour.'
+      else
+        date_update.errors.full_messages
+      end
     else
-      updater.errors.full_messages
+      @stay.errors.full_messages
     end
   end
 
   def destroy
     @stay.destroy
-    redirect_to travel_path(@travel), notice: 'La destination a bien été supprimé.'
+    date_update = TravelDateUpdater.new(@travel)
+    if date_update.save
+      redirect_to travel_path(@travel), notice: 'La destination a bien été supprimé.'
+    else
+      date_update.errors.full_messages
+    end
   end
 
 
@@ -56,6 +71,14 @@ class TravelCountriesController < ApplicationController
 
   def stay_params
     params.require(:travel_country).permit(:start_date, :end_date, :country_id)
+  end
+
+  def set_dates(travel)
+    travel_countries = TravelCountry.where("travel_id = #{travel.id}")
+    first_stay = travel_countries.order('start_date ASC').first
+    @first_date = first_stay.start_date
+    last_stay = travel_countries.order('end_date DESC').first
+    @last_date = last_stay.end_date
   end
 
 end

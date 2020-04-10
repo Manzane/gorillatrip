@@ -18,10 +18,13 @@ class TravelsController < ApplicationController
 
 
   def create
-    # params -> { name: '6e7', photos: [photo1, photo2] }
     creator = TravelCreator.new(travel_params, current_user)
     if creator.save
       @travel = creator.travel
+      set_dates(@travel)
+      @travel.travel_start_date = @first_date
+      @travel.travel_end_date = @last_date
+      @travel.save!
       redirect_to travel_path(@travel)
     else
       creator.errors.full_messages
@@ -38,7 +41,9 @@ class TravelsController < ApplicationController
     updater = TravelUpdater.new(set_travel, travel_params, current_user)
     if updater.save
       @travel = updater.travel
-    redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
+      set_dates(@travel)
+      @travel.update!(travel_start_date: @first_date, travel_end_date: @last_date)
+      redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
     else
       updater.errors.full_messages
     end
@@ -54,6 +59,14 @@ class TravelsController < ApplicationController
 
   def set_travel
     @travel = current_user.travels.find(params[:id])
+  end
+
+  def set_dates(travel)
+    travel_countries = TravelCountry.where("travel_id = #{travel.id}")
+    first_stay = travel_countries.order('start_date ASC').first
+    @first_date = first_stay.start_date
+    last_stay = travel_countries.order('end_date DESC').first
+    @last_date = last_stay.end_date
   end
 
   def travel_params
