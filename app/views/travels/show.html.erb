@@ -1,7 +1,6 @@
 <h1><%= t('.title') %></h1>
 <p></p>
-
-
+<hr>
 <%= t('.name') %> <%= @travel.name %>
 <br>
 <% if @travel.travel_start_date && @travel.travel_end_date %>
@@ -10,6 +9,20 @@
   <br>
   <p><%= t('.eq') %> <%= (@travel.travel_end_date - @travel.travel_start_date).to_i %> <%= t('.days') %></p>
 <% end %>
+<br>
+<hr>
+<p>To Do List</p>
+<p>Vaccins</p>
+<p>Visas</p>
+<div>
+  <% @travel.visa_progressions.each do |vp| %>
+    <p><%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %></p>
+    <p><%= vp.done %></p>
+    <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
+            <p><%= t('.MarkAsDone') %></p>
+          <% end %>
+  <% end %>
+</div>
 <br>
 <%= t('.countries') %>
 <hr>
@@ -49,6 +62,9 @@
               <p><% if !visa.embassy.nil? %><a href="<%= visa.embassy %>" target="_blank"><%= t('.embassy') %></a><% end %></p>
               <p><% if !visa.fr_diplomacy.nil? %><a href="<%= visa.fr_diplomacy %>" target="_blank"><%= t('.fr_diplomacy') %></a><% end %></p>
           </li>
+          <%= link_to travels_country_visa_visa_progressions_path(country.travel_countries.find_by(travel_id: @travel), visa ), :method => :post do %>
+            <p><%= t('.Choose') %></p>
+          <% end %>
         <% end %>
       </ul>
     <% else %>
