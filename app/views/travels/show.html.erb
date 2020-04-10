@@ -4,7 +4,12 @@
 
 <%= t('.name') %> <%= @travel.name %>
 <br>
-<%= t('.duration') %> x <%= t('.days') %>
+<% if @travel.travel_start_date && @travel.travel_end_date %>
+  <%= t('.from') %> <%= l @travel.travel_start_date %>
+  <%= t('.to') %> <%= l @travel.travel_end_date %>
+  <br>
+  <p><%= t('.eq') %> <%= (@travel.travel_end_date - @travel.travel_start_date).to_i %> <%= t('.days') %></p>
+<% end %>
 <br>
 <%= t('.countries') %>
 <hr>

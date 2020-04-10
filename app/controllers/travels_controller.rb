@@ -18,11 +18,15 @@ class TravelsController < ApplicationController
 
 
   def create
-    # params -> { name: '6e7', photos: [photo1, photo2] }
     creator = TravelCreator.new(travel_params, current_user)
     if creator.save
       @travel = creator.travel
-      redirect_to travel_path(@travel)
+      date_update = TravelDateUpdater.new(@travel)
+      if date_update.save
+        redirect_to travel_path(@travel), notice: 'Le voyage a bien été créé.'
+      else
+        date_update.errors.full_messages
+      end
     else
       creator.errors.full_messages
         render :new
@@ -38,7 +42,12 @@ class TravelsController < ApplicationController
     updater = TravelUpdater.new(set_travel, travel_params, current_user)
     if updater.save
       @travel = updater.travel
-    redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
+      date_update = TravelDateUpdater.new(@travel)
+      if date_update.save
+        redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
+      else
+        date_update.errors.full_messages
+      end
     else
       updater.errors.full_messages
     end
