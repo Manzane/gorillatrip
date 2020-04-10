@@ -19,7 +19,7 @@
     <p><%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %></p>
     <p><%= vp.done %></p>
     <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
-            <p><%= t('.MarkAsDone') %></p>
+            <p><%= t('.MarkAsDoneOrUndone') %></p>
           <% end %>
   <% end %>
 </div>

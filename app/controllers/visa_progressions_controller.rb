@@ -19,11 +19,20 @@ class VisaProgressionsController < ApplicationController
   end
 
   def update
-    @visa_progression.update(done: true)
-    if @visa_progression.save
-      redirect_to travel_path(Travel.find(@travel_country.travel_id)), notice: 'Le visa a bien été ajouté à la to-do liste.'
+    if ! @visa_progression.done
+      @visa_progression.update(done: true)
+      if @visa_progression.save
+        redirect_to travel_path(Travel.find(@travel_country.travel_id)), notice: 'Le visa a bien été marqué comme effectué.'
+      else
+        @visa_progression.errors.full_messages
+      end
     else
-      @visa_progression.errors.full_messages
+     @visa_progression.update(done: false)
+      if @visa_progression.save
+        redirect_to travel_path(Travel.find(@travel_country.travel_id)), notice: 'Le visa a bien été marqué comme non effectué.'
+      else
+        @visa_progression.errors.full_messages
+      end
     end
   end
 
