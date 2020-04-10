@@ -1,6 +1,6 @@
 <h1><%= t('.title') %></h1>
-<p></p>
 <hr>
+<!-- TRAVEL DETAILS BEGINS -->
 <%= t('.name') %> <%= @travel.name %>
 <br>
 <% if @travel.travel_start_date && @travel.travel_end_date %>
@@ -9,8 +9,9 @@
   <br>
   <p><%= t('.eq') %> <%= (@travel.travel_end_date - @travel.travel_start_date).to_i %> <%= t('.days') %></p>
 <% end %>
-<br>
+<!-- TRAVEL DETAILS ENDS -->
 <hr>
+<!-- TODO LIST BEGINS -->
 <p>To Do List</p>
 <p>Vaccins</p>
 <p>Visas</p>
@@ -24,12 +25,16 @@
   <% end %>
 </div>
 <br>
+<!-- TODO LIST ENDS -->
+<hr>
+<!-- COUNTRIES BEGINS -->
 <%= t('.countries') %>
 <hr>
 <% @travel.countries.each do |country| %>
   <div>
+    <!-- COUNTRY DETAIL BEGINS -->
     <p><strong><%= country.french_name %></strong></p>
-<!--     Algo à revoir pour le display des durées par pays
+    <!-- Algo à revoir pour le display des durées par pays
       country.travel_countries.where(@travel == country.travel_countries.travel_id) -->
     <% if country.travel_countries.find_by(travel_id: @travel).start_date && country.travel_countries.find_by(travel_id: @travel).end_date %>
       <%= t('.from') %> <%= l country.travel_countries.find_by(travel_id: @travel).start_date %>
@@ -37,7 +42,7 @@
       <br>
       <p><%= t('.eq') %> <%= (country.travel_countries.find_by(travel_id: @travel).end_date - country.travel_countries.find_by(travel_id: @travel).start_date).to_i %> <%= t('.days') %></p>
     <% end %>
-<!--     Temp: display de tous les visas pour exemple d'affichage
+    <!-- Temp: display de tous les visas pour exemple d'affichage
     mais travailler algo pour les filtrer en fonction de la durée -->
     <%= link_to edit_travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)) do %>
       <p><%= t('.edit') %></p>
@@ -46,7 +51,8 @@
     <%= link_to travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)), method: :delete, data: { confirm: "Es-tu certain?" } do %>
       <p><%= t('.delete') %></p>
     <% end %>
-
+    <!-- COUNTRY DETAIL ENDS -->
+    <!-- VISAS FOR COUNTRY BEGINS -->
     <p><%= t('.visas') %></p>
     <% if ! country.visas.empty? %>
       <ul>
@@ -70,10 +76,10 @@
     <% else %>
       <p><%= t('.no_visa') %></p>
     <% end %>
-
-<!--     Temp: display de tous les vaccins pour exemple d'affichage
+    <!-- VISAS FOR COUNTRY ENDS -->
+    <!-- VACCINES FOR COUNTRY BEGINS -->
+    <!-- Temp: display de tous les vaccins pour exemple d'affichage
     mais travailler algo -->
-
     <p><%= t('.vaccines') %></p>
     <% if ! country.vaccine_countries.empty? %>
       <p><%= t('.vaccines_txt') %></p>
@@ -101,9 +107,12 @@
     <% else %>
       <p><%= t('.no_vaccin') %></p>
     <% end %>
+    <!-- VACCINES FOR COUNTRY ENDS -->
   </div>
-  <hr>
 <% end %>
+<!-- COUNTRIES ENDS -->
+<hr>
+<!-- TRAVEL EDITION BEGINS -->
 <%= link_to new_travel_travel_country_path(@travel) do %>
   <p><%= t('.add') %></p>
 <% end %>
@@ -116,7 +125,7 @@
   <p><%= t('.delete_global') %></p>
 <% end %>
 
-
+<!-- TRAVEL EDITION ENDS -->
 
 <%= link_to travels_path do %>
   <p><%= t('.back_dashboard') %></p>
