@@ -5,7 +5,7 @@
 
   <div class="form-inputs">
     <%= f.input :avatar, as: :file %>
-    <%= f.input :email, required: true, autofocus: true, label: t(".email") %>
+    <%= f.input :email, required: true, autofocus: true, label: t(".email"), disabled: true %>
     <%= f.input :username, required: true, autofocus: true, label: t(".username") %>
     <%= f.input :nationality, required: false, autofocus: true, disabled: true, hint: t(".nationality-fr"), label: t(".nationality") %>
     <%= f.input :date_of_birth, :as => :hidden, input_html: {class: "datePicker"}, required: false, autofocus: true, label: t(".dob") %>
@@ -15,18 +15,6 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
     <% end %>
-
-    <%= f.input :password,
-                hint: t(".leave_blank_if_you_don_t_want_to_change_it"),
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: t(".we_need_your_current_password_to_confirm_your_changes"),
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
   </div>
 
   <div class="form-actions">
