@@ -1,13 +1,7 @@
 class VisaProgressionsController < ApplicationController
-  before_action :set_travel_country, only: [:create, :update, :destroy]
-  before_action :set_visa, only: [:create, :update, :destroy]
-  before_action :set_visa_progression, only: [:update, :destroy]
-
-  def index
-  end
-
-  def show
-  end
+  before_action :set_travel_country, only: [:create, :update]
+  before_action :set_visa, only: [:create]
+  before_action :set_visa_progression, only: [:update]
 
   def create
     @visa_progression = VisaProgression.new(done: false, visa: @visa, travel_country: @travel_country)

@@ -14,16 +14,21 @@
 <!-- TODO LIST BEGINS -->
 <p>To Do List</p>
 <p>Vaccins</p>
+<% if !@travel.visa_progressions.empty? %>
 <p>Visas</p>
 <div>
   <% @travel.visa_progressions.each do |vp| %>
-    <p><%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %></p>
-    <p><%= vp.done %></p>
-    <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
-            <p><%= t('.MarkAsDoneOrUndone') %></p>
-          <% end %>
+  <div>
+      <%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %></p>
+      <%= vp.done %>
+      <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
+        <%= t('.MarkAsDoneOrUndone') %>
+      <% end %>
+    </div>
+    <br>
   <% end %>
 </div>
+ <% end %>
 <br>
 <!-- TODO LIST ENDS -->
 <hr>
