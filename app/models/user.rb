@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :travels, dependent: :destroy
   has_many :travel_countries, through: :travels
   has_many :documents, dependent: :destroy
+
   has_one_attached :avatar
   validates :username, presence: true, uniqueness: true
   enum gender: {male: 0, female: 1, other: 2}

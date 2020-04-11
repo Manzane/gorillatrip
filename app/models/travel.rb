@@ -3,6 +3,7 @@ class Travel < ApplicationRecord
   has_many :travel_countries, dependent: :destroy
   has_many :countries, through: :travel_countries
   has_many :visa_progressions, through: :travel_countries
+  has_many :vaccine_progressions, dependent: :destroy
 
   accepts_nested_attributes_for :travel_countries
   accepts_nested_attributes_for :countries

@@ -27,6 +27,10 @@
     <p><%= vaccine_progression.vaccine.name %></p>
   <% end %>
 <% end %>
+<hr>
+<% @travel.vaccine_progressions.each do |vaccine_progression| %>
+    <p><%= vaccine_progression.vaccine.name %></p>
+<% end %>
 
 
 <br>

@@ -19,7 +19,7 @@ class TravelCountriesController < ApplicationController
     if @travel_country.save
       date_update = TravelDateUpdater.new(@travel)
       if date_update.save
-        vp = VaccineProgressionConstructor.new(@travel_country)
+        vp = VaccineProgressionConstructor.new(@travel_country, @travel)
         if vp.save
           redirect_to travel_path(@travel)
         else

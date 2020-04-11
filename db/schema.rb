@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_121803) do
+ActiveRecord::Schema.define(version: 2020_04_11_195239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_121803) do
     t.bigint "vaccine_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "travel_id"
+    t.index ["travel_id"], name: "index_vaccine_progressions_on_travel_id"
     t.index ["vaccine_id"], name: "index_vaccine_progressions_on_vaccine_id"
   end
 
@@ -195,6 +197,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_121803) do
   add_foreign_key "travels", "users"
   add_foreign_key "vaccine_countries", "countries"
   add_foreign_key "vaccine_countries", "vaccines"
+  add_foreign_key "vaccine_progressions", "travels"
   add_foreign_key "vaccine_progressions", "vaccines"
   add_foreign_key "visa_progressions", "travel_countries"
   add_foreign_key "visa_progressions", "visas"
