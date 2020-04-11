@@ -78,7 +78,7 @@ fr:
       days: "jours"
       countries: "Pays:"
       add: "Ajoute une nouvelle destination à ton voyage"
-      edit: "Modifie cette destination"
+      edit: "Modifie ces dates"
       delete: "Supprime cette destination"
       edit_global: "Modifie ce voyage"
       delete_global: "Supprime ce voyage"
