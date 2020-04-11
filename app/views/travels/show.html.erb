@@ -14,13 +14,21 @@
 <!-- TODO LIST BEGINS -->
 <p>To Do List</p>
 <p>Vaccins</p>
-<% @travel.countries.each do |country| %>
-  <% country.vaccine_countries.each do |vaccine_country| %>
-    <% if vaccine_country.systematic? %>
-      <li><%= vaccine_country.vaccine.name %></li>
-    <% end %>
+<%# @travel.countries.each do |country| %>
+  <%# country.vaccine_countries.each do |vaccine_country| %>
+    <%# if vaccine_country.systematic? %>
+      <li><%#= vaccine_country.vaccine.name %></li>
+    <%# end %>
+  <%# end %>
+<%# end %>
+
+<% @travel.travel_countries.each do |travel_country| %>
+  <% travel_country.vaccine_progressions.each do |vaccine_progression| %>
+    <p><%= vaccine_progression.vaccine.name %></p>
   <% end %>
 <% end %>
+
+
 <br>
 <% if !@travel.visa_progressions.empty? %>
 <p>Visas</p>
