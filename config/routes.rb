@@ -21,10 +21,13 @@ Rails.application.routes.draw do
         resources :travel_countries
       end
       resources :documents
+      resources :travels_countries do
+        resources :visas do
+          resources :visa_progressions
+        end
+      end
     end
 
-      # for visitors ? visible for everyone
-    # resources :travels, only: [ :new, :create, :show ]
 
     resources :countries, only: [ :index, :show ] do
       resources :visas, only: [ :index, :show ]
@@ -32,7 +35,7 @@ Rails.application.routes.draw do
 
     resources :vaccines, only: [ :index, :show ]
     get "/confidentialite", to: "pages#confidentiality"
-    end
+  end
 
 
 

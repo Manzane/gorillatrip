@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_184927) do
+ActiveRecord::Schema.define(version: 2020_04_10_170017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,16 @@ ActiveRecord::Schema.define(version: 2020_04_09_184927) do
     t.boolean "travel_advised"
   end
 
+  create_table "visa_progressions", force: :cascade do |t|
+    t.boolean "done"
+    t.bigint "visa_id", null: false
+    t.bigint "travel_country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["travel_country_id"], name: "index_visa_progressions_on_travel_country_id"
+    t.index ["visa_id"], name: "index_visa_progressions_on_visa_id"
+  end
+
   create_table "visas", force: :cascade do |t|
     t.string "name"
     t.string "extra_info"
@@ -166,5 +176,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_184927) do
   add_foreign_key "travels", "users"
   add_foreign_key "vaccine_countries", "countries"
   add_foreign_key "vaccine_countries", "vaccines"
+  add_foreign_key "visa_progressions", "travel_countries"
+  add_foreign_key "visa_progressions", "visas"
   add_foreign_key "visas", "countries"
 end
