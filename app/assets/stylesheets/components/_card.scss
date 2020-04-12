@@ -1,6 +1,6 @@
 .id-card{
     // display
-    height: 30vh;
+    height: 200px;
     width: 100%;
     // style
     background: white;
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 12vh;
+    height: 80px;
     padding-left: 1em;
     // style
     background: $color-pink;
@@ -44,14 +44,18 @@
 
 .travel-card{
     // display
-    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
     justify-content: end;
     flex-direction: column;
-    height: 25vh;
-    width: 25vh;
+    height: 170px;
+    width: 170px;
     padding-left: 1em;
     // style
-    background: $color-blue;
+    background-image: url(asset-path("voyage.jpg"));
+    background-size: cover;
+    background-position: center;
+    // background: $color-blue;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     // font

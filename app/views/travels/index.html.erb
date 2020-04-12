@@ -14,21 +14,19 @@
   </div>
   
   <h2 id="title"><%= t('.title') %></h2>
-  <div id="container-travels"> 
-    <div class="container-travel-list" style="grid-template-columns: repeat(<%= @travels.count %>, 1fr);">
-      <% @travels.each do |travel| %>
-        <div class="container-travel-cards">
-          <%= link_to travel_path(travel) do %>
-            <div class="travel-card">
-              <h4><%= travel.name %></h4>
-              <% if travel.travel_start_date && travel.travel_end_date %>
-                <p><%= l travel.travel_start_date %> - <%= l travel.travel_end_date %></p>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+  <div id="container-travels" style="grid-template-columns: 4% repeat(<%= @travels.count %>, calc(50% - 4%)) 4%;">
+    <% @travels.each do |travel| %>
+      <div class="container-travel-cards">
+        <%= link_to travel_path(travel) do %>
+          <div class="travel-card">
+            <h4><%= travel.name %></h4>
+            <% if travel.travel_start_date && travel.travel_end_date %>
+              <p><%= l travel.travel_start_date %> - <%= l travel.travel_end_date %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <div id="container-documents"> 
