@@ -8,7 +8,7 @@ class VaccineProgressionTConstructor
     travel_country = @travel_country.first
     country = Country.find(travel_country.country_id)
     vaccines = country.vaccines
-    binding.pry
+    # binding.pry
     country.vaccines.where('"systematic" = true').each do |vaccine|
       vp = VaccineProgression.where("vaccine_id = #{vaccine.id} AND travel_id = #{@travel.id}")
       if !vp.empty?

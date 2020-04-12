@@ -23,7 +23,7 @@ class TravelsController < ApplicationController
       @travel = creator.travel
       date_update = TravelDateUpdater.new(@travel)
       if date_update.save
-        binding.pry
+        # binding.pry
         vp = VaccineProgressionTConstructor.new(@travel.travel_countries, @travel)
         if vp.save
           redirect_to travel_path(@travel), notice: 'Le voyage a bien été créé.'
