@@ -19,11 +19,12 @@ Rails.application.routes.draw do
     as :users do
       resources :travels do
         resources :travel_countries
+        resources :vaccine_progressions, only: [ :update ]
       end
       resources :documents
       resources :travels_countries do
-        resources :visas do
-          resources :visa_progressions
+        resources :visas, only: :index do
+          resources :visa_progressions, only: [ :create, :update, :destroy ]
         end
       end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_170017) do
+ActiveRecord::Schema.define(version: 2020_04_11_195239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_170017) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "document_type"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "stay_vaccine_progressions", force: :cascade do |t|
+    t.bigint "vaccine_progression_id", null: false
+    t.bigint "travel_country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["travel_country_id"], name: "index_stay_vaccine_progressions_on_travel_country_id"
+    t.index ["vaccine_progression_id"], name: "index_stay_vaccine_progressions_on_vaccine_progression_id"
   end
 
   create_table "travel_countries", force: :cascade do |t|
@@ -123,6 +132,16 @@ ActiveRecord::Schema.define(version: 2020_04_10_170017) do
     t.index ["vaccine_id"], name: "index_vaccine_countries_on_vaccine_id"
   end
 
+  create_table "vaccine_progressions", force: :cascade do |t|
+    t.boolean "done"
+    t.bigint "vaccine_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "travel_id"
+    t.index ["travel_id"], name: "index_vaccine_progressions_on_travel_id"
+    t.index ["vaccine_id"], name: "index_vaccine_progressions_on_vaccine_id"
+  end
+
   create_table "vaccines", force: :cascade do |t|
     t.string "name"
     t.string "contraindications"
@@ -171,11 +190,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_170017) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "countries", "continents"
   add_foreign_key "documents", "users"
+  add_foreign_key "stay_vaccine_progressions", "travel_countries"
+  add_foreign_key "stay_vaccine_progressions", "vaccine_progressions"
   add_foreign_key "travel_countries", "countries"
   add_foreign_key "travel_countries", "travels"
   add_foreign_key "travels", "users"
   add_foreign_key "vaccine_countries", "countries"
   add_foreign_key "vaccine_countries", "vaccines"
+  add_foreign_key "vaccine_progressions", "travels"
+  add_foreign_key "vaccine_progressions", "vaccines"
   add_foreign_key "visa_progressions", "travel_countries"
   add_foreign_key "visa_progressions", "visas"
   add_foreign_key "visas", "countries"
