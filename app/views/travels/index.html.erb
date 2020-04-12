@@ -1,8 +1,17 @@
 <div id="header"></div>
 <div class="global-container">
-  <div class="id-card"></div>
-  <!-- <h1><%= t('.title') %></h1>
-  <p></p> -->
+  <div class="id-card">
+    <%= link_to edit_user_registration_path do %>
+    <%= image_tag("blue-menu", class:"menu") %>
+    <% end %>
+    <div class="avatar"></div>
+    <div class="content">
+      <h4><%= @user.username %></h4>
+      <p><%= @user.nationality %></p>
+      <p><%= @user.date_of_birth%></p>
+      <p><%= @user.phone_number %></p> 
+    </div>
+  </div>
   
   <div id="container-add-travel"> 
     <%= link_to new_travel_path do %>

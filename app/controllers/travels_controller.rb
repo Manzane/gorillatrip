@@ -3,6 +3,7 @@ class TravelsController < ApplicationController
 
   def index
     @travels = current_user.travels.all
+    @user = current_user
   end
 
   def show

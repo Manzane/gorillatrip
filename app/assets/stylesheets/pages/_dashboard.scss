@@ -5,18 +5,21 @@
     top: 0;
     z-index: -1;
     // display 
-    height: 235px;
+    height: 200px;
     width: 100%;
-    // style
-    background-image: url(asset-path("header.jpg"));
+    // style 
+    background-image:
+    linear-gradient(0deg, rgba(23,46,106,0) 30%, rgba(23,46,106,0.5) 100%),
+    url(asset-path("header.jpg"));
     background-size: cover;
     background-position: center;
     // background: $color-blue;
     border-radius: 0 0 20px 20px;
 }
+
 .global-container{
     // position
-    margin-top: 40%;
+    margin-top: 25%;
     margin-bottom: 10%;
     // display
     display: grid;
