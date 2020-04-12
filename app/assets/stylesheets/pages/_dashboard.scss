@@ -1,0 +1,95 @@
+// Specific CSS for your home-page
+#header{
+    // position
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    // display 
+    height: 200px;
+    width: 100%;
+    // style 
+    background-image:
+    linear-gradient(0deg, rgba(23,46,106,0) 30%, rgba(23,46,106,0.5) 100%),
+    url(asset-path("header.jpg"));
+    background-size: cover;
+    background-position: center;
+    // background: $color-blue;
+    border-radius: 0 0 20px 20px;
+}
+
+.global-container{
+    // position
+    margin-top: 25%;
+    margin-bottom: 10%;
+    // display
+    display: grid;
+    // height: 100vh;
+    width: 100%;
+    // grid
+    grid-template-columns: 8% 1fr 8%;
+    grid-auto-rows: min-content;
+    grid-row-gap: 2em;
+}
+
+#container-add-travel{
+    // grid
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+#title{
+    // display
+    margin: 0;
+    align-self: end;
+    // grid
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    // style
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    color: $color-blue;
+}
+#container-travels{
+    // display
+    display: grid;
+    // grid
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    grid-template-rows: minmax(170px);
+    grid-gap: 4%;
+    // scroll
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    //children 
+    &::before, &::after{
+        content: '';
+    }
+}
+
+.container-travels-cards{
+    // grid
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+#container-documents{
+    // grid
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 5;
+}
+

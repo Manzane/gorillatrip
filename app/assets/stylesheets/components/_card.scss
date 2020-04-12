@@ -1,0 +1,127 @@
+.id-card{
+    // position
+    position: relative;
+    // display
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    // style
+    color: $color-blue;
+    font-size: 0.8rem;
+    line-height: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+    // grid
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-end: 1;
+    grid-row-start: 1;
+    //children 
+    .menu{
+        // position
+        position: absolute;
+        right: 4%;
+        margin-top: 4%;
+        // display
+        height: 20px;
+    }
+    .avatar{
+        // position
+        margin-top: 4%;
+        margin-bottom: 2%;
+        // display
+        height: 70px;
+        width: 30%;
+        // style
+        border: solid 3px $color-light;
+        border-radius: 10px;
+    } 
+    .content{
+        // display
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        // children
+        *{
+            margin: 0;
+        }
+    }
+    h4{ 
+        // style
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+}
+
+.pink-card{
+    // display
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 80px;
+    padding-left: 1em;
+    // style
+    background: $color-pink;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.8rem;
+    line-height: 0;
+    // children
+    h4{
+        // stylz
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    a{
+        // style
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.travel-card{
+    // display
+    display: -moz-box;
+    display: -webkit-box;
+    justify-content: end;
+    flex-direction: column;
+    height: 170px;
+    width: 170px;
+    padding-left: 1em;
+    // style
+    background-image: url(asset-path("voyage.jpg"));
+    background-size: cover;
+    background-position: center;
+    // background: $color-blue;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    // font
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.8rem;
+    line-height: 0;
+    // children
+    h4{
+        // style
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    a{
+        // style
+        color: white;
+        text-decoration: none;
+    }
+}

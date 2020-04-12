@@ -67,9 +67,11 @@ en:
       create: "Create the travel"
       choice: "Choose a country"
     index:
-      title: "Your Travels List"
+      title: "Your next travels"
       add: "Add a new travel"
-      documents: "Your files"
+      sub_add: "Prepare a new adventure !"
+      documents: "Your papers"
+      sub_documents: "Protect your papers" 
     show:
       title: "Your travel"
       back_dashboard: "Back to your Dashboard"
@@ -154,7 +156,7 @@ en:
     other: "Other"
   date:
     formats:
-      default: "%d %B %Y"
+      default: "%m/%d/%Y"
     month_names:
     -
     - january
