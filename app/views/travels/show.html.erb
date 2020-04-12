@@ -29,7 +29,14 @@
 <% end %>
 <hr>
 <% @travel.vaccine_progressions.each do |vaccine_progression| %>
-    <p><%= vaccine_progression.vaccine.name %></p>
+  <div>
+    <%= vaccine_progression.vaccine.name %>
+    <%= vaccine_progression.done %>
+    <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
+        <%= t('.MarkAsDoneOrUndone') %>
+    <% end %>
+  </div>
+  <br>
 <% end %>
 
 
@@ -39,7 +46,7 @@
 <div>
   <% @travel.visa_progressions.each do |vp| %>
   <div>
-      <%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %></p>
+      <%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %>
       <%= vp.done %>
       <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
         <%= t('.MarkAsDoneOrUndone') %>
