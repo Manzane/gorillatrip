@@ -14,28 +14,35 @@
 <!-- TODO LIST BEGINS -->
 <p>To Do List</p>
   <!-- VACCINES - TODO LIST BEGINS -->
+  <br>
+number of vaccins: <%= @travel.vaccine_progressions.count %> <br>
+number of vaccins done: <%= @travel.vaccine_progressions.where('"done" = true').count %> <br>
+number of travel_countries: <%= @travel.travel_countries.count %> <br>
+<br>
 <% if !@travel.stay_vaccine_progressions.empty? %>
   <p>Vaccins</p>
   <div>
-    <% @travel.travel_countries.each do |tc| %>
-      <% tc.vaccine_progressions.each do |vp| %>
-        <% @travel.vaccine_progressions.each do |vaccine_progression| %>
-            <% if vaccine_progression.id == vp.id %>
-              <%= vaccine_progression.vaccine.name %>
-              <%= vaccine_progression.done %>
-              <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
-                <%= t('.MarkAsDoneOrUndone') %>
-              <% end %>
-            <% end %>
+    <% @travel.vaccine_progressions.each do |vaccine_progression| %>
+      <br>
+      <% svp = @travel.stay_vaccine_progressions.find_by(vaccine_progression_id: vaccine_progression.id) %>
+      <% if !svp.nil? %>
+        <%= vaccine_progression.vaccine.name %>
+        <%= vaccine_progression.done %>
+        <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
+          <%= t('.MarkAsDoneOrUndone') %>
         <% end %>
+        <br>
       <% end %>
     <% end %>
   <!-- si le vaccine_progression(id) est dans stay_vaccine_prog avec l'id d'un travel country appartenant à travel-->
-
   </div>
 <% end %>
   <!-- VACCINES - TODO LIST ENDS -->
   <!-- VISAS - TODO LIST BEGINS -->
+<br>
+number of visas: <%= @travel.visa_progressions.count %> <br>
+number of visas done: <%= @travel.visa_progressions.where('"done" = true').count %> <br>
+number of travel_countries: <%= @travel.travel_countries.count %> <br>
 <br>
 <% if !@travel.visa_progressions.empty? %>
   <p>Visas</p>
