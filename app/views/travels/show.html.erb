@@ -13,6 +13,11 @@
 <hr>
 <!-- TODO LIST BEGINS -->
 <p>To Do List</p>
+  Onboarding <%= @travel.onboarding_percent.round %>% Complete
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_percent.round %>%" aria-valuenow="<%= @travel.onboarding_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
   <!-- VACCINES - TODO LIST BEGINS -->
   <br>
 number of vaccins: <%= @travel.vaccine_progressions.count %> <br>
@@ -25,7 +30,9 @@ number of travel_countries: <%= @travel.travel_countries.count %> <br>
     <% @travel.vaccine_progressions.each do |vaccine_progression| %>
       <br>
       <% svp = @travel.stay_vaccine_progressions.find_by(vaccine_progression_id: vaccine_progression.id) %>
+
       <% if !svp.nil? %>
+
         <%= vaccine_progression.vaccine.name %>
         <%= vaccine_progression.done %>
         <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
@@ -40,7 +47,7 @@ number of travel_countries: <%= @travel.travel_countries.count %> <br>
   <!-- VACCINES - TODO LIST ENDS -->
   <!-- VISAS - TODO LIST BEGINS -->
 <br>
-number of visas: <%= @travel.visa_progressions.count %> <br>
+number of visas selected: <%= @travel.visa_progressions.count %> <br>
 number of visas done: <%= @travel.visa_progressions.where('"done" = true').count %> <br>
 number of travel_countries: <%= @travel.travel_countries.count %> <br>
 <br>
