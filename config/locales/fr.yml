@@ -69,6 +69,7 @@ fr:
     index:
       title: "Tes prochains voyages"
       add: "Créer un nouveau voyage"
+      years-old: "ans"
       sub_add: "Préparer une nouvelle aventure !"
       documents: "Tes papiers"
       sub_documents: "Protèges tes papiers" 
