@@ -39,6 +39,7 @@
         // style
         border: solid 3px $color-light;
         border-radius: 10px;
+        object-fit: cover; 
     } 
     .content{
         // display
@@ -46,7 +47,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
+        line-height: 1.5;
+        text-align: center;
         // children
         *{
             margin: 0;
@@ -61,6 +64,8 @@
 }
 
 .pink-card{
+    // position
+    position: relative;
     // display
     display: flex;
     justify-content: center;
@@ -87,6 +92,15 @@
         // style
         color: white;
         text-decoration: none;
+    }
+
+    .plus, .lock{
+        // position
+        position: absolute;
+        right: 4%;
+        top: 40%;
+        // display
+        height: 20px; 
     }
 }
 

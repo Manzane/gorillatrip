@@ -2,14 +2,18 @@
 <div class="global-container">
   <div class="id-card">
     <%= link_to edit_user_registration_path do %>
-    <%= image_tag("blue-menu", class:"menu") %>
+      <%= image_tag("blue-menu", class:"menu") %>
     <% end %>
-    <div class="avatar"></div>
+    <%= image_tag("#{user_avatar(@user)}", class:"avatar") %>
     <div class="content">
-      <h4><%= @user.username %></h4>
-      <p><%= @user.nationality %></p>
-      <p><%= @user.date_of_birth%></p>
-      <p><%= @user.phone_number %></p> 
+      <div>
+        <h4><%= @user.username %></h4>
+        <p><%= @user.nationality %></p>
+      </div>
+      <div>
+        <p><% if ! @user.date_of_birth.nil? %> <%= @user.def_age %> <%= t(".years-old") %><% end %></p>
+        <p><%= @user.phone_number %></p> 
+      </div>
     </div>
   </div>
   
@@ -18,6 +22,7 @@
       <div class="pink-card" id="add-travel">
           <h4><%= t('.add') %></h4>
           <p><%= t('.sub_add') %></p>
+          <%= image_tag("plus", class:"plus") %>
       </div>
     <% end %>
   </div>
@@ -43,6 +48,7 @@
       <div class="pink-card" id="documents">
           <h4><%= t('.documents') %></h4>
           <p><%= t('.sub_documents') %></p>
+          <%= image_tag("lock", class:"lock") %>
       </div>
     <% end %>
   </div>

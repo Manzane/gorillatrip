@@ -69,6 +69,7 @@ en:
     index:
       title: "Your next travels"
       add: "Add a new travel"
+      years-old: "years old"
       sub_add: "Prepare a new adventure !"
       documents: "Your papers"
       sub_documents: "Protect your papers" 
