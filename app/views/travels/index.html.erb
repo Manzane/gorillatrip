@@ -2,7 +2,7 @@
 <div class="global-container">
   <div class="id-card">
     <%= link_to edit_user_registration_path do %>
-      <%= image_tag("blue-menu", class:"menu") %>
+      <%= image_tag("blue-menu.svg", class:"menu") %>
     <% end %>
     <%= image_tag("#{user_avatar(@user)}", class:"avatar") %>
     <div class="content">
@@ -12,21 +12,21 @@
       </div>
       <div>
         <p><% if ! @user.date_of_birth.nil? %> <%= @user.def_age %> <%= t(".years-old") %><% end %></p>
-        <p><%= @user.phone_number %></p> 
+        <p><%= @user.phone_number %></p>
       </div>
     </div>
   </div>
-  
-  <div id="container-add-travel"> 
+
+  <div id="container-add-travel">
     <%= link_to new_travel_path do %>
       <div class="pink-card" id="add-travel">
           <h4><%= t('.add') %></h4>
           <p><%= t('.sub_add') %></p>
-          <%= image_tag("plus", class:"plus") %>
+          <%= image_tag("plus.svg", class:"plus") %>
       </div>
     <% end %>
   </div>
-  
+
   <h2 id="title"><%= t('.title') %></h2>
   <div id="container-travels" style="grid-template-columns: 4% repeat(<%= @travels.count %>, calc(50% - 4%)) 4%;">
     <% @travels.each do |travel| %>
@@ -43,12 +43,12 @@
     <% end %>
   </div>
 
-  <div id="container-documents"> 
+  <div id="container-documents">
     <%= link_to documents_path do %>
       <div class="pink-card" id="documents">
           <h4><%= t('.documents') %></h4>
           <p><%= t('.sub_documents') %></p>
-          <%= image_tag("lock", class:"lock") %>
+          <%= image_tag("lock.svg", class:"lock") %>
       </div>
     <% end %>
   </div>
