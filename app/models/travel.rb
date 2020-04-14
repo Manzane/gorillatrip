@@ -1,4 +1,5 @@
 class Travel < ApplicationRecord
+  include TravelOnboarding
   belongs_to :user
   has_many :travel_countries, dependent: :destroy
   has_many :countries, through: :travel_countries

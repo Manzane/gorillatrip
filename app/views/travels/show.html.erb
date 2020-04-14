@@ -12,55 +12,76 @@
 <!-- TRAVEL DETAILS ENDS -->
 <hr>
 <!-- TODO LIST BEGINS -->
-<p>To Do List</p>
+<h2>To Do List</h2>
+<%#if @travel.visa_progressions.any? %>
+Onboarding <%= @travel.onboarding_percent.round %>% Complete
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_percent.round %>%" aria-valuenow="<%= @travel.onboarding_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<%# end %>
   <!-- VACCINES - TODO LIST BEGINS -->
+<%if @travel.vaccine_progressions.any? %>
   <br>
+  Onboarding Vaccine <%= @travel.onboarding_vaccine_percent.round %>% Complete
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_vaccine_percent.round %>%" aria-valuenow="<%= @travel.onboarding_vaccine_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+<!-- Pour debug BEGINS-->
 number of vaccins: <%= @travel.vaccine_progressions.count %> <br>
 number of vaccins done: <%= @travel.vaccine_progressions.where('"done" = true').count %> <br>
 number of travel_countries: <%= @travel.travel_countries.count %> <br>
-<br>
-<% if !@travel.stay_vaccine_progressions.empty? %>
-  <p>Vaccins</p>
-  <div>
-    <% @travel.vaccine_progressions.each do |vaccine_progression| %>
-      <br>
-      <% svp = @travel.stay_vaccine_progressions.find_by(vaccine_progression_id: vaccine_progression.id) %>
-      <% if !svp.nil? %>
-        <%= vaccine_progression.vaccine.name %>
-        <%= vaccine_progression.done %>
-        <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
-          <%= t('.MarkAsDoneOrUndone') %>
-        <% end %>
+<!-- Pour debug ENDS-->
+  <br>
+  <% if !@travel.stay_vaccine_progressions.empty? %>
+    <p>Vaccins</p>
+    <div>
+      <% @travel.vaccine_progressions.each do |vaccine_progression| %>
         <br>
+        <% svp = @travel.stay_vaccine_progressions.find_by(vaccine_progression_id: vaccine_progression.id) %>
+        <% if !svp.nil? %>
+          <%= vaccine_progression.vaccine.name %>
+          <%= vaccine_progression.done %>
+          <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
+            <%= t('.MarkAsDoneOrUndone') %>
+          <% end %>
+          <br>
+        <% end %>
       <% end %>
-    <% end %>
-  <!-- si le vaccine_progression(id) est dans stay_vaccine_prog avec l'id d'un travel country appartenant à travel-->
-  </div>
+    </div>
+  <% end %>
 <% end %>
   <!-- VACCINES - TODO LIST ENDS -->
   <!-- VISAS - TODO LIST BEGINS -->
-<br>
-number of visas: <%= @travel.visa_progressions.count %> <br>
+<%if @travel.visa_progressions.any? %>
+  <br>
+  Onboarding Visa <%= @travel.onboarding_visa_percent.round %>% Complete
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_visa_percent.round %>%" aria-valuenow="<%= @travel.onboarding_visa_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+<!-- Pour debug BEGINS-->
+number of visas selected: <%= @travel.visa_progressions.count %> <br>
 number of visas done: <%= @travel.visa_progressions.where('"done" = true').count %> <br>
 number of travel_countries: <%= @travel.travel_countries.count %> <br>
-<br>
-<% if !@travel.visa_progressions.empty? %>
-  <p>Visas</p>
-  <div>
-    <% @travel.visa_progressions.each do |vp| %>
+<!-- Pour debug ENDS-->
+  <br>
+  <% if !@travel.visa_progressions.empty? %>
+    <p>Visas</p>
     <div>
-        <%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %>
-        <%= vp.done %>
-        <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
-          <%= t('.MarkAsDoneOrUndone') %>
-        <% end %>
-      </div>
-      <br>
-    <% end %>
-  </div>
-<% end %>
-<br>
+      <% @travel.visa_progressions.each do |vp| %>
+      <div>
+          <%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %>
+          <%= vp.done %>
+          <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
+            <%= t('.MarkAsDoneOrUndone') %>
+          <% end %>
+        </div>
+        <br>
+      <% end %>
+    </div>
+  <% end %>
+  <br>
   <!-- VISAS - TODO LIST ENDS -->
+<% end %>
 <!-- TODO LIST ENDS -->
 <hr>
 <!-- COUNTRIES BEGINS -->
