@@ -1,34 +1,45 @@
 module TravelOnboarding
   extend ActiveSupport::Concern
 
-
-
   def onboarding_percent
-    # return 100 if onboarding_completed_at?
+    return 0 if visa_progressions.empty?
 
-    steps = [:vaccine_progress?, :visa_progress?]
-    complete = steps.select{ |step| send(step) }
-    percent = complete.length / steps.length.to_f * 100
-    update(onboarding_completed_at: Time.current) if percent == 100
-    percent
-  end
-
-  def vaccine_progress?
-    # false
     nb_vaccine = vaccine_progressions.count
     nb_vaccine_done = vaccine_progressions.where('"done" = true').count
     nb_tc = travel_countries.count
-    nb_vaccine == nb_vaccine_done
-    # vaccine_progressions.any?
+    @percent_vaccine_done = nb_vaccine_done / nb_vaccine.to_f
 
-  end
-
-  def visa_progress?
-    # true
     nb_visa = visa_progressions.count
     nb_visa_done = visa_progressions.where('"done" = true').count
     nb_tc = travel_countries.count
-    nb_visa == nb_visa_done
-    # travel_countries.any?
+    @percent_visa_chosen = nb_visa / nb_tc.to_f
+    @percent_visa_done = nb_visa_done / nb_visa.to_f
+    @percent_visa = nb_visa_done / nb_tc.to_f
+
+    steps = [@percent_vaccine_done, @percent_visa]
+    global = @percent_vaccine_done + @percent_visa
+    percent_global = global / steps.length.to_f * 100
+    percent_global
   end
+
+
+ def onboarding_vaccine_percent
+    nb_vaccine = vaccine_progressions.count
+    nb_vaccine_done = vaccine_progressions.where('"done" = true').count
+    nb_tc = travel_countries.count
+    @percent_vaccine_done = nb_vaccine_done / nb_vaccine.to_f * 100
+    @percent_vaccine_done
+  end
+
+
+   def onboarding_visa_percent
+    nb_visa = visa_progressions.count
+    nb_visa_done = visa_progressions.where('"done" = true').count
+    nb_tc = travel_countries.count
+    @percent_visa_chosen = nb_visa / nb_tc.to_f * 100
+    @percent_visa_done = nb_visa_done / nb_visa.to_f * 100
+    @percent_visa = nb_visa_done / nb_tc.to_f * 100
+    @percent_visa
+  end
+
 end
