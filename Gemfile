@@ -21,19 +21,20 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'devise-i18n'
-gem 'pry-byebug'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'dotenv-rails'
   gem 'ngrok-tunnel'
+  gem 'letter_opener'
+  gem 'pry-byebug'
 end
 
 group :development, :test do
-  # gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+  gem 'pry-byebug'
 end
