@@ -21,6 +21,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'devise-i18n'
+gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
