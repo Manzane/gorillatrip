@@ -14,15 +14,18 @@
         <li class="nav-item">
           <%= link_to t('.add'), new_travel_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
         <li class="nav-item dropdown">
 
            <!-- <%= cl_image_tag user_avatar(current_user, 50), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> -->
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-            <%= link_to t('.edit'), profil_path, class: "dropdown-item" %>
-            <%= link_to t('.travels'), travels_path, class: "dropdown-item" %>
-            <%= link_to t('.documents'), documents_path, class: "dropdown-item" %>
-            <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%#= link_to t('.edit'), profil_path, class: "dropdown-item" %>
+            <%#= link_to t('.travels'), travels_path, class: "dropdown-item" %>
+            <%#= link_to t('.documents'), documents_path, class: "dropdown-item" %>
+            <%#= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   enum gender: {male: 0, female: 1, other: 2}
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
