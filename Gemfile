@@ -22,6 +22,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'devise-i18n'
 gem 'postmark-rails'
+gem 'cookies_eu'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

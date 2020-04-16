@@ -73,6 +73,8 @@ GEM
       rest-client
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
+    cookies_eu (1.7.6)
+      js_cookie_rails (~> 2.2.0)
     countries (3.0.1)
       i18n_data (~> 0.10.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -110,6 +112,8 @@ GEM
     i18n_data (0.10.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    js_cookie_rails (2.2.0)
+      railties (>= 3.1)
     json (2.3.0)
     jwt (2.2.1)
     launchy (2.5.0)
@@ -281,6 +285,7 @@ DEPENDENCIES
   awesome_print
   bootsnap
   cloudinary (~> 1.12.0)
+  cookies_eu
   countries
   devise
   devise-i18n

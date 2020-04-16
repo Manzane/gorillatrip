@@ -23,7 +23,7 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -49,6 +49,8 @@
 
     <%= render 'shared/navbar' unless yield(:no_layout).to_s.strip == "true" %>
     <%= render 'shared/flashes' %>
+    <%#= render 'cookies_eu/consent_banner', link: confidentialite_path, target: '_blank' %>
+    <%= render 'cookies_eu/consent_banner'%>
 
     <%= yield %>
 
