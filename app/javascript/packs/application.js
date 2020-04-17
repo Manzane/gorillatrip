@@ -3,7 +3,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
-//= require cookies_eu
+
 
 import "../stylesheets/application.scss";
 // import "../plugins/parallax";
