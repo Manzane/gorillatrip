@@ -1,7 +1,7 @@
 <h1><%= t('.title') %></h1>
 
 <%= simple_form_for [@travel, @travel_country] do |f| %>
-  <div>
+  <div id="flat-pckr">
     <%= f.input :country_id, collection: @continents,
                   :as => :grouped_select,
                   :group_method => :countries,

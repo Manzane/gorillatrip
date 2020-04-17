@@ -5,7 +5,7 @@
     <%= f.input :name, label: t('.name') %>
   </div>
     <%= f.input :document_type, collection: Document.i18n_document_types, label: t('.type') %>
-  <div>
+  <div id="flat-pckr">
     <%= f.input :expiration_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.expiration'), hint: t('.passport_type') %>
   </div>
   <div class="doc label">

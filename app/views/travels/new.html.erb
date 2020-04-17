@@ -4,7 +4,7 @@
   <div>
     <%= f.input :name, label: t('.name') %>
   </div>
-  <div>
+  <div id="flat-pckr">
     <%= f.simple_fields_for :travel_countries do |t| %>
       <%= t.input :country_id, collection: @continents,
                   :as => :grouped_select,

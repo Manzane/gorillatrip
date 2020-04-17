@@ -38,7 +38,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <!-- <link rel='stylesheet' href='https://www.cnap.graphismeenfrance.fr/infini/css/infini-fontes.css'> -->
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> -->
   </head>
   <body>
 
@@ -51,6 +51,7 @@
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+
     <%= javascript_pack_tag 'application' %>
 
   </body>
