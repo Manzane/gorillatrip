@@ -15,6 +15,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@babel/preset-env": "^7.9.5",
     "webpack-dev-server": "^3.10.3"
   }
 }
