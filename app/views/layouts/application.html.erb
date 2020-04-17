@@ -49,11 +49,8 @@
 
     <%= render 'shared/navbar' unless yield(:no_layout).to_s.strip == "true" %>
     <%= render 'shared/flashes' %>
-    <%#= render 'cookies_eu/consent_banner', link: confidentialite_path, target: '_blank' %>
-    <%= render 'cookies_eu/consent_banner'%>
 
     <%= yield %>
-    <%= javascript_include_tag "application" %>
     <%= javascript_pack_tag 'application' %>
 
   </body>
