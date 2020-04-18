@@ -1,19 +1,20 @@
 <h1><%= t('.title') %></h1>
-
-<%= simple_form_for [@travel, @travel_country] do |f| %>
-  <div id="flat-pckr">
-    <%= f.input :country_id, collection: @continents,
-                  :as => :grouped_select,
-                  :group_method => :countries,
-                  :group_label_method => :fr_name,
-                  label_method: :french_name, value_method: :id,
-                  label: t('.country'), include_blank: t('.choice'),
-                  input_html: {class: "select2"} %>
-    <%= f.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.start') %>
-    <%= f.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.end') %>
-  </div>
-  <%= f.submit t('.create') %>
-<% end %>
+<div id="travel-form">
+  <%= simple_form_for [@travel, @travel_country] do |f| %>
+    <div id="flat-pckr">
+      <%= f.input :country_id, collection: @continents,
+                    :as => :grouped_select,
+                    :group_method => :countries,
+                    :group_label_method => :fr_name,
+                    label_method: :french_name, value_method: :id,
+                    label: t('.country'), include_blank: t('.choice'),
+                    input_html: {class: "select2"} %>
+      <%= f.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.start') %>
+      <%= f.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.end') %>
+    </div>
+    <%= f.submit t('.create') %>
+  <% end %>
+</div>
 
 <%= link_to travel_path(@travel) do %>
   <p><%= t('.back') %></p>

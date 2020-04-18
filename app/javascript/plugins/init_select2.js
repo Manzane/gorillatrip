@@ -36,10 +36,12 @@ function matchStart(params, data) {
   return null;
 }
 
-const initSelect2 = () => {
-  $('.select2').select2({
-  matcher: matchStart
-});
-};
-
-export { initSelect2 };
+const form = document.getElementById("travel-form");
+if (form) {
+  const initSelect2 = () => {
+    $('.select2').select2({
+    matcher: matchStart
+    });
+  }
+  initSelect2();
+}

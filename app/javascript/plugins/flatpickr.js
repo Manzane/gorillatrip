@@ -4,15 +4,13 @@
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
-const form = document.getElementById("flat-pckr");
-  if (form) {
-    const initFlatpickr = () => {
-      flatpickr(".datePicker", {
-        altInput: true,
-        altFormat: "j F, Y",
-      });
-    }
-    initFlatpickr();
+const form = document.getElementById("travel-form");
+if (form) {
+  const initFlatpickr = () => {
+    flatpickr(".datePicker", {
+      altInput: true,
+      altFormat: "j F, Y",
+    });
   }
-
-// export { initFlatpickr };
+  initFlatpickr();
+};
