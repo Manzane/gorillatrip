@@ -10,7 +10,7 @@ class TravelUpdater
   def save
 
     @travel.update!(name: @params[:name])
-    binding.pry
+    # binding.pry
     @params[:travel_countries_attributes].each { |key, value|
       tc_id = @params[:travel_countries_attributes]["#{key}"][:id].to_i
       tc = TravelCountry.find(tc_id)
