@@ -13,12 +13,10 @@
 <hr>
 <!-- TODO LIST BEGINS -->
 <h2>To Do List</h2>
-<%#if @travel.visa_progressions.any? %>
 Onboarding <%= @travel.onboarding_percent.round %>% Complete
 <div class="progress">
   <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_percent.round %>%" aria-valuenow="<%= @travel.onboarding_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-<%# end %>
   <!-- VACCINES - TODO LIST BEGINS -->
 <%if @travel.vaccine_progressions.any? %>
   <br>
