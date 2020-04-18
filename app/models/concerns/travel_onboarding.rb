@@ -2,33 +2,41 @@ module TravelOnboarding
   extend ActiveSupport::Concern
 
   def onboarding_percent
-    return 0 if visa_progressions.empty?
+      if !vaccine_progressions.empty?
+        nb_vaccine = vaccine_progressions.count
+        nb_vaccine_done = vaccine_progressions.where('"done" = true').count
+        nb_tc = travel_countries.count
+        @percent_vaccine_done = nb_vaccine_done / nb_vaccine.to_f
+      else
+        @percent_vaccine_done = 0
+      end
 
-    nb_vaccine = vaccine_progressions.count
-    nb_vaccine_done = vaccine_progressions.where('"done" = true').count
-    nb_tc = travel_countries.count
-    @percent_vaccine_done = nb_vaccine_done / nb_vaccine.to_f
+      if !visa_progressions.empty?
+        nb_visa = visa_progressions.count
+        nb_visa_done = visa_progressions.where('"done" = true').count
+        nb_tc = travel_countries.count
+        @percent_visa_chosen = nb_visa / nb_tc.to_f
+        @percent_visa_done = nb_visa_done / nb_visa.to_f
+        @percent_visa = nb_visa_done / nb_tc.to_f
+      else
+        @percent_visa = 0
+      end
 
-    nb_visa = visa_progressions.count
-    nb_visa_done = visa_progressions.where('"done" = true').count
-    nb_tc = travel_countries.count
-    @percent_visa_chosen = nb_visa / nb_tc.to_f
-    @percent_visa_done = nb_visa_done / nb_visa.to_f
-    @percent_visa = nb_visa_done / nb_tc.to_f
+      steps = [@percent_vaccine_done, @percent_visa]
+      global = @percent_vaccine_done + @percent_visa
+      @percent_global = global / steps.length.to_f * 100
 
-    steps = [@percent_vaccine_done, @percent_visa]
-    global = @percent_vaccine_done + @percent_visa
-    percent_global = global / steps.length.to_f * 100
-    percent_global
-  end
+      return @percent_global
+    end
 
 
  def onboarding_vaccine_percent
     nb_vaccine = vaccine_progressions.count
     nb_vaccine_done = vaccine_progressions.where('"done" = true').count
     nb_tc = travel_countries.count
-    @percent_vaccine_done = nb_vaccine_done / nb_vaccine.to_f * 100
-    @percent_vaccine_done
+    @percent_vaccine = nb_vaccine_done / nb_vaccine.to_f * 100
+
+    return @percent_vaccine
   end
 
 
@@ -39,7 +47,8 @@ module TravelOnboarding
     @percent_visa_chosen = nb_visa / nb_tc.to_f * 100
     @percent_visa_done = nb_visa_done / nb_visa.to_f * 100
     @percent_visa = nb_visa_done / nb_tc.to_f * 100
-    @percent_visa
+
+    return @percent_visa
   end
 
 end
