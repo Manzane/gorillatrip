@@ -2,14 +2,12 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import "bootstrap";
-
 
 import "../stylesheets/application.scss";
-// import "../plugins/parallax";
-import "../plugins/dragndrop";
-import { initSelect2 } from '../plugins/init_select2';
-initSelect2();
 
-import { initFlatpickr } from '../plugins/flatpickr'
-initFlatpickr();
+import "../plugins/dragndrop";
+import "../plugins/flatpickr";
+import "../plugins/init_select2";
+import 'bootstrap';
+
+// import "../plugins/parallax";
