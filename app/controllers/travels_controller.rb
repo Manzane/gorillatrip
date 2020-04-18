@@ -48,6 +48,7 @@ class TravelsController < ApplicationController
     if updater.save
       @travel = updater.travel
       date_update = TravelDateUpdater.new(@travel)
+      binding.pry
       if date_update.save
         redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
       else
