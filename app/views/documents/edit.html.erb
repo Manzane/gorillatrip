@@ -1,5 +1,5 @@
 <h1><%= t('.title', name: @document.name) %></h1>
-<div id="travel-form">
+<div id="datepickr-form">
 <%= simple_form_for [@user, @document], html: {id: "drag"} do |f| %>
   <div>
     <%= f.input :name, label: t('.name') %>

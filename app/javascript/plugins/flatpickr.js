@@ -4,7 +4,7 @@
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
-const form = document.getElementById("travel-form");
+const form = document.getElementById("datepickr-form");
 if (form) {
   const initFlatpickr = () => {
     flatpickr(".datePicker", {

@@ -1,5 +1,5 @@
 <h1><%= t('.title') %></h1>
-<div id="travel-form">
+<div id="datepickr-form">
   <%= simple_form_for [@travel, @stay] do |f| %>
     <div id="flat-pckr">
       <%= f.input :country_id, collection: @continents,
