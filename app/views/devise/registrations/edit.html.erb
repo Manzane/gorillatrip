@@ -1,26 +1,27 @@
 <h2><%= t(".title") %></h2>
+<div id="datepickr-form">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :avatar, as: :file %>
+      <%= f.input :email, required: true, autofocus: true, label: t(".email"), disabled: true %>
+      <%= f.input :username, required: true, autofocus: true, label: t(".username") %>
+      <%= f.input :nationality, required: false, autofocus: true, disabled: true, hint: t(".nationality-fr"), label: t(".nationality") %>
+      <%= f.input :date_of_birth, :as => :hidden, input_html: {class: "datePicker"}, required: false, autofocus: true, label: t(".dob") %>
+      <%= f.input :gender, collection: User.i18n_genders, required: false, autofocus: true, label: t(".gender") %>
+      <%= f.input :phone_number, required: false, autofocus: true, label: t(".phone") %>
 
-  <div class="form-inputs">
-    <%= f.input :avatar, as: :file %>
-    <%= f.input :email, required: true, autofocus: true, label: t(".email"), disabled: true %>
-    <%= f.input :username, required: true, autofocus: true, label: t(".username") %>
-    <%= f.input :nationality, required: false, autofocus: true, disabled: true, hint: t(".nationality-fr"), label: t(".nationality") %>
-    <%= f.input :date_of_birth, :as => :hidden, input_html: {class: "datePicker"}, required: false, autofocus: true, label: t(".dob") %>
-    <%= f.input :gender, collection: User.i18n_genders, required: false, autofocus: true, label: t(".gender") %>
-    <%= f.input :phone_number, required: false, autofocus: true, label: t(".phone") %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
+      <% end %>
+    </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
-    <% end %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, t(".update") %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, t(".update") %>
+    </div>
+  <% end %>
+</div>
 
 <h3><%= t(".cancel_my_account") %></h3>
 
