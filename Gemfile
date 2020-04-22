@@ -25,10 +25,12 @@ gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'dotenv-rails'
   gem 'ngrok-tunnel'
   gem 'letter_opener'
-  gem 'pry-byebug'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do
@@ -38,8 +40,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
   gem 'pry-byebug'
-end
-
-group :development, :test do
   gem 'rspec-rails'
 end
