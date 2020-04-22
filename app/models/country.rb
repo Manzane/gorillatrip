@@ -6,4 +6,7 @@ class Country < ApplicationRecord
   has_many :vaccine_countries
   has_many :vaccines, through: :vaccine_countries
 
+  validates :name, presence: true
+  validates :french_name, presence: true
+
 end
