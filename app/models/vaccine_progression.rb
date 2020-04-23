@@ -4,6 +4,6 @@ class VaccineProgression < ApplicationRecord
   has_many :stay_vaccine_progressions
   has_many :travel_countries, through: :stay_vaccine_progressions
 
-  validates :vaccine, uniqueness: { scope: :travel }
+  validates :vaccine_id, uniqueness: { scope: :travel_id }
 
 end

@@ -36,7 +36,7 @@ function matchStart(params, data) {
   return null;
 }
 
-const form = document.getElementById("travel-form");
+const form = document.getElementById("datepickr-form");
 if (form) {
   const initSelect2 = () => {
     $('.select2').select2({
