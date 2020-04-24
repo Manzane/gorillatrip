@@ -8,7 +8,6 @@ FactoryBot.define do
     date_of_birth {21.years.ago}
     gender {0}
     confirmed_at {Date.today}
-    # # Add additional fields as required via your User model
   end
 
 end
