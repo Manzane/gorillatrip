@@ -8,4 +8,8 @@ describe User do
   it { is_expected.to have_many(:documents) }
   it { is_expected.to define_enum_for(:gender) }
 
+  # it 'has a valid Factory' do
+  #   expect(build(:user)).to be_valid
+  # end
+
 end
