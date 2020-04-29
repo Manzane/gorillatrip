@@ -13,9 +13,9 @@ puts "Delete countries"
 Country.destroy_all
 puts "Countries deleted"
 
-puts "Delete users"
-User.destroy_all
-puts "users deleted"
+# puts "Delete users"
+# User.destroy_all
+# puts "users deleted"
 
 puts "Delete travels"
 Travel.destroy_all
@@ -111,25 +111,25 @@ puts "Countries updated"
 
 
 
-puts "Create users"
-paul = User.new(
-  username: "Paul Aroïd",
-  email: "aroidpaul364@gmail.com",
-  password: "Photo364",
-  phone_number: "06.21.43.65.98",
-  nationality: "fr"
-)
-paul.save!
+# puts "Create users"
+# paul = User.new(
+#   username: "Paul Aroïd",
+#   email: "aroidpaul364@gmail.com",
+#   password: "Photo364",
+#   phone_number: "06.21.43.65.98",
+#   nationality: "fr"
+# )
+# paul.save!
 
-marie = User.new(
-  username: "Marie",
-  email: "marie@marie.com",
-  password: "123456",
-  phone_number: "06.21.43.65.98",
-  nationality: "fr"
-)
-marie.save!
-puts "Users created"
+# marie = User.new(
+#   username: "Marie",
+#   email: "marie@marie.com",
+#   password: "123456",
+#   phone_number: "06.21.43.65.98",
+#   nationality: "fr"
+# )
+# marie.save!
+# puts "Users created"
 
 
 
