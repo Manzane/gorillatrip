@@ -1,0 +1,260 @@
+ID,Vaccine Id,Vaccine Name,Country Id,Country Name,Systematic
+1,7,HÉPATITE A,3,Albania,true
+6,7,HÉPATITE A,4,Algeria,true
+10,7,HÉPATITE A,5,American Samoa,true
+13,7,HÉPATITE A,7,Angola,true
+14,5,FIÈVRE JAUNE,7,Angola,true
+18,7,HÉPATITE A,8,Anguilla,true
+21,7,HÉPATITE A,10,Antigua and Barbuda,true
+24,7,HÉPATITE A,11,Argentina,true
+26,7,HÉPATITE A,12,Armenia,true
+30,7,HÉPATITE A,13,Aruba,true
+32,4,ENCÉPHALITE JAPONAISE,14,Australia,true
+33,18,TYPHOÏDE,14,Australia,true
+36,3,ENCÉPHALITE À TIQUES,15,Austria,true
+38,7,HÉPATITE A,16,Azerbaijan,true
+42,7,HÉPATITE A,17,Bahamas,true
+45,13,RAGE,18,Bahrain,true
+46,18,TYPHOÏDE,18,Bahrain,true
+47,8,HÉPATITE B,18,Bahrain,true
+48,7,HÉPATITE A,18,Bahrain,true
+53,7,HÉPATITE A,19,Bangladesh,true
+58,7,HÉPATITE A,20,Barbados,true
+61,7,HÉPATITE A,21,Belarus,true
+68,7,HÉPATITE A,24,Benin,true
+69,5,FIÈVRE JAUNE,24,Benin,true
+74,7,HÉPATITE A,25,Bermuda,true
+77,7,HÉPATITE A,26,Bhutan,true
+81,18,TYPHOÏDE,29,Bosnia and Herzegovina,true
+82,3,ENCÉPHALITE À TIQUES,29,Bosnia and Herzegovina,true
+83,13,RAGE,29,Bosnia and Herzegovina,true
+84,8,HÉPATITE B,29,Bosnia and Herzegovina,true
+89,7,HÉPATITE A,30,Botswana,true
+93,7,HÉPATITE A,32,Brazil,true
+101,7,HÉPATITE A,38,Bulgaria,true
+106,7,HÉPATITE A,39,Burkina Faso,true
+107,5,FIÈVRE JAUNE,39,Burkina Faso,true
+111,7,HÉPATITE A,40,Burundi,true
+117,7,HÉPATITE A,41,Cambodia,true
+122,7,HÉPATITE A,46,Central African Republic,true
+127,7,HÉPATITE A,47,Chad,true
+133,18,TYPHOÏDE,48,Chile,true
+134,13,RAGE,48,Chile,true
+135,7,HÉPATITE A,48,Chile,true
+139,7,HÉPATITE A,49,China,true
+146,7,HÉPATITE A,52,Colombia,true
+151,7,HÉPATITE A,53,Comoros,true
+153,7,HÉPATITE A,54,Congo,true
+154,5,FIÈVRE JAUNE,54,Congo,true
+159,7,HÉPATITE A,58,Croatia,true
+161,7,HÉPATITE A,59,Cuba,true
+165,7,HÉPATITE A,60,Curaçao,true
+168,7,HÉPATITE A,61,Cyprus,true
+170,3,ENCÉPHALITE À TIQUES,62,Czech Republic,true
+172,3,ENCÉPHALITE À TIQUES,63,Denmark,true
+174,7,HÉPATITE A,64,Djibouti,true
+178,7,HÉPATITE A,65,Dominica,true
+181,7,HÉPATITE A,66,Dominican Republic,true
+185,7,HÉPATITE A,67,Ecuador,true
+187,7,HÉPATITE A,68,Egypt,true
+191,7,HÉPATITE A,69,El Salvador,true
+195,7,HÉPATITE A,71,Eritrea,true
+199,3,ENCÉPHALITE À TIQUES,72,Estonia,true
+201,7,HÉPATITE A,73,Ethiopia,true
+202,5,FIÈVRE JAUNE,73,Ethiopia,true
+207,7,HÉPATITE A,76,Fiji,true
+210,3,ENCÉPHALITE À TIQUES,77,Finland,true
+214,7,HÉPATITE A,80,French Polynesia,true
+217,7,HÉPATITE A,82,Gabon,true
+218,5,FIÈVRE JAUNE,82,Gabon,true
+222,7,HÉPATITE A,83,Gambia,true
+223,5,FIÈVRE JAUNE,83,Gambia,true
+228,7,HÉPATITE A,84,Georgia,true
+232,3,ENCÉPHALITE À TIQUES,85,Germany,true
+234,7,HÉPATITE A,86,Ghana,true
+235,5,FIÈVRE JAUNE,86,Ghana,true
+240,7,HÉPATITE A,88,Greece,true
+242,7,HÉPATITE A,90,Grenada,true
+245,7,HÉPATITE A,91,Guadeloupe,true
+247,7,HÉPATITE A,92,Guam,true
+250,7,HÉPATITE A,93,Guatemala,true
+254,7,HÉPATITE A,95,Guinea,true
+255,5,FIÈVRE JAUNE,95,Guinea,true
+256,8,HÉPATITE B,95,Guinea,true
+257,10,MÉNINGITE À MÉNINGOCOQUES,95,Guinea,true
+258,13,RAGE,95,Guinea,true
+259,18,TYPHOÏDE,95,Guinea,true
+266,7,HÉPATITE A,96,Guinea-Bissau,true
+267,5,FIÈVRE JAUNE,96,Guinea-Bissau,true
+268,8,HÉPATITE B,96,Guinea-Bissau,true
+269,10,MÉNINGITE À MÉNINGOCOQUES,96,Guinea-Bissau,true
+270,13,RAGE,96,Guinea-Bissau,true
+271,18,TYPHOÏDE,96,Guinea-Bissau,true
+278,7,HÉPATITE A,97,Guyana,true
+279,5,FIÈVRE JAUNE,97,Guyana,true
+284,7,HÉPATITE A,98,Haiti,true
+285,8,HÉPATITE B,98,Haiti,true
+286,13,RAGE,98,Haiti,true
+287,18,TYPHOÏDE,98,Haiti,true
+292,7,HÉPATITE A,101,Honduras,true
+296,7,HÉPATITE A,102,Hong Kong,true
+301,7,HÉPATITE A,103,Hungary,true
+302,3,ENCÉPHALITE À TIQUES,103,Hungary,true
+305,7,HÉPATITE A,105,India,true
+310,7,HÉPATITE A,106,Indonesia,true
+315,7,HÉPATITE A,107,Côte d'Ivoire,true
+316,5,FIÈVRE JAUNE,107,Côte d'Ivoire,true
+321,7,HÉPATITE A,108,Iran (Islamic Republic of),true
+325,7,HÉPATITE A,109,Iraq,true
+329,7,HÉPATITE A,112,Israel,true
+333,7,HÉPATITE A,114,Jamaica,true
+336,7,HÉPATITE A,117,Jordan,true
+341,7,HÉPATITE A,118,Kazakhstan,true
+346,7,HÉPATITE A,119,Kenya,true
+351,7,HÉPATITE A,120,Kiribati,true
+354,7,HÉPATITE A,121,Kuwait,true
+358,7,HÉPATITE A,122,Kyrgyzstan,true
+363,18,TYPHOÏDE,124,Latvia,true
+365,18,TYPHOÏDE,125,Lebanon,true
+366,8,HÉPATITE B,125,Lebanon,true
+367,13,RAGE,125,Lebanon,true
+368,7,HÉPATITE A,125,Lebanon,true
+373,7,HÉPATITE A,126,Lesotho,true
+378,7,HÉPATITE A,127,Liberia,true
+379,5,FIÈVRE JAUNE,127,Liberia,true
+383,18,TYPHOÏDE,128,Libya,true
+384,8,HÉPATITE B,128,Libya,true
+385,13,RAGE,128,Libya,true
+386,7,HÉPATITE A,128,Libya,true
+391,7,HÉPATITE A,130,Lithuania,true
+393,7,HÉPATITE A,132,Macao,true
+397,3,ENCÉPHALITE À TIQUES,133,Macedonia (the former Yugoslav Republic of),true
+399,7,HÉPATITE A,134,Madagascar,true
+403,7,HÉPATITE A,135,Malawi,true
+407,7,HÉPATITE A,136,Malaysia,true
+409,7,HÉPATITE A,137,Maldives,true
+412,7,HÉPATITE A,138,Mali,true
+413,5,FIÈVRE JAUNE,138,Mali,true
+418,7,HÉPATITE A,141,Martinique,true
+420,7,HÉPATITE A,142,Mauritania,true
+421,5,FIÈVRE JAUNE,142,Mauritania,true
+422,8,HÉPATITE B,142,Mauritania,true
+423,10,MÉNINGITE À MÉNINGOCOQUES,142,Mauritania,true
+424,13,RAGE,142,Mauritania,true
+425,18,TYPHOÏDE,142,Mauritania,true
+432,7,HÉPATITE A,143,Mauritius,true
+435,7,HÉPATITE A,144,Mayotte,true
+438,7,HÉPATITE A,145,Mexico,true
+442,7,HÉPATITE A,146,Micronesia (Federated States of),true
+445,7,HÉPATITE A,147,Moldova (Republic of),true
+450,7,HÉPATITE A,149,Mongolia,true
+455,7,HÉPATITE A,150,Montenegro,true
+460,7,HÉPATITE A,151,Montserrat,true
+463,7,HÉPATITE A,152,Morocco,true
+467,7,HÉPATITE A,153,Mozambique,true
+475,7,HÉPATITE A,155,Namibia,true
+479,7,HÉPATITE A,156,Nauru,true
+482,7,HÉPATITE A,157,Nepal,true
+487,7,HÉPATITE A,159,New Caledonia,true
+491,7,HÉPATITE A,160,New Zealand,true
+494,7,HÉPATITE A,161,Nicaragua,true
+498,7,HÉPATITE A,162,Niger,true
+499,5,FIÈVRE JAUNE,162,Niger,true
+504,7,HÉPATITE A,163,Nigeria,true
+505,5,FIÈVRE JAUNE,163,Nigeria,true
+509,7,HÉPATITE A,166,Korea (Democratic People's Republic of),true
+514,3,ENCÉPHALITE À TIQUES,168,Norway,true
+516,18,TYPHOÏDE,169,Oman,true
+517,8,HÉPATITE B,169,Oman,true
+518,13,RAGE,169,Oman,true
+519,7,HÉPATITE A,169,Oman,true
+524,7,HÉPATITE A,170,Pakistan,true
+529,7,HÉPATITE A,173,Panama,true
+534,7,HÉPATITE A,174,Papua New Guinea,true
+537,7,HÉPATITE A,175,Paraguay,true
+538,8,HÉPATITE B,175,Paraguay,true
+539,13,RAGE,175,Paraguay,true
+540,18,TYPHOÏDE,175,Paraguay,true
+545,7,HÉPATITE A,176,Peru,true
+550,7,HÉPATITE A,177,Philippines,true
+555,7,HÉPATITE A,178,Pitcairn,true
+558,3,ENCÉPHALITE À TIQUES,179,Poland,true
+560,7,HÉPATITE A,181,Puerto Rico,true
+564,7,HÉPATITE A,182,Qatar,true
+569,7,HÉPATITE A,185,Romania,true
+574,7,HÉPATITE A,186,Russian Federation,true
+579,7,HÉPATITE A,187,Rwanda,true
+584,18,TYPHOÏDE,189,"Saint Helena, Ascension and Tristan da Cunha",true
+586,18,TYPHOÏDE,190,Saint Kitts and Nevis,true
+588,7,HÉPATITE A,191,Saint Lucia,true
+591,7,HÉPATITE A,195,Samoa,true
+595,7,HÉPATITE A,197,Sao Tome and Principe,true
+596,5,FIÈVRE JAUNE,197,Sao Tome and Principe,true
+597,8,HÉPATITE B,197,Sao Tome and Principe,true
+598,18,TYPHOÏDE,197,Sao Tome and Principe,true
+603,7,HÉPATITE A,198,Saudi Arabia,true
+608,7,HÉPATITE A,199,Senegal,true
+609,5,FIÈVRE JAUNE,199,Senegal,true
+614,7,HÉPATITE A,200,Serbia,true
+619,7,HÉPATITE A,201,Seychelles,true
+622,7,HÉPATITE A,202,Sierra Leone,true
+623,5,FIÈVRE JAUNE,202,Sierra Leone,true
+628,7,HÉPATITE A,203,Singapore,true
+632,7,HÉPATITE A,204,Sint Maarten (Dutch part),true
+634,3,ENCÉPHALITE À TIQUES,205,Slovakia,true
+636,3,ENCÉPHALITE À TIQUES,206,Slovenia,true
+639,7,HÉPATITE A,208,Somalia,true
+640,5,FIÈVRE JAUNE,208,Somalia,true
+645,7,HÉPATITE A,209,South Africa,true
+646,8,HÉPATITE B,209,South Africa,true
+647,13,RAGE,209,South Africa,true
+648,18,TYPHOÏDE,209,South Africa,true
+653,7,HÉPATITE A,211,Korea (Republic of),true
+658,7,HÉPATITE A,212,South Sudan,true
+664,7,HÉPATITE A,214,Sri Lanka,true
+669,7,HÉPATITE A,215,Sudan,true
+675,7,HÉPATITE A,216,Suriname,true
+676,5,FIÈVRE JAUNE,216,Suriname,true
+680,7,HÉPATITE A,218,Swaziland,true
+684,3,ENCÉPHALITE À TIQUES,219,Sweden,true
+686,3,ENCÉPHALITE À TIQUES,220,Switzerland,true
+688,7,HÉPATITE A,221,Syrian Arab Republic,true
+690,7,HÉPATITE A,222,Taiwan,true
+694,7,HÉPATITE A,223,Tajikistan,true
+698,7,HÉPATITE A,224,"Tanzania, United Republic of",true
+699,5,FIÈVRE JAUNE,224,"Tanzania, United Republic of",true
+701,7,HÉPATITE A,225,Thailand,true
+706,7,HÉPATITE A,226,Timor-Leste,true
+711,7,HÉPATITE A,227,Togo,true
+712,5,FIÈVRE JAUNE,227,Togo,true
+717,7,HÉPATITE A,27,Bolivia (Plurinational State of),true
+722,7,HÉPATITE A,57,Costa Rica,true
+726,7,HÉPATITE A,70,Equatorial Guinea,true
+727,5,FIÈVRE JAUNE,70,Equatorial Guinea,true
+731,7,HÉPATITE A,115,Japan,true
+735,7,HÉPATITE A,123,Lao People's Democratic Republic,true
+740,7,HÉPATITE A,230,Trinidad and Tobago,true
+744,7,HÉPATITE A,231,Tunisia,true
+748,7,HÉPATITE A,232,Turkey,true
+752,7,HÉPATITE A,233,Turkmenistan,true
+756,7,HÉPATITE A,235,Tuvalu,true
+760,7,HÉPATITE A,236,Uganda,true
+761,5,FIÈVRE JAUNE,236,Uganda,true
+765,7,HÉPATITE A,237,Ukraine,true
+770,7,HÉPATITE A,238,United Arab Emirates,true
+774,7,HÉPATITE A,241,Uruguay,true
+778,7,HÉPATITE A,242,Uzbekistan,true
+782,7,HÉPATITE A,243,Vanuatu,true
+785,7,HÉPATITE A,244,Venezuela (Bolivarian Republic of),true
+786,5,FIÈVRE JAUNE,244,Venezuela (Bolivarian Republic of),true
+787,8,HÉPATITE B,244,Venezuela (Bolivarian Republic of),true
+788,10,MÉNINGITE À MÉNINGOCOQUES,244,Venezuela (Bolivarian Republic of),true
+789,13,RAGE,244,Venezuela (Bolivarian Republic of),true
+790,18,TYPHOÏDE,244,Venezuela (Bolivarian Republic of),true
+797,7,HÉPATITE A,245,Viet Nam,true
+802,7,HÉPATITE A,248,Yemen,true
+806,7,HÉPATITE A,249,Zambia,true
+812,7,HÉPATITE A,250,Zimbabwe,true
+816,7,HÉPATITE A,183,Republic of Kosovo,true
+821,7,HÉPATITE A,55,Congo (Democratic Republic of the),true
+822,5,FIÈVRE JAUNE,55,Congo (Democratic Republic of the),true

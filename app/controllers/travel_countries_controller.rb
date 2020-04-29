@@ -55,14 +55,17 @@ class TravelCountriesController < ApplicationController
 
   def destroy
     @stay.destroy
-    date_update = TravelDateUpdater.new(@travel)
-    if date_update.save
-      redirect_to travel_path(@travel), notice: 'La destination a bien été supprimé.'
+    if !@travel.travel_countries.empty?
+      date_update = TravelDateUpdater.new(@travel)
+      if date_update.save
+        redirect_to travel_path(@travel), notice: 'La destination a bien été supprimé.'
+      else
+        date_update.errors.full_messages
+      end
     else
-      date_update.errors.full_messages
+      redirect_to travel_path(@travel), notice: 'La destination a bien été supprimé.'
     end
   end
-
 
   private
 
