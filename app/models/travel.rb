@@ -13,4 +13,8 @@ class Travel < ApplicationRecord
   validates :name, presence: true
   # validates :travel_start_date, presence: true
   # validates :travel_end_date, presence: true
+
+  def def_duration
+    duration = (travel_end_date - travel_start_date).to_i
+  end
 end

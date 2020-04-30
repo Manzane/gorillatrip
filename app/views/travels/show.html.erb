@@ -7,7 +7,7 @@
   <%= t('.from') %> <%= l @travel.travel_start_date %>
   <%= t('.to') %> <%= l @travel.travel_end_date %>
   <br>
-  <p><%= t('.eq') %> <%= (@travel.travel_end_date - @travel.travel_start_date).to_i %> <%= t('.days') %></p>
+  <p><%= t('.eq') %> <%= @travel.def_duration %> <%= t('.days') %></p>
 <% end %>
 <!-- TRAVEL DETAILS ENDS -->
 <hr>
@@ -95,7 +95,7 @@ number of travel_countries: <%= @travel.travel_countries.count %> <br>
       <%= t('.from') %> <%= l country.travel_countries.find_by(travel_id: @travel).start_date %>
       <%= t('.to') %> <%= l country.travel_countries.find_by(travel_id: @travel).end_date %>
       <br>
-      <p><%= t('.eq') %> <%= (country.travel_countries.find_by(travel_id: @travel).end_date - country.travel_countries.find_by(travel_id: @travel).start_date).to_i %> <%= t('.days') %></p>
+      <p><%= t('.eq') %> <%= country.travel_countries.find_by(travel_id: @travel).def_duration %> <%= t('.days') %></p>
     <% end %>
     <!-- Temp: display de tous les visas pour exemple d'affichage
     mais travailler algo pour les filtrer en fonction de la durée -->
