@@ -8,5 +8,5 @@ describe Country do
   it { is_expected.to have_many(:vaccines) }
   it { is_expected.to have_many(:vaccine_countries) }
   it { is_expected.to validate_presence_of(:name) }
-  it { is_expected.to validate_presence_of(:french_name) }
+  # it { is_expected.to validate_presence_of(:french_name) }
 end
