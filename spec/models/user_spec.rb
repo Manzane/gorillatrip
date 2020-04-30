@@ -14,9 +14,7 @@ describe User do
    describe '#def_age' do
     it 'calculate age' do
       user2 = create(:user, date_of_birth: 20.years.ago)
-      age = ((Time.zone.now - user2.date_of_birth.to_time) / 1.year.seconds).floor
-
-      expect(age).to eq(20)
+      expect(user2.def_age).to eq(20)
     end
   end
 
