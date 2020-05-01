@@ -7,8 +7,23 @@ class TravelCountry < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validate :overlap?
+
+  scope :exclude_self, -> id { where.not(id: id) }
+
 
   def def_duration
     duration = (end_date - start_date).to_i
   end
+
+
+  def overlap?
+    sql = ":end_date > start_date and end_date > :start_date"
+    overlaps = travel.travel_countries.where(sql, start_date: start_date, end_date: end_date).exclude_self(id)
+    is_overlapping = overlaps.exists?
+    # binding.pry
+    # errors.add(:overlap, "Overlap") if is_overlapping
+    # p "Overlap" if is_overlapping
+  end
+
 end
