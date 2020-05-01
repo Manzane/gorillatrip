@@ -71,6 +71,10 @@ GEM
     cloudinary (1.12.0)
       aws_cf_signer
       rest-client
+    codecov (0.1.16)
+      json
+      simplecov
+      url
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
     countries (3.0.1)
@@ -291,6 +295,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.6)
     unicode_utils (1.4.0)
+    url (0.3.2)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -315,6 +320,7 @@ DEPENDENCIES
   awesome_print
   bootsnap
   cloudinary (~> 1.12.0)
+  codecov
   countries
   database_cleaner-active_record
   devise

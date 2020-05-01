@@ -7,9 +7,9 @@ class TravelCountry < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validate :overlap?
+  # validate :overlap?
 
-  scope :exclude_self, -> id { where.not(id: id) }
+  # scope :exclude_self, -> id { where.not(id: id) }
 
 
   def def_duration
