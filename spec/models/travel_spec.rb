@@ -13,7 +13,7 @@ describe Travel do
 
   describe '#def_duration' do
     it 'calculate travel duration' do
-      travel = create(:travel, travel_start_date: Date.yesterday, travel_end_date:Date.tomorrow )
+      travel = create(:travel, travel_start_date: Date.yesterday, travel_end_date: Date.tomorrow)
       expect(travel.def_duration).to eq(2)
     end
   end

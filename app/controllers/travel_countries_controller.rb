@@ -21,6 +21,7 @@ class TravelCountriesController < ApplicationController
       if date_update.save
         vp = VaccineProgressionConstructor.new(@travel_country, @travel)
         if vp.save
+          # binding.pry
           if @travel_country.overlap?
             redirect_to travel_path(@travel), alert: 'Des dates se superposent !!!'
           else
@@ -48,6 +49,7 @@ class TravelCountriesController < ApplicationController
     if @stay.save
       date_update = TravelDateUpdater.new(@travel)
       if date_update.save
+        # binding.pry
         if @stay.overlap?
           redirect_to travel_path(@travel), alert: 'Des dates se superposent !!!'
         else
