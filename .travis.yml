@@ -1,0 +1,16 @@
+language: ruby
+cache:
+  bundler: true
+  yarn: true
+env:
+  - DB=pgsql
+services:
+  - postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rspec spec
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database gorillatrip_test;' -U postgres
+notifications:
+  email: false
