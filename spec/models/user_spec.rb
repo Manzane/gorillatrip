@@ -8,9 +8,6 @@ describe User do
   it { is_expected.to have_many(:documents) }
   it { is_expected.to define_enum_for(:gender) }
 
-  # it 'has a valid Factory' do
-  #   expect(build(:user)).to be_valid
-  # end
    describe '#def_age' do
     it 'calculate age' do
       user2 = create(:user, date_of_birth: 20.years.ago)
