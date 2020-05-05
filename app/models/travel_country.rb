@@ -23,9 +23,6 @@ class TravelCountry < ApplicationRecord
     overlaps = travel.travel_countries.where(sql, start_date: start_date, end_date: end_date).exclude_self(id)
     is_overlapping = overlaps.exists?
     return is_overlapping
-    # binding.pry
-    # errors.add(:overlap, "Overlap") if is_overlapping
-    # p "Overlap" if is_overlapping
   end
 
   private
