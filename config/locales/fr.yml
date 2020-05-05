@@ -1,5 +1,11 @@
 fr:
   documents:
+    update:
+      updated: Le document a bien été mis à jour.
+    destroy:
+      deleted: Le document a bien été supprimé.
+    create:
+      created: Le document a bien été créé.
     edit:
       title: "Modifie ton Document %{name}"
       back: "Retour à ta liste de documents"
@@ -31,6 +37,15 @@ fr:
       create: "Créer le document"
       passport_type: "Requis seulement pour le passeport"
   travel_countries:
+    update:
+      u_successful: La destination a bien été mise à jour.
+      u_unsuccessful: La modification n'a pas eu lieu, une erreur s'est produite.
+      u_overlap: Attention, les dates se superposent !
+    destroy:
+      d_successful: La destination a bien été supprimée.
+    create:
+      c_successful: La destination a bien été créée
+      c_overlap: Attention, les dates se superposent !
     edit:
       title: "Modifie le séjour"
       back: "Retour à ton voyage"
@@ -48,6 +63,14 @@ fr:
       create: "Créer le séjour"
       choice: "Choisir un pays"
   travels:
+    update:
+      u_successful: Le voyage a bien été mis à jour.
+      ud_unsuccessful: Il y a un problème avec les dates.
+      u_unsuccessful: La modification n'a pas eu lieu, une erreur s'est produite.
+    destroy:
+      d_successful: Le voyage a bien été supprimé.
+    create:
+      c_successful: Le voyage a bien été créé.
     edit:
       title: "Modifie le voyage"
       back_dashboard: "Retour à ton tableau de bord"
@@ -72,7 +95,7 @@ fr:
       years-old: "ans"
       sub_add: "Préparer une nouvelle aventure !"
       documents: "Tes papiers"
-      sub_documents: "Protèges tes papiers" 
+      sub_documents: "Protèges tes papiers"
     show:
       title: "Détails de ton voyage"
       back_dashboard: "Retour à ton tableau de bord"
@@ -133,6 +156,16 @@ fr:
       embassy: "Ambassade:"
       fr_diplomacy: "France Diplomatie:"
       back: "Retour à la liste"
+  vaccine_progressions:
+    update:
+      done: Le vaccin a bien été marqué comme effectué.
+      undone: Le vaccin a bien été marqué comme non effectué.
+  visa_progressions:
+    update:
+      done: Le visa a bien été marqué comme effectué.
+      undone: Le visa a bien été marqué comme non effectué.
+    create:
+      choose: Le visa a bien été ajouté à la to-do liste.
   shared:
     navbar:
       login: "Connexion"
@@ -159,20 +192,71 @@ fr:
     formats:
       default: "%d/%m/%Y"
     month_names:
-    -
-    - janvier
-    - février
-    - mars
-    - avril
-    - mai
-    - juin
-    - juillet
-    - août
-    - septembre
-    - octobre
-    - novembre
-    - décembre
+    - Janvier
+    - Février
+    - Mars
+    - Avril
+    - Mai
+    - Juin
+    - Juillet
+    - Août
+    - Septembre
+    - Octobre
+    - Novembre
+    - Décembre
     order:
     - :day
     - :month
     - :year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: doit être accepté(e)
+      blank: doit être rempli(e)
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      model_invalid: 'Validation échouée : %{errors}'
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      other_than: doit être différent de %{count}
+      present: doit être vide
+      required: doit exister
+      taken: n'est pas disponible
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: "Impossible d'enregistrer ce(tte) %{model} : 1 erreur"
+        other: "Impossible d'enregistrer ce(tte) %{model} : %{count} erreurs"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'La validation a échoué : %{errors}'
+        restrict_dependent_destroy:
+          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
+            dépendant(e) existe
+          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
+            dépendants existent
+      models:
+        travel_country: # or namespace/model_name
+          attributes:
+            end_date:
+              wrong_end_date: "Ne peut pas être avant la Date de Départ"

@@ -27,7 +27,7 @@ class TravelsController < ApplicationController
         # binding.pry
         vp = VaccineProgressionTConstructor.new(@travel.travel_countries, @travel)
         if vp.save
-          redirect_to travel_path(@travel), notice: 'Le voyage a bien été créé.'
+          redirect_to travel_path(@travel), notice: t('.c_successful')
         end
       else
         date_update.errors.full_messages
@@ -45,23 +45,22 @@ class TravelsController < ApplicationController
 
   def update
     updater = TravelUpdater.new(set_travel, travel_params, current_user)
-    if updater.save
+    if !updater.save
+      redirect_to edit_travel_path(@travel), alert: t('.ud_successful')
+    else
       @travel = updater.travel
       date_update = TravelDateUpdater.new(@travel)
-      # binding.pry
       if date_update.save
-        redirect_to travel_path(@travel), notice: 'Le voyage a bien été mis à jour.'
+        redirect_to travel_path(@travel), notice: t('.u_successful')
       else
-        date_update.errors.full_messages
+        redirect_to edit_travel_path(@travel), alert: t('.u_unsuccessful')
       end
-    else
-      updater.errors.full_messages
     end
   end
 
   def destroy
     @travel.destroy
-    redirect_to travels_path, notice: 'Le voyage a bien été supprimé.'
+    redirect_to travels_path, notice: t('.d_successful')
   end
 
 

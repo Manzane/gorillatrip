@@ -1,5 +1,11 @@
 en:
   documents:
+    update:
+      updated: Document has been updated.
+    destroy:
+      deleted: Document has been deleted.
+    create:
+      created: Document has been created.
     edit:
       title: "Edit your %{name} Document"
       back: "Back to your documents list"
@@ -31,6 +37,14 @@ en:
       create: "Create Document"
       passport_type: "Required only for passport"
   travel_countries:
+    update:
+      u_successful: Stay has been updated.
+      u_unsuccessful: Something goes wrong, stay was not updated.
+    destroy:
+      d_successful: Stay has been deleted.
+    create:
+      c_successful: Stay has been created.
+      c_overlap: Be careful, dates overlap !
     edit:
       title: "Update the stay"
       back: "Back to your trip"
@@ -48,6 +62,14 @@ en:
       create: "Add this stay"
       choice: "Choose a country"
   travels:
+    update:
+      u_successful: Travel has been updated.
+      ud_unsuccessful: Something goes wrong, travel was not updated.
+      u_unsuccessful: Something goes wrong, travel was not updated.
+    destroy:
+      d_successful: Travel has been deleted.
+    create:
+      c_successful: Travel has been created.
     edit:
       title: "Update the travel"
       back_dashboard: "Back to your Dashboard"
@@ -72,7 +94,7 @@ en:
       years-old: "years old"
       sub_add: "Prepare a new adventure !"
       documents: "Your papers"
-      sub_documents: "Protect your papers" 
+      sub_documents: "Protect your papers"
     show:
       title: "Your travel"
       back_dashboard: "Back to your Dashboard"
@@ -133,6 +155,16 @@ en:
       embassy: "Embassy :"
       fr_diplomacy: "France Diplomatie :"
       back: "Back to the visas list"
+  vaccine_progressions:
+    update:
+      done: Vaccine mark as done.
+      undone: Vaccine mark as undone.
+  visa_progressions:
+    update:
+      done: Visa mark as done.
+      undone: Visa mark as undone.
+    create:
+      choose: Visa has been added to the to-do list.
   shared:
     navbar:
       login: "Login"
@@ -159,20 +191,64 @@ en:
     formats:
       default: "%m/%d/%Y"
     month_names:
-    -
-    - january
-    - february
-    - march
-    - april
-    - may
-    - june
-    - july
-    - august
-    - september
-    - october
-    - november
-    - december
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
     order:
     - :day
     - :month
     - :year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'Validation failed: %{errors}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Validation failed: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Cannot delete record because a dependent %{record} exists
+          has_many: Cannot delete record because dependent %{record} exist
+      models:
+        travel_country: # or namespace/model_name
+          attributes:
+            end_date:
+              wrong_end_date: "Cannot be before the Start Date"

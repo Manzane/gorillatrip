@@ -23,9 +23,9 @@ class TravelCountriesController < ApplicationController
         if vp.save
           # binding.pry
           if @travel_country.overlap?
-            redirect_to travel_path(@travel), alert: 'Des dates se superposent !!!'
+            redirect_to travel_path(@travel), alert: t('.c_overlap')
           else
-            redirect_to travel_path(@travel), notice: 'La destination a bien été créée.'
+            redirect_to travel_path(@travel), notice: t('.c_successful')
           end
         else
           vp.errors.full_messages
@@ -51,9 +51,9 @@ class TravelCountriesController < ApplicationController
       if date_update.save
         # binding.pry
         if @stay.overlap?
-          redirect_to travel_path(@travel), alert: 'Des dates se superposent !!!'
+          redirect_to travel_path(@travel), alert: t('.u_overlap')
         else
-          redirect_to travel_path(@travel), notice: 'La destination a bien été mis à jour.'
+          redirect_to travel_path(@travel), notice: t('.u_successful')
         end
       else
         date_update.errors.full_messages
@@ -68,12 +68,12 @@ class TravelCountriesController < ApplicationController
     if !@travel.travel_countries.empty?
       date_update = TravelDateUpdater.new(@travel)
       if date_update.save
-        redirect_to travel_path(@travel), notice: 'La destination a bien été supprimé.'
+        redirect_to travel_path(@travel), notice: t('.d_successful')
       else
         date_update.errors.full_messages
       end
     else
-      redirect_to travel_path(@travel), notice: 'La destination a bien été supprimé.'
+      redirect_to travel_path(@travel), notice: t('.d_successful')
     end
   end
 

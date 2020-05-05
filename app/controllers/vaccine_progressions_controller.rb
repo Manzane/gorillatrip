@@ -6,14 +6,14 @@ class VaccineProgressionsController < ApplicationController
     if ! @vaccine_progression.done
       @vaccine_progression.update(done: true)
       if @vaccine_progression.save
-        redirect_to travel_path(@travel), notice: 'Le vaccin a bien été marqué comme effectué.'
+        redirect_to travel_path(@travel), notice: t('.done')
       else
         @vaccine_progression.errors.full_messages
       end
     else
      @vaccine_progression.update(done: false)
       if @vaccine_progression.save
-        redirect_to travel_path(@travel), notice: 'Le vaccin a bien été marqué comme non effectué.'
+        redirect_to travel_path(@travel), notice: t('.undone')
       else
         @vaccine_progression.errors.full_messages
       end

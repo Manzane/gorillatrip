@@ -16,7 +16,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     @document.user_id = current_user.id
     if @document.save
-      redirect_to documents_path
+      redirect_to documents_path, notice: t('.created')
     else
       @document.errors.full_messages
         render :new
@@ -29,7 +29,7 @@ class DocumentsController < ApplicationController
   def update
      @document.update(document_params)
     if @document.save
-    redirect_to documents_path, notice: 'Le document a bien été mis à jour.'
+    redirect_to documents_path, notice: t('.updated')
     else
       @document.errors.full_messages
     end
@@ -38,7 +38,7 @@ class DocumentsController < ApplicationController
   def destroy
     @document.files.purge
     @document.destroy
-    redirect_to documents_path, notice: 'Le document a bien été supprimé.'
+    redirect_to documents_path, notice: t('.deleted')
   end
 
 
