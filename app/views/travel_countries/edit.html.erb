@@ -9,8 +9,8 @@
                     label_method: :french_name, value_method: :id,
                     label: t('.country'), include_blank: t('.choice'),
                     input_html: {class: "select2"}, disabled: true %>
-      <%= f.input :start_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.start') %>
-      <%= f.input :end_date, :as => :hidden, input_html: {class: "datePicker"}, label: t('.end') %>
+      <%= f.input :start_date, :as => :hidden, input_html: {class: "datePicker", id:"start"}, label: t('.start') %>
+      <%= f.input :end_date, :as => :hidden, input_html: {class: "datePicker", id:"end"}, label: t('.end') %>
     </div>
     <%= f.submit t('.update') %>
   <% end %>
