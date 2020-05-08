@@ -17,9 +17,7 @@ describe TravelCountry do
 
 
   describe '#def_duration' do
-    it 'calculate travel_country duration' do
-      expect(subject.def_duration).to eq(1)
-    end
+      it {expect(subject.def_duration).to eq(1)}
   end
 
   describe '#overlap?' do

@@ -35,7 +35,9 @@ module TravelOnboarding
     nb_vaccine_done = vaccine_progressions.where('"done" = true').count
     nb_tc = travel_countries.count
     @percent_vaccine = nb_vaccine_done / nb_vaccine.to_f * 100
-
+    if @percent_vaccine.to_f.nan?
+      @percent_vaccine = 0
+    end
     return @percent_vaccine
   end
 
@@ -47,7 +49,9 @@ module TravelOnboarding
     @percent_visa_chosen = nb_visa / nb_tc.to_f * 100
     @percent_visa_done = nb_visa_done / nb_visa.to_f * 100
     @percent_visa = nb_visa_done / nb_tc.to_f * 100
-
+    if @percent_visa.to_f.nan?
+      @percent_visa = 0
+    end
     return @percent_visa
   end
 
