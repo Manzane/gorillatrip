@@ -7,7 +7,7 @@ describe Document do
 
   describe '#passport?' do
 
-    subject { build(:document) }
+    subject { FactoryBot.build(:document) }
 
     context 'expiration_date mandatory if so' do
       before { allow(subject).to receive(:passport?).and_return(true) }

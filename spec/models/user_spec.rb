@@ -9,10 +9,9 @@ describe User do
   it { is_expected.to define_enum_for(:gender) }
 
    describe '#def_age' do
-    it 'calculate age' do
-      user2 = create(:user, date_of_birth: 20.years.ago)
-      expect(user2.def_age).to eq(20)
-    end
+      subject { FactoryBot.create(:user, date_of_birth: 20.years.ago) }
+
+      it {expect(subject.def_age).to eq(20)}
   end
 
 end
