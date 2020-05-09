@@ -12,10 +12,8 @@ describe Travel do
   it { is_expected.to validate_presence_of(:name) }
 
   describe '#def_duration' do
-    it 'calculate travel duration' do
-      travel = create(:travel, travel_start_date: Date.yesterday, travel_end_date: Date.tomorrow)
-      expect(travel.def_duration).to eq(2)
-    end
-  end
+      subject { FactoryBot.create(:travel, travel_start_date: Date.yesterday, travel_end_date: Date.tomorrow) }
 
+      it {expect(subject.def_duration).to eq(2)}
+  end
 end

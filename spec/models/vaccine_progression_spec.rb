@@ -9,19 +9,19 @@ describe VaccineProgression do
 
   describe 'uniqueness of travel and vaccine' do
 
-    before { create(:vaccine, id: 1) }
-    before { create(:vaccine, id: 2) }
-    before { create(:travel, id: 1) }
+    before { @vaccine1 = FactoryBot.create(:vaccine) }
+    before { @vaccine2 = FactoryBot.create(:vaccine) }
+    before { @travel = FactoryBot.create(:travel) }
 
-    subject { build(:vaccine_progression, vaccine_id: 1, travel_id: 1) }
+    subject { FactoryBot.build(:vaccine_progression, vaccine: @vaccine1, travel: @travel) }
 
     context 'when vaccineprogression is unique' do
-      before { create(:vaccine_progression, id: 1, vaccine_id: 2, travel_id: 1) }
+      before { FactoryBot.create(:vaccine_progression, vaccine: @vaccine2, travel: @travel) }
       it {expect(subject).to be_valid}
     end
 
     context 'when vaccineprogression is not unique' do
-      before { create(:vaccine_progression, id: 2, vaccine_id: 1, travel_id: 1) }
+      before { FactoryBot.create(:vaccine_progression, vaccine: @vaccine1, travel: @travel) }
       it {expect(subject).to be_invalid}
     end
 
