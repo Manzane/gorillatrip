@@ -4,29 +4,31 @@ describe TravelOnboarding do
 
   before { @travel = FactoryBot.create(:travel) }
   before { @tc1 = FactoryBot.create(:travel_country, travel: @travel)}
-  # before { @vaccine = FactoryBot.create(:vaccine)}
-  # before { @visap1 = FactoryBot.create(:visa_progression, travel_country: @tc1)}
 
 
   describe '#onboarding_percent' do
     context 'when only vaccine_progressions empty' do
-      # before { create(:travel_country, travel_id: 2, id: 3, start_date: Date.yesterday, end_date: Date.today) }
-      # it {expect(subject.overlap?).to eq(false)}
+      before { FactoryBot.create(:visa_progression, :done, travel_country: @tc1)}
+
+    it { expect(@travel.onboarding_percent).to eq(50) }
     end
 
     context 'when only visa_progressions empty' do
-      # before { create(:travel_country, travel_id: 2, id: 3, start_date: Date.yesterday, end_date: Date.today) }
-      # it {expect(subject.overlap?).to eq(false)}
+      before { FactoryBot.create(:vaccine_progression, :done, travel: @travel)}
+
+      it { expect(@travel.onboarding_percent).to eq(50) }
     end
 
     context 'when both are empty' do
-      # before { create(:travel_country, travel_id: 2, id: 3, start_date: Date.yesterday, end_date: Date.today) }
-      # it {expect(subject.overlap?).to eq(false)}
+
+      it { expect(@travel.onboarding_percent).to eq(0) }
     end
 
     context 'when none is empty' do
-      # before { create(:travel_country, travel_id: 2, id: 3, start_date: Date.yesterday, end_date: Date.today) }
-      # it {expect(subject.overlap?).to eq(false)}
+      before { FactoryBot.create(:vaccine_progression, :done, travel: @travel)}
+      before { FactoryBot.create(:visa_progression, :done, travel_country: @tc1)}
+
+      it { expect(@travel.onboarding_percent).to eq(100) }
     end
   end
 
