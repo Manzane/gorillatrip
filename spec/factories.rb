@@ -78,6 +78,10 @@ FactoryBot.define do
     association :visa
     association :travel_country
     done {false}
+
+    trait :done do
+      done {true}
+    end
   end
 
   factory :vaccine do
@@ -105,10 +109,15 @@ FactoryBot.define do
   end
 
   factory :vaccine_progression do
+
     # id {1}
     association :vaccine
     association :travel
     done {false}
+
+    trait :done do
+      done {true}
+    end
   end
 
   factory :stay_vaccine_progression do
