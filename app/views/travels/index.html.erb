@@ -4,7 +4,11 @@
     <%= link_to edit_user_registration_path do %>
       <%= image_tag("blue-menu.svg", class:"menu") %>
     <% end %>
-    <%= image_tag("#{user_avatar(@user)}", class:"avatar") %>
+    <% if @user.avatar.attached? %>
+      <%= cl_image_tag("#{user_avatar(@user)}", class:"avatar") %>
+    <% else %>
+      <%= image_tag("#{user_avatar(@user)}", class:"avatar") %>
+    <% end %>
     <div class="content">
       <div>
         <h4><%= @user.username %></h4>
