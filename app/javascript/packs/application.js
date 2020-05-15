@@ -9,5 +9,6 @@ import "../plugins/dragndrop";
 import "../plugins/flatpickr";
 import "../plugins/init_select2";
 import 'bootstrap';
+import "../plugins/visa";
 
 // import "../plugins/parallax";

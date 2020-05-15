@@ -1,187 +1,284 @@
-<h1><%= t('.title') %></h1>
-<hr>
-<!-- TRAVEL DETAILS BEGINS -->
-<%= t('.name') %> <%= @travel.name %>
-<br>
-<% if @travel.travel_start_date && @travel.travel_end_date %>
-  <%= t('.from') %> <%= l @travel.travel_start_date %>
-  <%= t('.to') %> <%= l @travel.travel_end_date %>
-  <br>
-  <p><%= t('.eq') %> <%= @travel.def_duration %> <%= t('.days') %></p>
-<% end %>
-<!-- TRAVEL DETAILS ENDS -->
-<hr>
-<!-- TODO LIST BEGINS -->
-<h2>To Do List</h2>
-Onboarding <%= @travel.onboarding_percent.round %>% Complete
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_percent.round %>%" aria-valuenow="<%= @travel.onboarding_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-  <!-- VACCINES - TODO LIST BEGINS -->
-<%if @travel.vaccine_progressions.any? %>
-  <br>
-  Onboarding Vaccine <%= @travel.onboarding_vaccine_percent.round %>% Complete
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_vaccine_percent.round %>%" aria-valuenow="<%= @travel.onboarding_vaccine_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
+<div id="header"></div>
+<div class="global-container">
+
+  <!-- TRAVEL DETAILS BEGIN -->
+  <div class="white-card travel-details">
+    <h3 class="subtitle"><%= @travel.name %></h3>
+    <% if @travel.travel_start_date && @travel.travel_end_date %>
+      <p class="date">
+        <%= l @travel.travel_start_date %> - <%= l @travel.travel_end_date %>
+        (<%= @travel.def_duration %> <%= t('.days') %>)
+      </p>
+    <% end %>
+    <div class="inner-card">
+      <div id="progress-text">
+        <h4 class="inner-subtitle">Préparatifs</h4>
+        <p><%= @travel.onboarding_percent.round %>%</p>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_percent.round %>%"
+        aria-valuenow="<%= @travel.onboarding_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
   </div>
-<!-- Pour debug BEGINS-->
-number of vaccins: <%= @travel.vaccine_progressions.count %> <br>
-number of vaccins done: <%= @travel.vaccine_progressions.where('"done" = true').count %> <br>
-number of travel_countries: <%= @travel.travel_countries.count %> <br>
-<!-- Pour debug ENDS-->
-  <br>
-  <% if !@travel.stay_vaccine_progressions.empty? %>
-    <p>Vaccins</p>
-    <div>
-      <% @travel.vaccine_progressions.each do |vaccine_progression| %>
-        <br>
-        <% svp = @travel.stay_vaccine_progressions.find_by(vaccine_progression_id: vaccine_progression.id) %>
-        <% if !svp.nil? %>
-          <%= vaccine_progression.vaccine.name %>
-          <%= vaccine_progression.done %>
-          <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
-            <%= t('.MarkAsDoneOrUndone') %>
-          <% end %>
-          <br>
+  <!-- TRAVEL DETAILS END -->
+
+  <!-- TODO LIST BEGIN -->
+  <h2 class="title">Les Démarches</h2>
+  <div class="white-card">
+    <p class="instructions">Cliques sur les démarches effectuées</p>
+
+    <!-- VACCINES - TODO LIST BEGIN -->
+    <div class="inner-card">
+      <%if @travel.vaccine_progressions.any? %>
+
+        <!-- uncomment this block to debug -->
+          <!-- number of vaccins: <%= @travel.vaccine_progressions.count %> <br>
+          number of vaccins done: <%= @travel.vaccine_progressions.where('"done" = true').count %> <br>
+          number of travel_countries: <%= @travel.travel_countries.count %> <br> -->
+        <!-- debug END -->
+
+        <% if !@travel.stay_vaccine_progressions.empty? %>
+          <h4 class="inner-subtitle">Vaccins</h4>
+          <div>
+            <% @travel.vaccine_progressions.each do |vaccine_progression| %>
+              <% svp = @travel.stay_vaccine_progressions.find_by(vaccine_progression_id: vaccine_progression.id) %>
+              <% if !svp.nil? %>
+                <% if vaccine_progression.done == true %>
+                  <div class="check-box done">
+                    <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
+                      <div class="inner-box">
+                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>  
+                        <p><%= vaccine_progression.vaccine.name.downcase %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <div class="check-box">
+                    <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
+                    <div class="inner-box">
+                      <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>  
+                      <p><%= vaccine_progression.vaccine.name.downcase %></p>
+                    </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
         <% end %>
+
       <% end %>
     </div>
-  <% end %>
-<% end %>
-  <!-- VACCINES - TODO LIST ENDS -->
-  <!-- VISAS - TODO LIST BEGINS -->
-<%if @travel.visa_progressions.any? %>
-  <br>
-  Onboarding Visa <%= @travel.onboarding_visa_percent.round %>% Complete
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: <%= @travel.onboarding_visa_percent.round %>%" aria-valuenow="<%= @travel.onboarding_visa_percent %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <!-- VACCINES - TODO LIST END -->
+
+    <!-- VISAS - TODO LIST BEGIN -->
+    <%if @travel.visa_progressions.any? %>
+
+      <!-- uncomment this block to debug -->
+        <!-- number of visas selected: <%= @travel.visa_progressions.count %> <br>
+        number of visas done: <%= @travel.visa_progressions.where('"done" = true').count %> <br>
+        number of travel_countries: <%= @travel.travel_countries.count %> <br> -->
+      <!-- debug END-->
+
+      <div class="inner-card">
+        <% if !@travel.visa_progressions.empty? %>
+          <h4 class="inner-subtitle">Visa</h4>
+          <% @travel.visa_progressions.each do |vp| %>
+            <% if vp.done == true %>
+              <div class="check-box done">
+                <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
+                  <div class="inner-box">
+                    <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                    <p><%= Country.find(vp.travel_country.country_id).french_name %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="check-box">
+                <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
+                  <div class="inner-box">
+                    <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                    <p><%= Country.find(vp.travel_country.country_id).french_name %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <!-- VISAS - TODO LIST END -->
+
   </div>
-<!-- Pour debug BEGINS-->
-number of visas selected: <%= @travel.visa_progressions.count %> <br>
-number of visas done: <%= @travel.visa_progressions.where('"done" = true').count %> <br>
-number of travel_countries: <%= @travel.travel_countries.count %> <br>
-<!-- Pour debug ENDS-->
-  <br>
-  <% if !@travel.visa_progressions.empty? %>
-    <p>Visas</p>
-    <div>
-      <% @travel.visa_progressions.each do |vp| %>
-      <div>
-          <%= vp.visa.name %> for <%= Country.find(vp.travel_country.country_id).french_name %>
-          <%= vp.done %>
-          <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
-            <%= t('.MarkAsDoneOrUndone') %>
+  <!-- TODO LIST END -->
+
+  <!-- COUNTRIES BEGIN -->
+  <h2 class="title">Les infos</h2>
+  <% @travel.countries.each do |country| %>
+    <div class="white-card">
+
+      <div class="delete">
+        <%= link_to travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)), method: :delete, data: { confirm: "Es-tu certain?" } do %>
+          <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+          <!-- <p><%= t('.delete') %></p> -->
+        <% end %>
+      </div>
+
+      <!-- COUNTRY DETAIL BEGIN -->
+      <div class="inner-box">
+        <h3 class="subtitle"><%= country.french_name %></h3>
+        <%= link_to edit_travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)) do %>
+          <svg class="edit" fill="currentColor" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg>
+          <!-- <p><%= t('.edit') %></p> -->
+        <% end %>
+      </div>
+
+      <!-- Algo à revoir pour le display des durées par pays
+        country.travel_countries.where(@travel == country.travel_countries.travel_id) -->
+      <% if country.travel_countries.find_by(travel_id: @travel).start_date && country.travel_countries.find_by(travel_id: @travel).end_date %>
+        <p class="date">
+          <%= l country.travel_countries.find_by(travel_id: @travel).start_date %> -
+          <%= l country.travel_countries.find_by(travel_id: @travel).end_date %>
+          (<%= country.travel_countries.find_by(travel_id: @travel).def_duration %> <%= t('.days') %>)
+        </p>
+      <% end %>
+      <!-- Temp: display de tous les visas pour exemple d'affichage
+      mais travailler algo pour les filtrer en fonction de la durée -->
+      
+      <!-- COUNTRY DETAIL END -->
+      
+      <!-- TABS -->
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="pill" href="#visas">Visas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#vaccines">Vaccines</a>
+        </li>
+      </ul>
+      <!-- TABS END -->
+
+      <div class="tab-content">
+        <!-- VISAS FOR COUNTRY BEGIN -->
+        <div id="visas" class="container tab-pane active">
+          <% if !@travel.visa_progressions.empty? %>
+            <% @travel.visa_progressions.each do |vp| %>
+              <div class="inner-card">
+                <h4 class="inner-subtitle"><%= vp.visa.name %></h4>
+                <div class="visa-infos">
+                  <p><% if !vp.visa.extra_info.nil? %><strong><%= t('.extra_info') %></strong> 
+                    <%= vp.visa.extra_info %><% end %></p>
+                  <p><% if !vp.visa.duration.nil? %><strong><%= t('.duration_visas') %></strong> 
+                    <%= vp.visa.duration %><% end %></p>
+                  <p><% if !vp.visa.validity.nil? %><strong><%= t('.validity') %></strong> 
+                    <%= vp.visa.validity %><% end %></p>
+                  <p><% if !vp.visa.age_max.nil? %><strong><%= t('.age_max') %></strong> 
+                    <%= vp.visa.age_max %><% end %></p>
+                </div>
+                <p class="price">
+                  <% if !vp.visa.price.nil? %><strong><%= t('.price') %></strong><%= vp.visa.price %><% end %>
+                </p>
+                <div class="links">
+                  <p><% if !vp.visa.application.nil? %><a href="<%= vp.visa.application %>"
+                    target="_blank"><%= t('.application') %></a><% end %></p>
+                  <p><% if !vp.visa.embassy.nil? %><a href="<%= vp.visa.embassy %>"
+                    target="_blank"><%= t('.embassy') %></a><% end %></p>
+                  <p><% if !vp.visa.fr_diplomacy.nil? %><a href="<%= vp.visa.fr_diplomacy %>"
+                    target="_blank"><%= t('.fr_diplomacy') %></a><% end %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <% if ! country.visas.empty? %>
+              <p><%= t('.visas') %></p>
+              <% country.visas.each do |visa| %>
+                <div class="inner-card">
+                  <h4 class="inner-subtitle"><%= visa.name %></h4>
+                  <div class="visa-infos">
+                    <p><% if !visa.extra_info.nil? %><strong><%= t('.extra_info') %></strong> <%= visa.extra_info %><% end %></p>
+                    <p><% if !visa.duration.nil? %><strong><%= t('.duration_visas') %></strong> <%= visa.duration %><% end %></p>
+                    <p><% if !visa.validity.nil? %><strong><%= t('.validity') %></strong> <%= visa.validity %><% end %></p>
+                    <p><% if !visa.age_max.nil? %><strong><%= t('.age_max') %></strong> <%= visa.age_max %><% end %></p>
+                  </div>
+                  <p class="price"><% if !visa.price.nil? %><strong><%= t('.price') %></strong> <%= visa.price %><% end %></p>
+                  <div class="links">
+                    <p><% if !visa.application.nil? %><a href="<%= visa.application %>"
+                        target="_blank"><%= t('.application') %></a><% end %></p>
+                    <p><% if !visa.embassy.nil? %><a href="<%= visa.embassy %>"
+                      target="_blank"><%= t('.embassy') %></a><% end %></p>
+                    <p><% if !visa.fr_diplomacy.nil? %><a href="<%= visa.fr_diplomacy %>"
+                        target="_blank"><%= t('.fr_diplomacy') %></a><% end %></p>
+                  </div>
+                  <%= link_to travels_country_visa_visa_progressions_path(country.travel_countries.find_by(travel_id: @travel), visa ), :method => :post do %>
+                  <%= t('.Choose') %>
+                  <% end %>
+                </div>
+              <% end %>
+            <% else %>
+              <p><%= t('.no_visa') %></p>
+            <% end %>
           <% end %>
         </div>
-        <br>
-      <% end %>
+        <!-- VISAS FOR COUNTRY END -->
+
+        <!-- VACCINES FOR COUNTRY BEGIN -->
+        <div id="vaccines" class="container tab-pane fade">
+          <!-- Temp: display de tous les vaccins pour exemple d'affichage
+          mais travailler algo -->
+          <!-- <p><%= t('.vaccines') %></p> -->
+          <% if ! country.vaccine_countries.empty? %>
+            <% country.vaccine_countries.each do |vaccine_country| %>
+              <% if vaccine_country.systematic? %>
+                <div class="inner-card">
+                  <h4 class="inner-subtitle"><%= t('.systematically') %></h4>
+                  <%= link_to vaccine_path(vaccine_country.vaccine) do %>
+                    <p class="vaccine-name"><%= vaccine_country.vaccine.name.downcase %></p>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+            <div class="vaccins">
+              <h4 class="inner-subtitle">& en fonction</h4>
+              <p class="txt-vaccines">des modalitées du séjour</p>
+              <!-- <p>&<br><%= t('.advisable') %></p> -->
+              <ul>
+                <% country.vaccine_countries.each do |vaccine_country| %>
+                  <% if !vaccine_country.systematic? %>
+                    <%= link_to vaccine_path(vaccine_country.vaccine) do %>
+                    <li><%= vaccine_country.vaccine.name %></li>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          <% else %>
+            <p><%= t('.no_vaccin') %></p>
+          <% end %>
+        </div>
+        <!-- VACCINES FOR COUNTRY END -->
+      </div>
     </div>
   <% end %>
-  <br>
-  <!-- VISAS - TODO LIST ENDS -->
-<% end %>
-<!-- TODO LIST ENDS -->
-<hr>
-<!-- COUNTRIES BEGINS -->
-<%= t('.countries') %>
-<hr>
-<% @travel.countries.each do |country| %>
-  <div>
-    <!-- COUNTRY DETAIL BEGINS -->
-    <p><strong><%= country.french_name %></strong></p>
-    <!-- Algo à revoir pour le display des durées par pays
-      country.travel_countries.where(@travel == country.travel_countries.travel_id) -->
-    <% if country.travel_countries.find_by(travel_id: @travel).start_date && country.travel_countries.find_by(travel_id: @travel).end_date %>
-      <%= t('.from') %> <%= l country.travel_countries.find_by(travel_id: @travel).start_date %>
-      <%= t('.to') %> <%= l country.travel_countries.find_by(travel_id: @travel).end_date %>
-      <br>
-      <p><%= t('.eq') %> <%= country.travel_countries.find_by(travel_id: @travel).def_duration %> <%= t('.days') %></p>
-    <% end %>
-    <!-- Temp: display de tous les visas pour exemple d'affichage
-    mais travailler algo pour les filtrer en fonction de la durée -->
-    <%= link_to edit_travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)) do %>
-      <p><%= t('.edit') %></p>
+  <!-- COUNTRIES END -->
+
+  <!-- TRAVEL EDITION BEGIN -->
+  <div class="white-card">
+    <%= link_to new_travel_travel_country_path(@travel) do %>
+    <p><%= t('.add') %></p>
     <% end %>
 
-    <%= link_to travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)), method: :delete, data: { confirm: "Es-tu certain?" } do %>
-      <p><%= t('.delete') %></p>
+    <%= link_to edit_travel_path(@travel) do %>
+    <p><%= t('.edit_global') %></p>
     <% end %>
-    <!-- COUNTRY DETAIL ENDS -->
-    <!-- VISAS FOR COUNTRY BEGINS -->
-    <p><%= t('.visas') %></p>
-    <% if ! country.visas.empty? %>
-      <ul>
-        <% country.visas.each do |visa| %>
-          <li>
-              <p><%= visa.name %></p>
-              <p><% if !visa.extra_info.nil? %><%= t('.extra_info') %> <%= visa.extra_info %><% end %></p>
-              <p><% if !visa.duration.nil? %><%= t('.duration_visas') %> <%= visa.duration %><% end %></p>
-              <p><% if !visa.validity.nil? %><%= t('.validity') %> <%= visa.validity %><% end %></p>
-              <p><% if !visa.age_max.nil? %><%= t('.age_max') %> <%= visa.age_max %><% end %></p>
-              <p><% if !visa.price.nil? %><%= t('.price') %> <%= visa.price %><% end %></p>
-              <p><% if !visa.application.nil? %><a href="<%= visa.application %>" target="_blank"><%= t('.application') %></a><% end %></p>
-              <p><% if !visa.embassy.nil? %><a href="<%= visa.embassy %>" target="_blank"><%= t('.embassy') %></a><% end %></p>
-              <p><% if !visa.fr_diplomacy.nil? %><a href="<%= visa.fr_diplomacy %>" target="_blank"><%= t('.fr_diplomacy') %></a><% end %></p>
-          </li>
-          <%= link_to travels_country_visa_visa_progressions_path(country.travel_countries.find_by(travel_id: @travel), visa ), :method => :post do %>
-            <p><%= t('.Choose') %></p>
-          <% end %>
-        <% end %>
-      </ul>
-    <% else %>
-      <p><%= t('.no_visa') %></p>
-    <% end %>
-    <!-- VISAS FOR COUNTRY ENDS -->
-    <!-- VACCINES FOR COUNTRY BEGINS -->
-    <!-- Temp: display de tous les vaccins pour exemple d'affichage
-    mais travailler algo -->
-    <p><%= t('.vaccines') %></p>
-    <% if ! country.vaccine_countries.empty? %>
-      <p><%= t('.vaccines_txt') %></p>
-      <p><%= t('.systematically') %></p>
-      <ul>
-        <% country.vaccine_countries.each do |vaccine_country| %>
-          <% if vaccine_country.systematic? %>
-            <%= link_to vaccine_path(vaccine_country.vaccine) do %>
-              <li><%= vaccine_country.vaccine.name %></li>
-            <% end %>
-          <% end %>
-        <% end %>
-      </ul>
-      <p><%= t('.advisable') %></p>
-      <ul>
 
-        <% country.vaccine_countries.each do |vaccine_country| %>
-          <% if !vaccine_country.systematic? %>
-            <%= link_to vaccine_path(vaccine_country.vaccine) do %>
-              <li><%= vaccine_country.vaccine.name %></li>
-            <% end %>
-          <% end %>
-        <% end %>
-      </ul>
-    <% else %>
-      <p><%= t('.no_vaccin') %></p>
+    <%= link_to travel_path, method: :delete, data: { confirm: t('.confirmation') } do %>
+    <p><%= t('.delete_global') %></p>
     <% end %>
-    <!-- VACCINES FOR COUNTRY ENDS -->
+    <!-- TRAVEL EDITION END -->
+
+    <%= link_to travels_path do %>
+    <p><%= t('.back_dashboard') %></p>
+    <% end %>
   </div>
-<% end %>
-<!-- COUNTRIES ENDS -->
-<hr>
-<!-- TRAVEL EDITION BEGINS -->
-<%= link_to new_travel_travel_country_path(@travel) do %>
-  <p><%= t('.add') %></p>
-<% end %>
-
-<%= link_to edit_travel_path(@travel) do %>
-  <p><%= t('.edit_global') %></p>
-<% end %>
-
-<%= link_to travel_path, method: :delete, data: { confirm: t('.confirmation') } do %>
-  <p><%= t('.delete_global') %></p>
-<% end %>
-
-<!-- TRAVEL EDITION ENDS -->
-
-<%= link_to travels_path do %>
-  <p><%= t('.back_dashboard') %></p>
-<% end %>
+</div>

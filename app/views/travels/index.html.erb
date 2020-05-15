@@ -27,7 +27,7 @@
     <% end %>
   </div>
 
-  <h2 id="title"><%= t('.title') %></h2>
+  <h2 class="title"><%= t('.title') %></h2>
   <div id="container-travels" style="grid-template-columns: 4% repeat(<%= @travels.count %>, calc(50% - 4%)) 4%;">
     <% @travels.each do |travel| %>
       <div class="container-travel-cards">
