@@ -40,7 +40,7 @@
 
         <% if !@travel.stay_vaccine_progressions.empty? %>
           <h4 class="inner-subtitle">Vaccins</h4>
-          <div>
+          <div class="checkbox-container">
             <% @travel.vaccine_progressions.each do |vaccine_progression| %>
               <% svp = @travel.stay_vaccine_progressions.find_by(vaccine_progression_id: vaccine_progression.id) %>
               <% if !svp.nil? %>
@@ -84,27 +84,29 @@
       <div class="inner-card">
         <% if !@travel.visa_progressions.empty? %>
           <h4 class="inner-subtitle">Visa</h4>
-          <% @travel.visa_progressions.each do |vp| %>
-            <% if vp.done == true %>
-              <div class="check-box done">
-                <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
-                  <div class="inner-box">
-                    <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-                    <p><%= Country.find(vp.travel_country.country_id).french_name %></p>
-                  </div>
-                <% end %>
-              </div>
-            <% else %>
-              <div class="check-box">
-                <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
-                  <div class="inner-box">
-                    <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-                    <p><%= Country.find(vp.travel_country.country_id).french_name %></p>
-                  </div>
-                <% end %>
-              </div>
+          <div class="checkbox-container">
+            <% @travel.visa_progressions.each do |vp| %>
+              <% if vp.done == true %>
+                <div class="check-box done">
+                  <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
+                    <div class="inner-box">
+                      <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                      <p><%= Country.find(vp.travel_country.country_id).french_name %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="check-box">
+                  <%= link_to travels_country_visa_visa_progression_path(vp.travel_country, vp.visa, vp ), :method => :patch do %>
+                    <div class="inner-box">
+                      <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                      <p><%= Country.find(vp.travel_country.country_id).french_name %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>  
         <% end %>
       </div>
     <% end %>
@@ -151,19 +153,19 @@
       <!-- TABS -->
       <ul class="nav nav-pills" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="pill" href="#visas">Visas</a>
+          <a class="nav-link active" data-toggle="pill" href="#visas<%= country.travel_countries.find_by(travel_id: @travel).id %>">Visas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="pill" href="#vaccines">Vaccines</a>
+          <a class="nav-link" data-toggle="pill" href="#vaccines<%= country.travel_countries.find_by(travel_id: @travel).id %>">Vaccines</a>
         </li>
       </ul>
       <!-- TABS END -->
 
       <div class="tab-content">
         <!-- VISAS FOR COUNTRY BEGIN -->
-        <div id="visas" class="container tab-pane active">
-          <% if !@travel.visa_progressions.empty? %>
-            <% @travel.visa_progressions.each do |vp| %>
+        <div id="visas<%= country.travel_countries.find_by(travel_id: @travel).id %>" class="container tab-pane active">
+          <% if !country.travel_countries.find_by(travel_id: @travel).visa_progressions.empty? %>
+            <% country.travel_countries.find_by(travel_id: @travel).visa_progressions.each do |vp| %>
               <div class="inner-card">
                 <h4 class="inner-subtitle"><%= vp.visa.name %></h4>
                 <div class="visa-infos">
@@ -223,21 +225,21 @@
         <!-- VISAS FOR COUNTRY END -->
 
         <!-- VACCINES FOR COUNTRY BEGIN -->
-        <div id="vaccines" class="container tab-pane fade">
+        <div id="vaccines<%= country.travel_countries.find_by(travel_id: @travel).id %>" class="container tab-pane fade">
           <!-- Temp: display de tous les vaccins pour exemple d'affichage
           mais travailler algo -->
           <!-- <p><%= t('.vaccines') %></p> -->
           <% if ! country.vaccine_countries.empty? %>
-            <% country.vaccine_countries.each do |vaccine_country| %>
-              <% if vaccine_country.systematic? %>
-                <div class="inner-card">
-                  <h4 class="inner-subtitle"><%= t('.systematically') %></h4>
+            <div class="inner-card">
+              <h4 class="inner-subtitle"><%= t('.systematically') %></h4>
+              <% country.vaccine_countries.each do |vaccine_country| %>
+                <% if vaccine_country.systematic? %>
                   <%= link_to vaccine_path(vaccine_country.vaccine) do %>
                     <p class="vaccine-name"><%= vaccine_country.vaccine.name.downcase %></p>
                   <% end %>
-                </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
             <div class="vaccins">
               <h4 class="inner-subtitle">& en fonction</h4>
               <p class="txt-vaccines">des modalitées du séjour</p>

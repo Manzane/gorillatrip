@@ -26,7 +26,13 @@
 }
 
 // Style check box
+.checkbox-container{
+    display: flex;
+    flex-wrap: wrap;
+}
 .check-box{
+    // position
+    margin: 0 1% 2% 0;
     // display
     display: block;
     padding: 1% 3%;
