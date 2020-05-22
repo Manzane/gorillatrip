@@ -12,7 +12,7 @@
     <% end %>
     <div class="inner-card">
       <div id="progress-text">
-        <h4 class="inner-subtitle">Préparatifs</h4>
+        <h4 class="inner-subtitle"><%= t('.to_do') %></h4>
         <p><%= @travel.onboarding_percent.round %>%</p>
       </div>
       <div class="progress">
@@ -24,9 +24,9 @@
   <!-- TRAVEL DETAILS END -->
 
   <!-- TODO LIST BEGIN -->
-  <h2 class="title">Les Démarches</h2>
+  <h2 class="title"><%= t('.to_do_list') %></h2>
   <div class="white-card">
-    <p class="instructions">Cliques sur les démarches effectuées</p>
+    <p class="instructions"><%= t('.mark_as_done') %></p>
 
     <!-- VACCINES - TODO LIST BEGIN -->
     <div class="inner-card">
@@ -39,7 +39,7 @@
         <!-- debug END -->
 
         <% if !@travel.stay_vaccine_progressions.empty? %>
-          <h4 class="inner-subtitle">Vaccins</h4>
+          <h4 class="inner-subtitle"><%= t('.vaccines') %></h4>
           <div class="checkbox-container">
             <% @travel.vaccine_progressions.each do |vaccine_progression| %>
               <% svp = @travel.stay_vaccine_progressions.find_by(vaccine_progression_id: vaccine_progression.id) %>
@@ -48,7 +48,7 @@
                   <div class="check-box done">
                     <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
                       <div class="inner-box">
-                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>  
+                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
                         <p><%= vaccine_progression.vaccine.name.downcase %></p>
                       </div>
                     <% end %>
@@ -57,7 +57,7 @@
                   <div class="check-box">
                     <%= link_to travel_vaccine_progression_path(@travel, vaccine_progression ), :method => :patch do %>
                     <div class="inner-box">
-                      <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>  
+                      <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
                       <p><%= vaccine_progression.vaccine.name.downcase %></p>
                     </div>
                     <% end %>
@@ -83,7 +83,7 @@
 
       <div class="inner-card">
         <% if !@travel.visa_progressions.empty? %>
-          <h4 class="inner-subtitle">Visa</h4>
+          <h4 class="inner-subtitle"><%= t('.visas') %></h4>
           <div class="checkbox-container">
             <% @travel.visa_progressions.each do |vp| %>
               <% if vp.done == true %>
@@ -106,7 +106,7 @@
                 </div>
               <% end %>
             <% end %>
-          </div>  
+          </div>
         <% end %>
       </div>
     <% end %>
@@ -116,12 +116,12 @@
   <!-- TODO LIST END -->
 
   <!-- COUNTRIES BEGIN -->
-  <h2 class="title">Les infos</h2>
+  <h2 class="title"><%= t('.infos') %></h2>
   <% @travel.countries.each do |country| %>
     <div class="white-card">
 
       <div class="delete">
-        <%= link_to travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)), method: :delete, data: { confirm: "Es-tu certain?" } do %>
+        <%= link_to travel_travel_country_path(@travel, country.travel_countries.find_by(travel_id: @travel)), method: :delete, data: { confirm: t('.confirmation') } do %>
           <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
           <!-- <p><%= t('.delete') %></p> -->
         <% end %>
@@ -147,16 +147,16 @@
       <% end %>
       <!-- Temp: display de tous les visas pour exemple d'affichage
       mais travailler algo pour les filtrer en fonction de la durée -->
-      
+
       <!-- COUNTRY DETAIL END -->
-      
+
       <!-- TABS -->
       <ul class="nav nav-pills" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="pill" href="#visas<%= country.travel_countries.find_by(travel_id: @travel).id %>">Visas</a>
+          <a class="nav-link active" data-toggle="pill" href="#visas<%= country.travel_countries.find_by(travel_id: @travel).id %>"><%= t('.visas') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="pill" href="#vaccines<%= country.travel_countries.find_by(travel_id: @travel).id %>">Vaccines</a>
+          <a class="nav-link" data-toggle="pill" href="#vaccines<%= country.travel_countries.find_by(travel_id: @travel).id %>"><%= t('.vaccines') %></a>
         </li>
       </ul>
       <!-- TABS END -->
@@ -169,13 +169,13 @@
               <div class="inner-card">
                 <h4 class="inner-subtitle"><%= vp.visa.name %></h4>
                 <div class="visa-infos">
-                  <p><% if !vp.visa.extra_info.nil? %><strong><%= t('.extra_info') %></strong> 
+                  <p><% if !vp.visa.extra_info.nil? %><strong><%= t('.extra_info') %></strong>
                     <%= vp.visa.extra_info %><% end %></p>
-                  <p><% if !vp.visa.duration.nil? %><strong><%= t('.duration_visas') %></strong> 
+                  <p><% if !vp.visa.duration.nil? %><strong><%= t('.duration_visas') %></strong>
                     <%= vp.visa.duration %><% end %></p>
-                  <p><% if !vp.visa.validity.nil? %><strong><%= t('.validity') %></strong> 
+                  <p><% if !vp.visa.validity.nil? %><strong><%= t('.validity') %></strong>
                     <%= vp.visa.validity %><% end %></p>
-                  <p><% if !vp.visa.age_max.nil? %><strong><%= t('.age_max') %></strong> 
+                  <p><% if !vp.visa.age_max.nil? %><strong><%= t('.age_max') %></strong>
                     <%= vp.visa.age_max %><% end %></p>
                 </div>
                 <p class="price">
@@ -240,8 +240,8 @@
               <% end %>
             </div>
             <div class="vaccins">
-              <h4 class="inner-subtitle">& en fonction</h4>
-              <p class="txt-vaccines">des modalitées du séjour</p>
+              <h4 class="inner-subtitle"><%= t('.fonction')%></h4>
+              <p class="txt-vaccines"><%= t('.modalites')%></p>
               <!-- <p>&<br><%= t('.advisable') %></p> -->
               <ul>
                 <% country.vaccine_countries.each do |vaccine_country| %>
