@@ -193,7 +193,6 @@
             <% end %>
           <% else %>
             <% if ! country.visas.empty? %>
-              <p><%= t('.visas') %></p>
               <% country.visas.each do |visa| %>
                 <div class="inner-card">
                   <h4 class="inner-subtitle"><%= visa.name %></h4>
