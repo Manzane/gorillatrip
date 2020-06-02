@@ -146,7 +146,7 @@ en:
       end: "Treament end date after the travel :"
       contraindications: "Contraindications :"
       travel_advised: "Advised to travelers ?"
-      back: "Back to the vaccines list"
+      back: "Back to your trip"
   visas:
     index:
       title: "Visas List"
