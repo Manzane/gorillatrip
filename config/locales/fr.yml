@@ -147,7 +147,7 @@ fr:
       end: "Fin du traitement après le départ:"
       contraindications: "Contre-indications:"
       travel_advised: "Recommandé aux voyageurs:"
-      back: "Retour à la liste des vaccins"
+      back: "Retour à ton voyage"
   visas:
     index:
       title: "Liste des visas"

@@ -14,7 +14,10 @@
 <p><%= t('.travel_advised') %> <%= @vaccine.travel_advised %></p>
 
 
-<%= link_to t('.back'), vaccines_path %>
+<%#= link_to t('.back'), vaccines_path %>
+<%= link_to "javascript:history.go(-1);" do %>
+  <%= t('.back') %>
+<% end %>
 
 
 
